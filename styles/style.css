@@ -1,0 +1,76 @@
+body {
+  font-family: 'Fredoka One', sans-serif;
+  width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 0 20px 20px 20px;
+}
+
+#my-name {
+  font-size: 6em;
+  line-height: 1em;
+  text-align: center;
+  position: relative;
+}
+#my-name:hover {
+  cursor: default;
+}
+#my-name .wrapper {
+  display: inline-block;
+  top: -900px;
+  position: relative;
+  height: 150px;
+  width: 90px;
+  transition: ease 0.3s all;
+}
+#my-name .wrapper span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: ease 0.3s all;
+}
+#my-name .wrapper span.letter-2 {
+  color: #21df08;
+}
+#my-name .wrapper span.letter-1 {
+  color: #000000;
+  z-index: 1;
+}
+#my-name .wrapper span.letter-1:hover {
+  top: -3px;
+  right: -3px;
+}
+#my-name .wrapper span.letter-1:hover ~ .letter-2 {
+  top: 3px;
+  right: 3px;
+}
+#my-name .wrapper span.space {
+  padding: 0;
+  min-width: 30px;
+  display: inline-block;
+}
+
+#date-of-birth {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.about-me-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#image-of-me {
+  transform: rotate(90deg);
+  width: 50%;
+}
+
+#about-me {
+  width: 50%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.contact {
+  text-align: center;
+}
