@@ -1,9 +1,10 @@
 body {
   font-family: 'Fredoka One', sans-serif;
-  color: azure;
+  color: #ffffff;
   width: 700px;
   margin: 0 auto;
-  background-color: #3b3b3b;
+  background-color: #000000;
+  background-image: radial-gradient(circle, #000000, #3b3b3b);
   padding: 0 20px 20px 20px;
 }
 
@@ -34,7 +35,7 @@ body {
   color: #21df08;
 }
 #my-name .wrapper span.letter-1 {
-  color: #ffffff;
+  /* color: #ffffff; */
   z-index: 1;
 }
 #my-name .wrapper span.letter-1:hover {
@@ -51,24 +52,20 @@ body {
   display: inline-block;
 }
 
-#date-of-birth {
-  font-size: 1rem;
-  text-align: center;
-}
-
 .about-me-wrapper {
   display: flex;
   flex-wrap: nowrap;
 }
 
 #image-of-me {
-  width: 30%;
+  width: 50%;
   height: 20rem;
   max-width: auto;
+  border-radius: 50%;
 }
 
 #about-me {
-  width: 70%;
+  width: 50%;
   font-size: 1rem;
   text-align: center;
   padding-left: 20px;
@@ -76,24 +73,48 @@ body {
 
 ul {
   list-style: none;
+  margin-right: 2rem;
+}
+
+.repo-tag {
+  border-style: ridge;
+  border-width: 0.2rem;
+  margin: 1rem;
+  padding-left: 0.5rem;
+}
+
+.repo-language {
+  float: left;
+}
+
+.repo-date {
+  margin-left: 25rem;
 }
 
 a:link {
   color: #21df08;
+  text-decoration: none;
 }
 
 a:visited {
   color: #fbff00;
+  text-decoration: none;
 }
 
 a:hover {
   color: #00ffaa;
+  text-decoration: underline;
 }
 
 a:active {
   color: #ff0000;
+  text-decoration: underline;
 }
 
 .contact {
   text-align: center;
+}
+
+.contact a {
+  margin: 1rem;
 }

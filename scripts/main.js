@@ -1,5 +1,5 @@
 /*Start Of My Name ID*/
-const text = 'Kamaal Farah';
+const myName = 'Kamaal Farah';
 
 // this function turns a string into an array
 const createLetterArray = string => {
@@ -13,12 +13,11 @@ const createLetterLayers = array => {
     //specify # of layers per letter
     for (let i = 1; i <= 2; i++) {
       // if letter is a space
-      if (letter == ' ') {
-        layer += '<span class="space"></span>';
-      } else {
-        layer += '<span class="letter-' + i + '">' + letter + '</span>';
-      }
+      letter == ' '
+        ? (layer += `<span class="space"></span>`)
+        : (layer += `<span class="letter-${i}">${letter}</span>`);
     }
+
     return layer;
   });
 };
@@ -27,7 +26,8 @@ const createLetterLayers = array => {
 const createLetterContainers = array => {
   return array.map(item => {
     let container = '';
-    container += '<div class="wrapper">' + item + '</div>';
+    container += `<div class="wrapper">${item}</div>`;
+
     return container;
   });
 };
@@ -35,8 +35,9 @@ const createLetterContainers = array => {
 // use a promise to output text layers into DOM first
 const outputLayers = new Promise((resolve, reject) => {
   document.getElementById('my-name').innerHTML = createLetterContainers(
-    createLetterLayers(createLetterArray(text))
+    createLetterLayers(createLetterArray(myName))
   ).join('');
+
   resolve();
 });
 
@@ -122,7 +123,7 @@ const fetchRepositories = (user, callback) => {
 
         const readableTime = time((date = updated_at));
 
-        str += `<li class="repo-tag"><a href="${html_url}" target="_blank">${full_name}</a> ${language} ${readableTime}</li>`;
+        str += `<li class="repo-tag"><a href="${html_url}" target="_blank">${full_name}</a><br /><p class="repo-language">${language}</p><p class="repo-date">${readableTime}</p></li>`;
       }
       str += '</ul>';
       callback(str);
