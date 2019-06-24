@@ -78,7 +78,58 @@ const getAge = dateOfBirth => {
   return age;
 };
 
-const ageInAboutMe = (document.getElementById('age').innerHTML = getAge(
-  (dateOfBirth = '6/10/1994')
-));
+document.getElementById('age').innerHTML = getAge((dateOfBirth = '6/10/1994'));
 /*End Of About Me Age*/
+
+/*Start Of Repositories*/
+const time = date => {
+  const s = date.split('');
+
+  let year = `${s.slice(0, 4).join('')}`,
+    month = `${s.slice(5, 7)}`,
+    day = `${s.slice(8, 10).join('')}`,
+    hour = `${s.slice(11, 13).join('')}`,
+    minute = `${s.slice(14, 16).join('')}`,
+    second = `${s.slice(17, 19).join('')}`;
+
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+  month[0] === 0 ? (month = month[0] + month[2]) : (month = month[2]);
+
+  return `${day} ${months[month - 1]} ${year} ${hour}:${minute}:${second}`;
+};
+
+const fetchRepositories = (user, callback) => {
+  fetch(`https://api.github.com/users/${user}/repos`)
+    .then(response => response.json())
+    .then(data => {
+      let str = '<ul>';
+      for (let i = 0; i < data.length; i++) {
+        const { full_name, html_url, language, updated_at } = data[i];
+
+        const readableTime = time((date = updated_at));
+
+        str += `<li class="repo-tag"><a href="${html_url}" target="_blank">${full_name}</a> ${language} ${readableTime}</li>`;
+      }
+      str += '</ul>';
+      callback(str);
+    });
+};
+
+fetchRepositories((user = 'kamaal111'), response => {
+  document.getElementById('repositories').innerHTML = response;
+});
+/*End Of Repositories*/
