@@ -88,16 +88,11 @@ ul {
 }
 
 .repo-date {
-  margin-left: 25rem;
+  margin-left: 23rem;
 }
 
-a:link {
+a {
   color: #21df08;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #fbff00;
   text-decoration: none;
 }
 
@@ -107,7 +102,7 @@ a:hover {
 }
 
 a:active {
-  color: #ff0000;
+  color: #fbff00;
   text-decoration: underline;
 }
 

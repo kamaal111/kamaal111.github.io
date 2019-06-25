@@ -65,6 +65,8 @@ outputLayers
 /*End Of My Name ID*/
 
 /*Start Of About Me Age*/
+
+// this function calculates a age by giving a date of birth as a parameter
 const getAge = dateOfBirth => {
   const today = new Date(),
     birthDate = new Date(dateOfBirth),
@@ -83,15 +85,17 @@ document.getElementById('age').innerHTML = getAge((dateOfBirth = '6/10/1994'));
 /*End Of About Me Age*/
 
 /*Start Of Repositories*/
-const time = date => {
-  const s = date.split('');
 
-  let year = `${s.slice(0, 4).join('')}`,
-    month = `${s.slice(5, 7)}`,
-    day = `${s.slice(8, 10).join('')}`,
-    hour = `${s.slice(11, 13).join('')}`,
-    minute = `${s.slice(14, 16).join('')}`,
-    second = `${s.slice(17, 19).join('')}`;
+// this function splits the given date and returns a more readable time
+const time = date => {
+  const splitten = date.split('');
+
+  let year = `${splitten.slice(0, 4).join('')}`,
+    month = `${splitten.slice(5, 7)}`,
+    day = `${splitten.slice(8, 10).join('')}`,
+    hour = `${splitten.slice(11, 13).join('')}`,
+    minute = `${splitten.slice(14, 16).join('')}`,
+    second = `${splitten.slice(17, 19).join('')}`;
 
   const months = [
     'January',
@@ -114,18 +118,29 @@ const time = date => {
 };
 
 const fetchRepositories = (user, callback) => {
+  // fetch from users repository
   fetch(`https://api.github.com/users/${user}/repos`)
+    // convert response in to JSON
     .then(response => response.json())
     .then(data => {
       let str = '<ul>';
+
+      // loop through all repositories
       for (let i = 0; i < data.length; i++) {
         const { full_name, html_url, language, updated_at } = data[i];
 
+        // turns updated time to a more readable format
         const readableTime = time((date = updated_at));
 
-        str += `<li class="repo-tag"><a href="${html_url}" target="_blank">${full_name}</a><br /><p class="repo-language">${language}</p><p class="repo-date">${readableTime}</p></li>`;
+        // concatinate the list tag to the unordered list
+        str +=
+          `<li class="repo-tag"><a href="${html_url}" target="_blank">${full_name}</a>` +
+          `<br /><p class="repo-language">${language}</p><p class="repo-date">${readableTime}</p></li>`;
       }
+
+      // end unordered list
       str += '</ul>';
+
       callback(str);
     });
 };
