@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import Header from '../components/Header';
+import About from '../components/About';
 
-const HomePage = () => {
+export default () => {
   // const testRef = useRef(null);
   // const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
   // const executeScroll = () => scrollToRef(testRef);
@@ -11,17 +11,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      {/* <div ref={testRef}>I wanna be seen</div>
-      <button type="button" onClick={executeScroll}>
-        {' '}
-        Click to scroll{' '}
-      </button> */}
-      <br style={{ lineHeight: '1000px' }} />
-      <p>text</p>
+      <About />
     </>
   );
 };
-
-HomePage.propTypes = {};
-
-export default HomePage;

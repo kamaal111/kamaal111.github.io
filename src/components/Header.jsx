@@ -1,10 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import '../../styles/css/Header.css';
+import '../styles/css/components/Header.css';
 
-const Header = () => (
+export default () => (
   <div className="header">
     <Link to="/" id="header-name">
       Kamaal Farah
@@ -19,7 +18,3 @@ const Header = () => (
     </div>
   </div>
 );
-
-Header.propTypes = {};
-
-export default Header;
