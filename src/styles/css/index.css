@@ -1,6 +1,6 @@
-h1,
-h2 {
-  color: #bada55;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+body {
+  font-family: "Open Sans", "sans-serif";
 }
 
 /*# sourceMappingURL=index.css.map */

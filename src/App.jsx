@@ -1,5 +1,6 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-import Header from './components/Header/index';
+import HomePage from './Pages/HomePage';
 
-export default () => <Header />;
+export default () => <Route exact path="/" component={HomePage} />;

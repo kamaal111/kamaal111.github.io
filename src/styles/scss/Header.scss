@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+.header {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+
+  a:link,
+  a:visited {
+    color: $secondaryColor;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  a:hover,
+  a:active {
+    color: $primaryColor;
+    font-size: 1.1rem;
+  }
+  .header-right {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+  #header-name {
+    margin-left: 10px;
+  }
+  #header-projects {
+    padding-right: 1rem;
+  }
+}

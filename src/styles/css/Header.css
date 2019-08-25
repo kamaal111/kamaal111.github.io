@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+.header {
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 0;
+}
+.header a:link,
+.header a:visited {
+  color: #202020;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.header a:hover,
+.header a:active {
+  color: #26a11b;
+  font-size: 1.1rem;
+}
+.header .header-right {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.header #header-name {
+  margin-left: 10px;
+}
+.header #header-projects {
+  padding-right: 1rem;
+}
+
+/*# sourceMappingURL=Header.css.map */
