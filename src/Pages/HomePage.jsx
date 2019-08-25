@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from '../components/Header';
-import About from '../components/About';
+import AboutContainer from '../components/About';
 
 export default () => {
   // const testRef = useRef(null);
@@ -11,7 +11,7 @@ export default () => {
   return (
     <>
       <Header />
-      <About />
+      <AboutContainer />
     </>
   );
 };
