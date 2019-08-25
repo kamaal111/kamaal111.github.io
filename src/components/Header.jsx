@@ -9,7 +9,7 @@ export default () => (
       Kamaal Farah
     </Link>
     <div className="header-right">
-      <Link to="/" id="header-projects">
+      <Link to="/projects" id="header-projects">
         Projects
       </Link>
       <Link to="/" id="header-contact">
