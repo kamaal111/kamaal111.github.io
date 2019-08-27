@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sass": "npx sass --watch src/styles/scss:src/styles/css",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "npm run build && gh-pages -b master -d build"
   },
   "devDependencies": {
     "eslint": "^6.2.2",
