@@ -1,0 +1,21 @@
+@import '../variables.scss';
+
+#projects {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.project {
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-name {
+  color: $primaryTextColor;
+}
+
+.project-paragraph {
+  color: $secondaryTextColor;
+}

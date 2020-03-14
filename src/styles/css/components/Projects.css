@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+#projects {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.project {
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-name {
+  color: #ffffff;
+}
+
+.project-paragraph {
+  color: #9f9f9f;
+}
+
+/*# sourceMappingURL=Projects.css.map */

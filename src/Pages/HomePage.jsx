@@ -1,11 +1,13 @@
 import React from 'react';
 
-import AboutContainer from '../components/About';
+import About from '../components/About';
+import Projects from '../components/Projects';
 
 export default () => {
   return (
     <>
-      <AboutContainer />
+      <About />
+      <Projects />
     </>
   );
 };

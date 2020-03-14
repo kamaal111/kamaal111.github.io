@@ -31,5 +31,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-closing-bracket-location': [1, { selfClosing: 'line-aligned', nonEmpty: 'after-props' }],
     'arrow-parens': ['off'],
+    'import/prefer-default-export': ['off'],
   },
 };
