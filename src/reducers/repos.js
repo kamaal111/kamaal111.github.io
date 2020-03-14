@@ -7,9 +7,7 @@ export default (state = initialState, { type, payload }) => {
     case GET_REPOS:
       return {
         ...state,
-        allRepos: payload.filter(
-          ({ name }) => !['bb-herogame', 'mish-mash', 'react-assignment'].includes(name),
-        ),
+        allRepos: payload.filter(({ name }) => !['bb-herogame', 'mish-mash', 'react-assignment'].includes(name)),
       };
 
     default:
