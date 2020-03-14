@@ -36,7 +36,4 @@ Projects.propTypes = {
 
 const mapStateToProps = ({ repos }) => ({ repos });
 
-export default connect(
-  mapStateToProps,
-  { getRepos },
-)(Projects);
+export default connect(mapStateToProps, { getRepos })(Projects);

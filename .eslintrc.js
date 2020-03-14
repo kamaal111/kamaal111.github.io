@@ -1,16 +1,21 @@
 module.exports = {
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module',
-    allowImportExportEverywhere: false,
-    codeFrame: false,
-  },
-  extends: ['airbnb', 'prettier'],
   env: {
     browser: true,
-    jest: true,
+    es6: true,
   },
-  plugins: ['react-hooks', 'react', 'jsx-a11y', 'import'],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['react', 'react-hooks'],
   rules: {
     'max-len': [
       'error',
@@ -24,9 +29,7 @@ module.exports = {
     'no-return-assign': ['off'],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/jsx-closing-bracket-location': [
-      1,
-      { selfClosing: 'line-aligned', nonEmpty: 'after-props' },
-    ],
+    'react/jsx-closing-bracket-location': [1, { selfClosing: 'line-aligned', nonEmpty: 'after-props' }],
+    'arrow-parens': ['off'],
   },
 };

@@ -5,11 +5,11 @@
   "homepage": "https://kamaal111.github.io",
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "3.4.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "superagent": "^5.1.0"
@@ -23,19 +23,19 @@
     "deploy": "npm run build && gh-pages -b master -d build"
   },
   "devDependencies": {
-    "eslint": "^6.2.2",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "gh-pages": "^2.1.1",
-    "husky": "^3.0.4",
-    "lint-staged": "^9.2.3",
-    "node-sass": "^4.12.0",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1"
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "gh-pages": "^2.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,8 +48,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "eslint",
-      "pretty-quick — staged",
-      "git add"
+      "pretty-quick — staged"
     ]
   },
   "browserslist": {
