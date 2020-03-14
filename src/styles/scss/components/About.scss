@@ -1,6 +1,14 @@
 @import '../variables.scss';
 
 .about {
-  color: $secondaryColor;
-  padding: 2rem;
+  margin-top: 6.5rem;
+  margin-bottom: 6.5rem;
+  margin-left: 6rem;
+}
+#about-name {
+  color: $primaryTextColor;
+}
+
+#about-paragraph {
+  color: $secondaryTextColor;
 }

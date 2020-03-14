@@ -1,39 +1,35 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { get as getRequest } from 'superagent';
 
 import Repositories from '../components/Repositories';
-import Header from '../components/Header';
 
-import { getRepos } from '../actions';
+import { github } from '../urls';
 
-const Projects = ({ getRepos: getReposAction, repos }) => {
+const Projects = () => {
+  const [repos, setRepos] = useState({ allRepos: null });
+  const [reposError, setReposError] = useState(null);
+
+  const getRepos = async username => {
+    try {
+      const { body } = await getRequest(`${github}/users/${username}/repos`);
+      setRepos({ allRepos: body });
+    } catch (error) {
+      setReposError(error);
+    }
+  };
+
   useEffect(() => {
-    getReposAction('kamaal111');
-  }, [getReposAction]);
+    getRepos('kamaal111');
+  }, []);
 
-  return (
-    <>
-      <Header />
-      {repos.allRepos === null ? <></> : <Repositories repos={repos.allRepos} />}
-    </>
-  );
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(reposError);
+  }, [reposError]);
+
+  return <>{repos.allRepos && <Repositories repos={repos.allRepos} />}</>;
 };
 
-const AllReposPropTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-};
+Projects.propTypes = {};
 
-const ReposPropTypes = {
-  allRepos: PropTypes.arrayOf(PropTypes.shape(AllReposPropTypes).isRequired),
-};
-
-Projects.propTypes = {
-  repos: PropTypes.shape(ReposPropTypes).isRequired,
-  getRepos: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = ({ repos }) => ({ repos });
-
-export default connect(mapStateToProps, { getRepos })(Projects);
+export default Projects;

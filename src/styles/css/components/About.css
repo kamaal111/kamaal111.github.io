@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 .about {
-  color: #202020;
-  padding: 2rem;
+  margin-top: 6.5rem;
+  margin-bottom: 6.5rem;
+  margin-left: 6rem;
+}
+
+#about-name {
+  color: #ffffff;
+}
+
+#about-paragraph {
+  color: #9f9f9f;
 }
 
 /*# sourceMappingURL=About.css.map */

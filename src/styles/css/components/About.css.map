@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../scss/variables.scss","../../scss/components/About.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA","file":"About.css"}
+{"version":3,"sourceRoot":"","sources":["../../scss/variables.scss","../../scss/components/About.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA;EACA;;;AAEF;EACE,ODNiB;;;ACSnB;EACE,ODRmB","file":"About.css"}
