@@ -9,14 +9,44 @@
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 24rem;
 }
 
 .project-name {
   color: #ffffff;
+  font-size: 24px;
 }
 
 .project-paragraph {
   color: #9f9f9f;
+  font-size: 14px;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.availability {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.availability-text {
+  color: #ffffff;
+  font-size: 14px;
+  padding-right: 1rem;
+}
+
+.platforms {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.platform {
+  margin-left: 1rem;
+  color: #ffffff;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=Projects.css.map */

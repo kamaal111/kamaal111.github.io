@@ -3,7 +3,7 @@ import React from 'react';
 import About from '../components/About';
 import Projects from '../components/Projects';
 
-export default () => {
+const HomePage = () => {
   return (
     <>
       <About />
@@ -11,3 +11,5 @@ export default () => {
     </>
   );
 };
+
+export default HomePage;

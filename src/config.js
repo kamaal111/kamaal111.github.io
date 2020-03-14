@@ -2,7 +2,8 @@ export const projects = [
   {
     id: 0,
     name: 'Iron Buddy',
-    description: 'This app lets you track your workout in an easy way with Iron Buddy.',
+    description: 'A workout tracker',
     backgroundColor: '#333333',
+    availability: ['iOS'],
   },
 ];
