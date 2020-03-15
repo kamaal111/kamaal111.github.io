@@ -11,7 +11,7 @@ const Projects = () => {
     <div id="projects">
       {projects.map(({ id, name, description, availability }) => {
         return (
-          <div className="project-0" key={id}>
+          <div className={`project-${id}`} key={id}>
             <h2 className="project-name">{name}</h2>
             <p className="project-paragraph">{description}</p>
             <Availability availability={availability} />

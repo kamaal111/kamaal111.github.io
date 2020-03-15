@@ -20,17 +20,6 @@
   }
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: $primaryTextColor;
-  }
-}
-
 @media (prefers-color-scheme: no-preference) {
   #about {
     border-right: 2px solid $primaryTextColor;
@@ -42,6 +31,17 @@
 
   .about-paragraph {
     color: $secondaryTextColor;
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: $primaryTextColor;
+    }
   }
 }
 
@@ -57,6 +57,17 @@
   .about-paragraph {
     color: $secondaryTextLightColor;
   }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: $primaryTextLightColor;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,5 +81,16 @@
 
   .about-paragraph {
     color: $secondaryTextColor;
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: $primaryTextColor;
+    }
   }
 }
