@@ -1,12 +1,12 @@
 @import '../variables.scss';
 
 #about {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  margin-left: 2rem;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: 30px;
   overflow: hidden;
-  border-right: 0.15em solid $primaryTextColor;
-  width: 13rem;
+  border-right: 2px solid $primaryTextColor;
+  width: 220px;
   white-space: nowrap;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
@@ -17,7 +17,7 @@
     width: 0;
   }
   to {
-    width: 13rem;
+    width: 220px;
   }
 }
 

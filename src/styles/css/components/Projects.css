@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 #projects {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .project {
-  border-radius: 0.6rem;
-  padding: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 24rem;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 360px;
 }
 
 .project-name {
@@ -20,8 +20,8 @@
 .project-paragraph {
   color: #9f9f9f;
   font-size: 14px;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .availability {
@@ -34,7 +34,7 @@
 .availability-text {
   color: #ffffff;
   font-size: 14px;
-  padding-right: 1rem;
+  padding-right: 16px;
 }
 
 .platforms {
@@ -44,7 +44,7 @@
 }
 
 .platform {
-  margin-left: 1rem;
+  margin-left: 16px;
   color: #ffffff;
   font-size: 14px;
 }
