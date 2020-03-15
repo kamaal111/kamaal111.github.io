@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+#copy-write {
+  position: fixed;
+  margin-left: 32px;
+  bottom: 24px;
+}
+
+.copy-write-text {
+  color: #9f9f9f;
+}
+
+/*# sourceMappingURL=CopyWrite.css.map */

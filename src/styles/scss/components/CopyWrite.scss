@@ -1,0 +1,11 @@
+@import '../variables.scss';
+
+#copy-write {
+  position: fixed;
+  margin-left: 32px;
+  bottom: 24px;
+}
+
+.copy-write-text {
+  color: $secondaryTextColor;
+}

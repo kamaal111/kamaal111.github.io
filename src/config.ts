@@ -7,3 +7,5 @@ export const projects = [
     availability: ['iOS'],
   },
 ];
+
+export const copyWrite = 'Ⓒ 2020 Kamaal Farah';
