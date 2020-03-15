@@ -4,7 +4,6 @@
   margin-bottom: 60px;
   margin-left: 30px;
   overflow: hidden;
-  border-right: 2px solid #ffffff;
   width: 220px;
   white-space: nowrap;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
@@ -28,12 +27,44 @@
     border-color: #ffffff;
   }
 }
-.about-name {
-  color: #ffffff;
-}
+@media (prefers-color-scheme: no-preference) {
+  #about {
+    border-right: 2px solid #ffffff;
+  }
 
-.about-paragraph {
-  color: #9f9f9f;
+  .about-name {
+    color: #ffffff;
+  }
+
+  .about-paragraph {
+    color: #9f9f9f;
+  }
+}
+@media (prefers-color-scheme: light) {
+  #about {
+    border-right: 2px solid #121212;
+  }
+
+  .about-name {
+    color: #121212;
+  }
+
+  .about-paragraph {
+    color: #4a4a4a;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #about {
+    border-right: 2px solid #ffffff;
+  }
+
+  .about-name {
+    color: #ffffff;
+  }
+
+  .about-paragraph {
+    color: #9f9f9f;
+  }
 }
 
 /*# sourceMappingURL=About.css.map */

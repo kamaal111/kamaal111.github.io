@@ -6,6 +6,20 @@
   bottom: 24px;
 }
 
-.copy-write-text {
-  color: $secondaryTextColor;
+@media (prefers-color-scheme: no-preference) {
+  .copy-write-text {
+    color: $secondaryTextColor;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .copy-write-text {
+    color: $secondaryTextLightColor;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .copy-write-text {
+    color: $secondaryTextColor;
+  }
 }

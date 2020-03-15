@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../scss/variables.scss","../../scss/components/CopyWrite.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA;EACA;;;AAGF;EACE,ODLmB","file":"CopyWrite.css"}
+{"version":3,"sourceRoot":"","sources":["../../scss/variables.scss","../../scss/components/CopyWrite.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA;EACA;;;AAGF;EACE;IACE,ODJiB;;;ACQrB;EACE;IACE,ODTsB;;;ACa1B;EACE;IACE,ODhBiB","file":"CopyWrite.css"}

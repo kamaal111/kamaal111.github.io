@@ -4,7 +4,7 @@
   margin-right: 16px;
 }
 
-.project {
+.project-0 {
   border-radius: 8px;
   padding: 16px;
   margin-top: 16px;
@@ -13,12 +13,10 @@
 }
 
 .project-name {
-  color: #ffffff;
   font-size: 24px;
 }
 
 .project-paragraph {
-  color: #9f9f9f;
   font-size: 14px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -32,7 +30,6 @@
 }
 
 .availability-text {
-  color: #ffffff;
   font-size: 14px;
   padding-right: 16px;
 }
@@ -45,8 +42,71 @@
 
 .platform {
   margin-left: 16px;
-  color: #ffffff;
   font-size: 14px;
+}
+
+@media (prefers-color-scheme: no-preference) {
+  .project-0 {
+    background-color: #333333;
+  }
+
+  .project-name {
+    color: #ffffff;
+  }
+
+  .project-paragraph {
+    color: #9f9f9f;
+  }
+
+  .availability-text {
+    color: #ffffff;
+  }
+
+  .platform {
+    color: #ffffff;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .project-0 {
+    background-color: #999999;
+  }
+
+  .project-name {
+    color: #121212;
+  }
+
+  .project-paragraph {
+    color: #4a4a4a;
+  }
+
+  .availability-text {
+    color: #121212;
+  }
+
+  .platform {
+    color: #121212;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .project-0 {
+    background-color: #333333;
+  }
+
+  .project-name {
+    color: #ffffff;
+  }
+
+  .project-paragraph {
+    color: #9f9f9f;
+  }
+
+  .availability-text {
+    color: #ffffff;
+  }
+
+  .platform {
+    color: #ffffff;
+  }
 }
 
 /*# sourceMappingURL=Projects.css.map */

@@ -9,9 +9,9 @@ import '../../styles/css/components/Projects.css';
 const Projects = () => {
   return (
     <div id="projects">
-      {projects.map(({ id, name, description, backgroundColor, availability }) => {
+      {projects.map(({ id, name, description, availability }) => {
         return (
-          <div className="project" style={{ backgroundColor }} key={id}>
+          <div className="project-0" key={id}>
             <h2 className="project-name">{name}</h2>
             <p className="project-paragraph">{description}</p>
             <Availability availability={availability} />

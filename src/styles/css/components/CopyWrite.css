@@ -5,8 +5,20 @@
   bottom: 24px;
 }
 
-.copy-write-text {
-  color: #9f9f9f;
+@media (prefers-color-scheme: no-preference) {
+  .copy-write-text {
+    color: #9f9f9f;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .copy-write-text {
+    color: #4a4a4a;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .copy-write-text {
+    color: #9f9f9f;
+  }
 }
 
 /*# sourceMappingURL=CopyWrite.css.map */

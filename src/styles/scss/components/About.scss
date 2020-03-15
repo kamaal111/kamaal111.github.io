@@ -5,7 +5,6 @@
   margin-bottom: 60px;
   margin-left: 30px;
   overflow: hidden;
-  border-right: 2px solid $primaryTextColor;
   width: 220px;
   white-space: nowrap;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
@@ -32,10 +31,44 @@
   }
 }
 
-.about-name {
-  color: $primaryTextColor;
+@media (prefers-color-scheme: no-preference) {
+  #about {
+    border-right: 2px solid $primaryTextColor;
+  }
+
+  .about-name {
+    color: $primaryTextColor;
+  }
+
+  .about-paragraph {
+    color: $secondaryTextColor;
+  }
 }
 
-.about-paragraph {
-  color: $secondaryTextColor;
+@media (prefers-color-scheme: light) {
+  #about {
+    border-right: 2px solid $primaryTextLightColor;
+  }
+
+  .about-name {
+    color: $primaryTextLightColor;
+  }
+
+  .about-paragraph {
+    color: $secondaryTextLightColor;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #about {
+    border-right: 2px solid $primaryTextColor;
+  }
+
+  .about-name {
+    color: $primaryTextColor;
+  }
+
+  .about-paragraph {
+    color: $secondaryTextColor;
+  }
 }
