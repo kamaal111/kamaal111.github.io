@@ -2,31 +2,18 @@
 #projects {
   display: flex;
   flex-direction: column;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-bottom: 36px;
+  margin: 0 16px 36px 16px;
 }
 
-.project-0 {
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  max-width: 360px;
-  min-width: 148px;
-  outline: none;
-  width: 100%;
-}
-
+.project-0,
 .project-1 {
   border-radius: 8px;
   padding: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin: 16px 0;
   max-width: 360px;
   min-width: 148px;
-  outline: none;
   width: 100%;
+  outline: none;
 }
 
 .project-name {
@@ -39,8 +26,7 @@
   display: flex;
   justify-self: flex-start;
   font-size: 14px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px 0;
 }
 
 .availability {

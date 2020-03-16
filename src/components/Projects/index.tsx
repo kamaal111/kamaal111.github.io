@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 
 import Availability from './Availability';
 
@@ -8,6 +8,13 @@ import '../../styles/css/components/Projects.css';
 
 const Projects = () => {
   const [projectShown, setProjectShown] = useState<number | null>(null);
+  const [showProjects, setShowProjects] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowProjects(true);
+    }, 3000);
+  }, []);
 
   const projectOnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: number) => {
     event.preventDefault();
@@ -17,7 +24,7 @@ const Projects = () => {
       setProjectShown(null);
     }
   };
-
+  if (!showProjects) return null;
   return (
     <div id="projects">
       {projects.map(({ id, name, description, availability }) => {

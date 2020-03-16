@@ -1,18 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 #about {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  margin-left: 30px;
-  overflow: hidden;
+  margin: 60px 0 60px 32px;
   width: 232px;
   white-space: nowrap;
+}
+
+.about-name,
+.about-paragraph {
   border-right-width: 2px;
   border-right-style: solid;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  overflow: hidden;
+}
+
+.about-name {
+  animation: typingName 1.5s steps(40, end), step-end infinite;
+}
+
+.about-paragraph {
+  animation: typingName 1.5s steps(40, end), step-end infinite;
+  width: 176px;
 }
 
 /* The typing effect */
-@keyframes typing {
+@keyframes typingName {
   from {
     width: 0;
   }
@@ -20,73 +30,46 @@
     width: 232px;
   }
 }
-@media (prefers-color-scheme: no-preference) {
-  #about {
-    border-right-color: #ffffff;
+/* The typing effect */
+@keyframes typingTitle {
+  from {
+    width: 0;
   }
-
+  to {
+    width: 176px;
+  }
+}
+@media (prefers-color-scheme: no-preference) {
   .about-name {
     color: #ffffff;
+    border-right-color: #000000;
   }
 
   .about-paragraph {
     color: #9f9f9f;
-  }
-
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #ffffff;
-    }
+    border-right-color: #000000;
   }
 }
 @media (prefers-color-scheme: light) {
-  #about {
-    border-right-color: #121212;
-  }
-
   .about-name {
     color: #121212;
+    border-right-color: #ffffff;
   }
 
   .about-paragraph {
     color: #4a4a4a;
-  }
-
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #121212;
-    }
+    border-right-color: #ffffff;
   }
 }
 @media (prefers-color-scheme: dark) {
-  #about {
-    border-right-color: #ffffff;
-  }
-
   .about-name {
     color: #ffffff;
+    border-right-color: #000000;
   }
 
   .about-paragraph {
     color: #9f9f9f;
-  }
-
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #ffffff;
-    }
+    border-right-color: #000000;
   }
 }
 

@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 #copy-write {
   position: fixed;
-  padding-left: 32px;
-  padding-bottom: 24px;
-  padding-top: 24px;
+  padding: 24px 0 24px 32px;
   bottom: 0;
   width: 100%;
 }
