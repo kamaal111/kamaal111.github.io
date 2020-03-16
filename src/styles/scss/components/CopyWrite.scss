@@ -7,22 +7,33 @@
   padding-top: 24px;
   bottom: 0;
   width: 100%;
-  background-color: $primaryTextColor;
 }
 
 @media (prefers-color-scheme: no-preference) {
+  #copy-write {
+    background-color: $primaryColor;
+  }
+
   .copy-write-text {
     color: $secondaryTextColor;
   }
 }
 
 @media (prefers-color-scheme: light) {
+  #copy-write {
+    background-color: $primaryLightColor;
+  }
+
   .copy-write-text {
     color: $secondaryTextLightColor;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+  #copy-write {
+    background-color: $primaryColor;
+  }
+
   .copy-write-text {
     color: $secondaryTextColor;
   }
