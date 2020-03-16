@@ -1,4 +1,8 @@
-export const projects = [
+// config.ts
+
+import { Project } from './types';
+
+export const projects: Project[] = [
   {
     id: 0,
     name: 'Iron Buddy',

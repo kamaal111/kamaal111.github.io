@@ -4,8 +4,10 @@
   margin-bottom: 60px;
   margin-left: 30px;
   overflow: hidden;
-  width: 220px;
+  width: 232px;
   white-space: nowrap;
+  border-right-width: 2px;
+  border-right-style: solid;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
@@ -15,12 +17,12 @@
     width: 0;
   }
   to {
-    width: 220px;
+    width: 232px;
   }
 }
 @media (prefers-color-scheme: no-preference) {
   #about {
-    border-right: 2px solid #ffffff;
+    border-right-color: #ffffff;
   }
 
   .about-name {
@@ -43,7 +45,7 @@
 }
 @media (prefers-color-scheme: light) {
   #about {
-    border-right: 2px solid #121212;
+    border-right-color: #121212;
   }
 
   .about-name {
@@ -66,7 +68,7 @@
 }
 @media (prefers-color-scheme: dark) {
   #about {
-    border-right: 2px solid #ffffff;
+    border-right-color: #ffffff;
   }
 
   .about-name {

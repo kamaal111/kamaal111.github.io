@@ -2,8 +2,12 @@
 
 #copy-write {
   position: fixed;
-  margin-left: 32px;
-  bottom: 24px;
+  padding-left: 32px;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  bottom: 0;
+  width: 100%;
+  background-color: $primaryTextColor;
 }
 
 @media (prefers-color-scheme: no-preference) {

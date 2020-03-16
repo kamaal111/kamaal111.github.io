@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { Availability as AvailabilityType } from '../../types';
+
 import '../../styles/css/components/Projects.css';
 
-const Availability = ({ availability }: { availability: string[] }) => {
+const Availability = ({ availability }: AvailabilityProps) => {
   return (
     <div className="availability">
       <p className="availability-text">availability:</p>
@@ -18,5 +20,9 @@ const Availability = ({ availability }: { availability: string[] }) => {
     </div>
   );
 };
+
+interface AvailabilityProps {
+  availability: AvailabilityType[];
+}
 
 export default Availability;

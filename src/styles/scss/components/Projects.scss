@@ -1,8 +1,11 @@
 @import '../variables.scss';
 
 #projects {
+  display: flex;
+  flex-direction: column;
   margin-left: 16px;
   margin-right: 16px;
+  margin-bottom: 36px;
 }
 
 .project-0 {
@@ -10,14 +13,32 @@
   padding: 16px;
   margin-top: 16px;
   margin-bottom: 16px;
-  width: 360px;
+  max-width: 360px;
+  min-width: 148px;
+  outline: none;
+  width: 100%;
+}
+
+.project-1 {
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  max-width: 360px;
+  min-width: 148px;
+  outline: none;
+  width: 100%;
 }
 
 .project-name {
+  display: flex;
+  justify-self: flex-start;
   font-size: 24px;
 }
 
 .project-paragraph {
+  display: flex;
+  justify-self: flex-start;
   font-size: 14px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -48,7 +69,11 @@
 
 @media (prefers-color-scheme: no-preference) {
   .project-0 {
-    background-color: #333333;
+    background-color: #606060;
+  }
+
+  .project-1 {
+    background-color: #4f4f4f;
   }
 
   .project-name {
@@ -66,11 +91,19 @@
   .platform {
     color: $primaryTextColor;
   }
+
+  .project-preview {
+    color: $primaryTextColor;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   .project-0 {
-    background-color: #999999;
+    background-color: #848484;
+  }
+
+  .project-1 {
+    background-color: #9b9b9b;
   }
 
   .project-name {
@@ -88,11 +121,19 @@
   .platform {
     color: $primaryTextLightColor;
   }
+
+  .project-preview {
+    color: $primaryTextLightColor;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .project-0 {
-    background-color: #333333;
+    background-color: #606060;
+  }
+
+  .project-1 {
+    background-color: #4f4f4f;
   }
 
   .project-name {
@@ -108,6 +149,10 @@
   }
 
   .platform {
+    color: $primaryTextColor;
+  }
+
+  .project-preview {
     color: $primaryTextColor;
   }
 }
