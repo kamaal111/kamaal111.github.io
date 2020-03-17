@@ -2,12 +2,13 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
 
-const NotFoundPage = () => <h3>404 - Not found</h3>;
-
-export default () => (
+const App = () => (
   <Switch>
     <Route exact path="/" component={HomePage} />
     <Route component={NotFoundPage} />
   </Switch>
 );
+
+export default App;

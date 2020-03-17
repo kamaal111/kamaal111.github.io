@@ -9,7 +9,7 @@ const Availability = ({ availability }: AvailabilityProps) => {
     <div className="availability">
       <p className="availability-text">availability:</p>
       <div className="platforms">
-        {availability.map(platform => {
+        {availability.map(({ platform, link }) => {
           return (
             <p className="platform" key={platform}>
               {platform}
