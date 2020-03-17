@@ -12,5 +12,5 @@ export interface Project {
   id: number;
   name: string;
   description: string;
-  availability?: Availability[];
+  availability: Availability[] | null;
 }

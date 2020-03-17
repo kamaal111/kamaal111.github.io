@@ -1,6 +1,7 @@
 import React, { useState, Fragment, useEffect } from 'react';
 
 import Availability from './Availability';
+import ShowScreenShots from './ShowScreenShots';
 
 import { projects } from '../../config';
 
@@ -30,57 +31,6 @@ const Projects = () => {
     }
   };
 
-  const ShowScreenShots = ({ screenShots, link, id }: { screenShots: string[]; link: string; id: number }) => {
-    if (projectShown === null || projectShown !== id || currentImage === null) return null;
-    return (
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <div style={{ width: '48px', display: 'flex', alignItems: 'center' }}>
-          {currentImage > 0 && (
-            <button
-              onClick={event => {
-                event.preventDefault();
-                setCurrentImage(currentImage - 1);
-              }}
-              style={{
-                backgroundColor: 'black',
-                border: 'none',
-                background: 'none',
-              }}>
-              <p style={{ color: 'white' }}>back</p>
-            </button>
-          )}
-        </div>
-
-        <img
-          src={screenShots[currentImage]}
-          style={{ height: 320, width: 160, padding: 16 }}
-          alt="screen shot of iron buddy"
-          onClick={event => {
-            event.preventDefault();
-            console.log(link);
-          }}
-        />
-
-        <div style={{ width: '48px', display: 'flex', alignItems: 'center' }}>
-          {currentImage < screenShots.length - 1 && (
-            <button
-              onClick={event => {
-                event.preventDefault();
-                setCurrentImage(currentImage + 1);
-              }}
-              style={{
-                backgroundColor: 'black',
-                border: 'none',
-                background: 'none',
-              }}>
-              <p style={{ color: 'white' }}>forward</p>
-            </button>
-          )}
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div id="projects">
       {projects.map(({ id, name, description, availability }) => {
@@ -91,9 +41,18 @@ const Projects = () => {
               <p className="project-paragraph">{description}</p>
               {availability && <Availability availability={availability} />}
             </button>
-            {availability &&
+            {availability !== null &&
+              projectShown !== null &&
+              projectShown === id &&
+              currentImage !== null &&
               availability.map(({ link, screenShots }) => (
-                <ShowScreenShots key={link} link={link} screenShots={screenShots} id={id} />
+                <ShowScreenShots
+                  key={link}
+                  link={link}
+                  screenShots={screenShots}
+                  currentImage={currentImage}
+                  setCurrentImage={setCurrentImage}
+                />
               ))}
           </Fragment>
         );
