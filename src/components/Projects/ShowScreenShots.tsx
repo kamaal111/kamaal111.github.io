@@ -16,7 +16,7 @@ const ShowScreenShots = ({
   setCurrentImage: React.Dispatch<React.SetStateAction<number | null>>;
 }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div className="shown-screen-shot">
       <ScreenShotNavigationButton
         shown={currentImage > 0}
         text={'back'}
@@ -26,8 +26,8 @@ const ShowScreenShots = ({
         }}
       />
       <img
+        className="screen-shot"
         src={screenShots[currentImage]}
-        style={{ height: 320, width: 160, padding: 16 }}
         alt="screen shot of current app"
         onClick={event => {
           event.preventDefault();

@@ -12,16 +12,10 @@ const ScreenShotNavigationButton = ({
   onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
 }) => {
   return (
-    <div style={{ width: '48px', display: 'flex', alignItems: 'center' }}>
+    <div className="screen-shot-navigation">
       {shown && (
-        <button
-          onClick={onClick}
-          style={{
-            backgroundColor: 'black',
-            border: 'none',
-            background: 'none',
-          }}>
-          <p style={{ color: 'white' }}>{text}</p>
+        <button className="screen-shot-navigation-button" onClick={onClick}>
+          <p className="screen-shot-navigation-button-text">{text}</p>
         </button>
       )}
     </div>

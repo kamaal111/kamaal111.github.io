@@ -52,6 +52,28 @@
   font-size: 14px;
 }
 
+.shown-screen-shot {
+  display: flex;
+  flex-direction: row;
+}
+
+.screen-shot {
+  height: 320px;
+  width: 160px;
+  padding: 16px;
+}
+
+.screen-shot-navigation {
+  width: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.screen-shot-navigation-button {
+  border: none;
+  background: none;
+}
+
 @media (prefers-color-scheme: no-preference) {
   .project-0 {
     background-color: #606060;
@@ -61,7 +83,11 @@
     background-color: #4f4f4f;
   }
 
-  .project-name {
+  .project-name,
+.availability-text,
+.platform,
+.project-preview,
+.screen-shot-navigation-button-text {
     color: #ffffff;
   }
 
@@ -69,16 +95,8 @@
     color: #9f9f9f;
   }
 
-  .availability-text {
-    color: #ffffff;
-  }
-
-  .platform {
-    color: #ffffff;
-  }
-
-  .project-preview {
-    color: #ffffff;
+  .screen-shot-navigation-button {
+    background-color: #000000;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -90,7 +108,11 @@
     background-color: #9b9b9b;
   }
 
-  .project-name {
+  .project-name,
+.availability-text,
+.platform,
+.project-preview,
+.screen-shot-navigation-button-text {
     color: #121212;
   }
 
@@ -98,16 +120,8 @@
     color: #4a4a4a;
   }
 
-  .availability-text {
-    color: #121212;
-  }
-
-  .platform {
-    color: #121212;
-  }
-
-  .project-preview {
-    color: #121212;
+  .screen-shot-navigation-button {
+    background-color: #ffffff;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -119,7 +133,11 @@
     background-color: #4f4f4f;
   }
 
-  .project-name {
+  .project-name,
+.availability-text,
+.platform,
+.project-preview,
+.screen-shot-navigation-button-text {
     color: #ffffff;
   }
 
@@ -127,16 +145,8 @@
     color: #9f9f9f;
   }
 
-  .availability-text {
-    color: #ffffff;
-  }
-
-  .platform {
-    color: #ffffff;
-  }
-
-  .project-preview {
-    color: #ffffff;
+  .screen-shot-navigation-button {
+    background-color: #000000;
   }
 }
 

@@ -53,6 +53,28 @@
   font-size: 14px;
 }
 
+.shown-screen-shot {
+  display: flex;
+  flex-direction: row;
+}
+
+.screen-shot {
+  height: 320px;
+  width: 160px;
+  padding: 16px;
+}
+
+.screen-shot-navigation {
+  width: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.screen-shot-navigation-button {
+  border: none;
+  background: none;
+}
+
 @media (prefers-color-scheme: no-preference) {
   .project-0 {
     background-color: #606060;
@@ -62,7 +84,11 @@
     background-color: #4f4f4f;
   }
 
-  .project-name {
+  .project-name,
+  .availability-text,
+  .platform,
+  .project-preview,
+  .screen-shot-navigation-button-text {
     color: $primaryTextColor;
   }
 
@@ -70,16 +96,8 @@
     color: $secondaryTextColor;
   }
 
-  .availability-text {
-    color: $primaryTextColor;
-  }
-
-  .platform {
-    color: $primaryTextColor;
-  }
-
-  .project-preview {
-    color: $primaryTextColor;
+  .screen-shot-navigation-button {
+    background-color: $primaryColor;
   }
 }
 
@@ -92,7 +110,11 @@
     background-color: #9b9b9b;
   }
 
-  .project-name {
+  .project-name,
+  .availability-text,
+  .platform,
+  .project-preview,
+  .screen-shot-navigation-button-text {
     color: $primaryTextLightColor;
   }
 
@@ -100,16 +122,8 @@
     color: $secondaryTextLightColor;
   }
 
-  .availability-text {
-    color: $primaryTextLightColor;
-  }
-
-  .platform {
-    color: $primaryTextLightColor;
-  }
-
-  .project-preview {
-    color: $primaryTextLightColor;
+  .screen-shot-navigation-button {
+    background-color: $primaryLightColor;
   }
 }
 
@@ -122,7 +136,11 @@
     background-color: #4f4f4f;
   }
 
-  .project-name {
+  .project-name,
+  .availability-text,
+  .platform,
+  .project-preview,
+  .screen-shot-navigation-button-text {
     color: $primaryTextColor;
   }
 
@@ -130,15 +148,7 @@
     color: $secondaryTextColor;
   }
 
-  .availability-text {
-    color: $primaryTextColor;
-  }
-
-  .platform {
-    color: $primaryTextColor;
-  }
-
-  .project-preview {
-    color: $primaryTextColor;
+  .screen-shot-navigation-button {
+    background-color: $primaryColor;
   }
 }
