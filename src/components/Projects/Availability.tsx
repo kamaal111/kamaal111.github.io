@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Availability as AvailabilityType } from '../../types';
+import { AvailabilityType } from '../../types';
 
 import '../../styles/css/components/Projects.css';
 

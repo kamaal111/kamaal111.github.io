@@ -29,10 +29,7 @@ const ShowScreenShots = ({
         className="screen-shot"
         src={screenShots[currentImage]}
         alt="screen shot of current app"
-        onClick={event => {
-          event.preventDefault();
-          console.log(link);
-        }}
+        onClick={_event => window.open(link, '_blank')}
       />
       <ScreenShotNavigationButton
         shown={currentImage < screenShots.length - 1}

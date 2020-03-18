@@ -82,14 +82,25 @@
 }
 
 .screen-shot-navigation {
-  width: 48px;
+  width: 80px;
   display: flex;
   align-items: center;
+}
+
+.screen-shot-navigation-button-text {
+  font-size: 16px;
 }
 
 .screen-shot-navigation-button {
   border: none;
   background: none;
+  width: 100%;
+  height: 100%;
+}
+
+.screen-shot:hover,
+.screen-shot-navigation-button:hover {
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: no-preference) {

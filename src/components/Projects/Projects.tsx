@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react';
 
-import Availability from './Availability';
+import ProjectCard from './ProjectCard';
 import ShowScreenShots from './ShowScreenShots';
 
 import { projects } from '../../config';
@@ -18,7 +18,7 @@ const Projects = () => {
     }, 3000);
   }, []);
 
-  const projectOnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: number) => {
+  const projectOnClick = ({ event, id }: { event: React.MouseEvent<HTMLButtonElement, MouseEvent>; id: number }) => {
     event.preventDefault();
     if (projectShown !== id) {
       setProjectShown(id);
@@ -34,13 +34,14 @@ const Projects = () => {
       {projects.map(({ id, name, description, availability }) => {
         return (
           <Fragment key={id}>
-            <button
-              className={animateCard ? `project-${id}-slide-in` : `project-${id}`}
-              onClick={event => projectOnClick(event, id)}>
-              <h2 className="project-name">{name}</h2>
-              <p className="project-paragraph">{description}</p>
-              {availability && <Availability availability={availability} />}
-            </button>
+            <ProjectCard
+              animateCard={animateCard}
+              projectOnClick={projectOnClick}
+              id={id}
+              name={name}
+              description={description}
+              availability={availability}
+            />
             {availability !== null &&
               projectShown !== null &&
               projectShown === id &&
