@@ -6,7 +6,8 @@
 }
 
 .project-0,
-.project-1 {
+.project-1,
+.project-2 {
   border-radius: 8px;
   padding: 16px;
   margin: 16px 0;
@@ -14,6 +15,22 @@
   min-width: 148px;
   width: 100%;
   outline: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.project-0-slide-in,
+.project-1-slide-in,
+.project-2-slide-in {
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  max-width: 360px;
+  min-width: 148px;
+  width: 100%;
+  outline: none;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }
 
 .project-name {
@@ -75,11 +92,18 @@
 }
 
 @media (prefers-color-scheme: no-preference) {
-  .project-0 {
+  .project-0,
+.project-0-slide-in {
     background-color: #606060;
   }
 
-  .project-1 {
+  .project-1,
+.project-1-slide-in {
+    background-color: #4f4f4f;
+  }
+
+  .project-2,
+.project-2-slide-in {
     background-color: #4f4f4f;
   }
 
@@ -100,11 +124,18 @@
   }
 }
 @media (prefers-color-scheme: light) {
-  .project-0 {
+  .project-0,
+.project-0-slide-in {
     background-color: #848484;
   }
 
-  .project-1 {
+  .project-1,
+.project-1-slide-in {
+    background-color: #9b9b9b;
+  }
+
+  .project-2,
+.project-2-slide-in {
     background-color: #9b9b9b;
   }
 
@@ -125,11 +156,18 @@
   }
 }
 @media (prefers-color-scheme: dark) {
-  .project-0 {
+  .project-0,
+.project-0-slide-in {
     background-color: #606060;
   }
 
-  .project-1 {
+  .project-1,
+.project-1-slide-in {
+    background-color: #4f4f4f;
+  }
+
+  .project-2,
+.project-2-slide-in {
     background-color: #4f4f4f;
   }
 

@@ -9,16 +9,14 @@ import '../../styles/css/components/Projects.css';
 
 const Projects = () => {
   const [projectShown, setProjectShown] = useState<number | null>(null);
-  const [showProjects, setShowProjects] = useState(false);
   const [currentImage, setCurrentImage] = useState<number | null>(null);
+  const [animateCard, setAnimateCard] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setShowProjects(true);
+      setAnimateCard(true);
     }, 3000);
   }, []);
-
-  if (!showProjects) return null;
 
   const projectOnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: number) => {
     event.preventDefault();
@@ -36,7 +34,9 @@ const Projects = () => {
       {projects.map(({ id, name, description, availability }) => {
         return (
           <Fragment key={id}>
-            <button className={`project-${id}`} onClick={event => projectOnClick(event, id)}>
+            <button
+              className={animateCard ? `project-${id}-slide-in` : `project-${id}`}
+              onClick={event => projectOnClick(event, id)}>
               <h2 className="project-name">{name}</h2>
               <p className="project-paragraph">{description}</p>
               {availability && <Availability availability={availability} />}
