@@ -99,24 +99,27 @@
 }
 
 .screen-shot:hover,
-.screen-shot-navigation-button:hover {
+.screen-shot-navigation-button:hover,
+.project-0-slide-in:hover,
+.project-1-slide-in:hover,
+.project-2-slide-in:hover {
   cursor: pointer;
 }
 
 @media (prefers-color-scheme: no-preference) {
   .project-0,
   .project-0-slide-in {
-    background-color: #606060;
+    background-color: $project0Color;
   }
 
   .project-1,
   .project-1-slide-in {
-    background-color: #4f4f4f;
+    background-color: $project1Color;
   }
 
   .project-2,
   .project-2-slide-in {
-    background-color: #4f4f4f;
+    background-color: $project2Color;
   }
 
   .project-name,
@@ -134,22 +137,32 @@
   .screen-shot-navigation-button {
     background-color: $primaryColor;
   }
+
+  .project-0-slide-in:hover {
+    background-color: $project0HoverColor;
+  }
+  .project-1-slide-in:hover {
+    background-color: $project1HoverColor;
+  }
+  .project-2-slide-in:hover {
+    background-color: $project2HoverColor;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   .project-0,
   .project-0-slide-in {
-    background-color: #848484;
+    background-color: $project0LightColor;
   }
 
   .project-1,
   .project-1-slide-in {
-    background-color: #9b9b9b;
+    background-color: $project1LightColor;
   }
 
   .project-2,
   .project-2-slide-in {
-    background-color: #9b9b9b;
+    background-color: $project2LightColor;
   }
 
   .project-name,
@@ -167,22 +180,32 @@
   .screen-shot-navigation-button {
     background-color: $primaryLightColor;
   }
+
+  .project-0-slide-in:hover {
+    background-color: $project0LightHoverColor;
+  }
+  .project-1-slide-in:hover {
+    background-color: $project1LightHoverColor;
+  }
+  .project-2-slide-in:hover {
+    background-color: $project2LightHoverColor;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .project-0,
   .project-0-slide-in {
-    background-color: #606060;
+    background-color: $project0Color;
   }
 
   .project-1,
   .project-1-slide-in {
-    background-color: #4f4f4f;
+    background-color: $project1Color;
   }
 
   .project-2,
   .project-2-slide-in {
-    background-color: #4f4f4f;
+    background-color: $project2Color;
   }
 
   .project-name,
@@ -199,5 +222,15 @@
 
   .screen-shot-navigation-button {
     background-color: $primaryColor;
+  }
+
+  .project-0-slide-in:hover {
+    background-color: $project0HoverColor;
+  }
+  .project-1-slide-in:hover {
+    background-color: $project1HoverColor;
+  }
+  .project-2-slide-in:hover {
+    background-color: $project2HoverColor;
   }
 }
