@@ -1,26 +1,26 @@
 import React from 'react';
 
 import { AvailabilityType } from '../../types';
+import { punctuation } from '../../utils';
 
 const Availability: React.FC<AvailabilityProps> = ({ availability }) => {
   return (
     <div className="availability">
-      <h4 className="availability-text">Availability: </h4>
-      <span className="platforms">
+      <strong className="availability-text">Availability: </strong>
+      <br />
+      <br />
+      <div className="platforms">
         {availability.map(({ platform, link }, index) => {
-          let punctuation = '.';
-          if (index === availability.length - 2) punctuation = ' and ';
-          else if (index < availability.length - 1) punctuation = ', ';
           return (
             <React.Fragment key={platform}>
-              <a href={link}>
-                <span className="platform">{platform}</span>
-              </a>
-              <span>{punctuation}</span>
+              <a href={link}>{platform}</a>
+              <span>
+                {punctuation({ index, arrayLength: availability.length })}
+              </span>
             </React.Fragment>
           );
         })}
-      </span>
+      </div>
     </div>
   );
 };
