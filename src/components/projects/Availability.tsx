@@ -13,7 +13,7 @@ const Availability: React.FC<AvailabilityProps> = ({ availability }) => {
         {availability.map(({ platform, link }, index) => {
           return (
             <React.Fragment key={platform}>
-              <a href={link}>{platform}</a>
+              <a href={link} target="_blank">{platform}</a>
               <span>
                 {punctuation({ index, arrayLength: availability.length })}
               </span>
