@@ -4,12 +4,14 @@ import About from '../components/about/About';
 import Projects from '../components/projects/Projects';
 import CopyWrite from '../components/copy-write/CopyWrite';
 
-const HomePage = () => {
+const HomePage: React.FC<{}> = () => {
   return (
     <>
       <About />
       <Projects />
-      <CopyWrite />
+      <footer>
+        <CopyWrite />
+      </footer>
     </>
   );
 };

@@ -1,1 +1,0 @@
-{"version":3,"sourceRoot":"","sources":["../../scss/variables.scss","../../scss/components/CopyWrite.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA;EACA;EACA;;;AAGF;EACE;IACE,kBDPW;;;ECUb;IACE,ODTiB;;;ACarB;EACE;IACE,kBDhBgB;;;ECmBlB;IACE,ODlBsB;;;ACsB1B;EACE;IACE,kBD3BW;;;EC8Bb;IACE,OD7BiB","file":"CopyWrite.css"}

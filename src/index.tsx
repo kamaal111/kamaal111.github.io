@@ -6,8 +6,6 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
-import './styles/css/index.css';
-
 const root = document.querySelector('#root');
 ReactDOM.render(
   <Router>

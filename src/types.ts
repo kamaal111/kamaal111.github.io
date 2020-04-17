@@ -1,6 +1,11 @@
 // types.ts
 
-export type Platform = 'iOS';
+export type Platform = 'iOS' | 'iPadOS' | 'macOS';
+
+export interface TechUsed {
+  tech: string;
+  reason: string;
+}
 
 export interface AvailabilityType {
   platform: Platform;
@@ -13,4 +18,5 @@ export interface Project {
   name: string;
   description: string;
   availability: AvailabilityType[] | null;
+  techUsed: TechUsed[];
 }
