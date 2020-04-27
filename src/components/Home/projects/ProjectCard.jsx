@@ -1,17 +1,15 @@
 import React from 'react';
 
-import Availability from './Availability';
 import TechUsedItem from './TechUsedItem';
+import Availability from './Availability';
 
-import { AvailabilityType, TechUsed } from '../../types';
-
-const ProjectCard: React.FC<ProjectCardProps> = ({
+export default function ProjectCard({
   id,
   name,
   description,
   availability,
   techUsed,
-}) => {
+}) {
   return (
     <>
       <div className={`project-${id}`}>
@@ -25,14 +23,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <br />
     </>
   );
-};
-
-interface ProjectCardProps {
-  id: number;
-  name: string;
-  description: string;
-  techUsed: TechUsed[];
-  availability: AvailabilityType[] | null;
 }
-
-export default ProjectCard;

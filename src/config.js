@@ -1,8 +1,6 @@
-// config.ts
+// config.js
 
-import { Project } from './types';
-
-const IronBuddy: Project = {
+const IronBuddy = {
   id: 0,
   name: 'Iron Buddy',
   techUsed: [
@@ -47,7 +45,7 @@ const IronBuddy: Project = {
   ],
 };
 
-const ColorSelector: Project = {
+const ColorSelector = {
   id: 1,
   name: 'Color Selector',
   techUsed: [
@@ -81,6 +79,6 @@ const ColorSelector: Project = {
   ],
 };
 
-export const projects: Project[] = [IronBuddy, ColorSelector];
+export const projects = [IronBuddy, ColorSelector];
 
 export const copyWrite = 'Ⓒ 2020 Kamaal Farah';

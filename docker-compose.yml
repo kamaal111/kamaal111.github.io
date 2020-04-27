@@ -1,0 +1,8 @@
+version: "3.6"
+services:
+  web:
+    image: kamaal1/personal-website
+    container_name: personal-website
+    build: .
+    ports:
+      - "8080:8080"
