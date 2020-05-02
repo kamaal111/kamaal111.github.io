@@ -1287,8 +1287,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Home/Header */ "./src/components/Home/Header.jsx");
 /* harmony import */ var _components_Home_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Home/Footer */ "./src/components/Home/Footer.jsx");
 /* harmony import */ var _components_Home_projects_Projects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Home/projects/Projects */ "./src/components/Home/projects/Projects.jsx");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles.css */ "./src/styles.css");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_css__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/Users/kamaalfarah/Projects/GitHub/kamaal111.github.io/src/pages/index.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 
 
 
@@ -1300,42 +1305,42 @@ function Home() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 14,
       columnNumber: 5
     }
   }, __jsx(_components_Home_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 15,
       columnNumber: 7
     }
   }), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 16,
       columnNumber: 7
     }
   }, __jsx(_components_Home_About__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 17,
       columnNumber: 9
     }
   }), __jsx(_components_Home_projects_Projects__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 18,
       columnNumber: 9
     }
   })), __jsx(_components_Home_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 20,
       columnNumber: 7
     }
   }));
@@ -1383,7 +1388,7 @@ function getUniquePlatforms() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!***********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fkamaalfarah%2FProjects%2FGitHub%2Fkamaal111.github.io%2Fsrc%2Fpages%2Findex.jsx ***!
   \***********************************************************************************************************************************************************/
@@ -1406,5 +1411,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
