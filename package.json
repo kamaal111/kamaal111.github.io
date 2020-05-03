@@ -9,10 +9,11 @@
     "build": "next build",
     "start": "next start -p 8080",
     "deploy": "sh deploy.sh",
-    "docker-up": "docker build -t kamaal1/personal-website . && docker-compose up -d",
+    "docker-up": "docker-compose up --build -d",
     "docker-down": "docker-compose down"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "next": "9.3.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -34,7 +35,7 @@
   "bugs": {
     "url": "https://github.com/kamaal111/kamaal111.github.io/issues"
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "",
   "author": "Kamaal",
   "license": "MIT"
 }
