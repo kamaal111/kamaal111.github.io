@@ -1,9 +1,12 @@
 {
   "name": "kamaal111.github.io",
   "version": "1.0.0",
-  "private": true,
-  "homepage": "https://kamaal.io",
+  "private": false,
+  "homepage": "kamaal.io",
   "main": "src/pages/index.jsx",
+  "description": "",
+  "author": "Kamaal",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -34,8 +37,5 @@
   },
   "bugs": {
     "url": "https://github.com/kamaal111/kamaal111.github.io/issues"
-  },
-  "description": "",
-  "author": "Kamaal",
-  "license": "MIT"
+  }
 }
