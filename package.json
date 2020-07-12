@@ -2,7 +2,7 @@
   "name": "kamaal111.github.io",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://kamaal111.github.io",
+  "homepage": "https://kamaal.io",
   "main": "src/pages/index.jsx",
   "scripts": {
     "dev": "next dev",
