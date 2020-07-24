@@ -9,5 +9,5 @@ module.exports = withCSS({
   exportPathMap: () => ({
     '/': { page: '/' },
   }),
-  assetPrefix: !debug ? '/kamaal111.github.io/' : '',
+  assetPrefix: !debug ? '/kamaal.io/' : '',
 });
