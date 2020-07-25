@@ -4,22 +4,24 @@ const { apps } = require('../config');
 
 const main = async () => {
   try {
-    const colorPickerAppId = apps.ColorPicker.appId;
+    const { appId: colorPickerAppId } = apps.ColorPicker;
     const appleAppSiteAssociation = {
       applinks: {
-        apps: [],
         details: [
           {
             appID: colorPickerAppId,
-            paths: ['/hallo'],
+            components: [
+              {
+                '/': '/hello/*',
+              },
+            ],
           },
         ],
       },
     };
-    await fs.writeFile(
-      'out/.well-known/apple-app-site-association',
-      JSON.stringify(appleAppSiteAssociation, null, 2),
-    );
+    const exportPath = 'out/apple-app-site-association';
+    const exportJson = JSON.stringify(appleAppSiteAssociation, null, 2);
+    await fs.writeFile(exportPath, exportJson);
   } catch (error) {
     console.log('error', error);
     throw error;
