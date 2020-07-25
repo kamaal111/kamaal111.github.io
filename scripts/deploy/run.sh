@@ -8,4 +8,5 @@ mkdir out/.well-known
 touch out/.nojekyll
 node "$CURRENT_SCRIPT_PATH/cname.js"
 node "$CURRENT_SCRIPT_PATH/appleAppSiteAssociation.js"
+node "$CURRENT_SCRIPT_PATH/build.js"
 npx gh-pages -b master -d out

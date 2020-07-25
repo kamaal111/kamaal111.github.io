@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 
+import build from '../../../build.json';
+
 export default function Header() {
   return (
     <Head>
@@ -19,6 +21,7 @@ export default function Header() {
           ✨
         </span>
       </p>
+      <p>{`Build: ${build.build}`}</p>
     </Head>
   );
 }
