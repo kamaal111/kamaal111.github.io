@@ -5,9 +5,9 @@ const { apps } = require('../config');
 const { appId: colorPickerAppId } = apps.ColorPicker;
 
 const colorPickerDetails = {
-  appID: colorPickerAppId,
-  paths: ['/hallo'],
-  components: [{ '/': '/hallo' }],
+  appIDs: [colorPickerAppId],
+  paths: ['*', '/hallo'],
+  components: [{ '/': ['*', '/hallo'] }],
 };
 
 const createAppleAppSiteAssociationJson = () => {
