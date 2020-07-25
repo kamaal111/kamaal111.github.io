@@ -4,7 +4,7 @@
       {
         "appID": "DXUKH9VF73.kamaal.io.ColorPicker",
         "paths": [
-          "/hello"
+          "/hello/*"
         ]
       }
     ]
