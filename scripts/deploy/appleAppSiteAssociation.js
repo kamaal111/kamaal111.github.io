@@ -5,18 +5,14 @@ const { apps } = require('../config');
 const main = async () => {
   try {
     const { appId: colorPickerAppId } = apps.ColorPicker;
+    const colorPickerDetails = {
+      appID: colorPickerAppId,
+      paths: ['/hello'],
+      // components: [{ '/': '/hello' }],
+    };
     const appleAppSiteAssociation = {
       applinks: {
-        details: [
-          {
-            appID: colorPickerAppId,
-            components: [
-              {
-                '/': '/hello',
-              },
-            ],
-          },
-        ],
+        details: [colorPickerDetails],
       },
     };
     const exportPath = 'out/apple-app-site-association';
