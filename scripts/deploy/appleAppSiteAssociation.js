@@ -7,7 +7,7 @@ const main = async () => {
     const { appId: colorPickerAppId } = apps.ColorPicker;
     const colorPickerDetails = {
       appID: colorPickerAppId,
-      paths: ['/hello/*'],
+      paths: ['/hello'],
       // components: [{ '/': '/hello' }],
     };
     const appleAppSiteAssociation = {
