@@ -19,5 +19,6 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'object-curly-newline': 'off',
+    'no-console': 'off',
   },
 };
