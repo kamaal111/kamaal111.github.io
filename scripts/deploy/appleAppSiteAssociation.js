@@ -12,7 +12,7 @@ const main = async () => {
             appID: colorPickerAppId,
             components: [
               {
-                '/': '/hello/*',
+                '/': '/hello',
               },
             ],
           },
