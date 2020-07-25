@@ -6,8 +6,11 @@ const { appId: colorPickerAppId } = apps.ColorPicker;
 
 const colorPickerDetails = {
   appIDs: [colorPickerAppId],
-  paths: ['*', '/hallo'],
-  components: [{ '/': ['*', '/hallo'] }],
+  paths: [
+    '*',
+    // '/hallo'
+  ],
+  // components: [{ '/': ['*', '/hallo'] }],
 };
 
 const createAppleAppSiteAssociationJson = () => {
