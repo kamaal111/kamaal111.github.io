@@ -7,15 +7,15 @@ const main = async () => {
     const { appId: colorPickerAppId } = apps.ColorPicker;
     const colorPickerDetails = {
       appID: colorPickerAppId,
-      paths: ['/hello'],
-      // components: [{ '/': '/hello' }],
+      // paths: ['/hello'],
+      components: [{ '/': '/hello' }],
     };
     const appleAppSiteAssociation = {
       applinks: {
         details: [colorPickerDetails],
       },
     };
-    const exportPath = 'out/apple-app-site-association';
+    const exportPath = 'out/.well-known/apple-app-site-association';
     const exportJson = JSON.stringify(appleAppSiteAssociation, null, 2);
     await fs.writeFile(exportPath, exportJson);
   } catch (error) {
