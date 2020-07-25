@@ -1,23 +1,11 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-
 import React from 'react';
 
-import About from '../components/Home/About';
-import Header from '../components/Home/Header';
-import Footer from '../components/Home/Footer';
-import Projects from '../components/Home/projects/Projects';
-
-import '../styles.css';
+import HomeContent from '../components/Home/HomeContent';
 
 export default function Home() {
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <About />
-        <Projects />
-      </main>
-      <Footer />
+    <>
+      <HomeContent />
       <style jsx global>
         {`
           @media (prefers-color-scheme: no-preference) {
@@ -130,6 +118,6 @@ export default function Home() {
           }
         `}
       </style>
-    </div>
+    </>
   );
 }

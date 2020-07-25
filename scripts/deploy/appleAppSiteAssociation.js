@@ -10,8 +10,8 @@ const main = async () => {
         apps: [],
         details: [
           {
-            appIDs: [colorPickerAppId],
-            paths: ['*'],
+            appID: colorPickerAppId,
+            paths: ['/hallo'],
           },
         ],
       },

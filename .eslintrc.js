@@ -20,5 +20,6 @@ module.exports = {
     'react/prop-types': 'off',
     'object-curly-newline': 'off',
     'no-console': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };
