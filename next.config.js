@@ -8,6 +8,7 @@ const debug = process.env.NODE_ENV !== 'production';
 module.exports = withCSS({
   exportPathMap: () => ({
     '/': { page: '/' },
+    '/hallo': { page: '/hallo' },
   }),
-  assetPrefix: !debug ? '/kamaal.io/' : '',
+  assetPrefix: !debug ? '/' : '',
 });

@@ -12,7 +12,7 @@ export default function HomeContent() {
       <Header />
       <main>
         {'Read '}
-        <Link href="/hallo">
+        <Link href="/hallo" as={`${process.env.BACKEND_URL}/hallo`}>
           <a>this page!</a>
         </Link>
         <About />
