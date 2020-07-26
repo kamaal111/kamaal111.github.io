@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "DXUKH9VF73.io.kamaal.ColorPicker"
+        ],
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+}
