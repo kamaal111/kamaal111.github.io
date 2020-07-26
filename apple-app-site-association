@@ -5,8 +5,7 @@
         "appIDs": [ "DXUKH9VF73.io.kamaal.ColorPicker" ],
         "components": [
           {
-            "/": "*",
-            "exclude": true
+            "/": "*"
           },
           {
             "/": "/colorselector/*",
