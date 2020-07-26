@@ -7,7 +7,7 @@
 /*! exports provided: lastUpdate, build, default */
 /***/ (function(module) {
 
-eval("module.exports = JSON.parse(\"{\\\"lastUpdate\\\":\\\"Sun Jul 26 2020 13:03:30 GMT+0200 (Central European Summer Time)\\\",\\\"build\\\":33}\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL2J1aWxkLmpzb24uanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./build.json\n");
+eval("module.exports = JSON.parse(\"{\\\"lastUpdate\\\":\\\"Sun Jul 26 2020 13:04:58 GMT+0200 (Central European Summer Time)\\\",\\\"build\\\":34}\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL2J1aWxkLmpzb24uanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./build.json\n");
 
 /***/ }),
 
@@ -944,7 +944,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!***********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fkamaalfarah%2FProjects%2FGitHub%2Fkamaal111.github.io%2Fsrc%2Fpages%2Findex.jsx ***!
   \***********************************************************************************************************************************************************/
@@ -967,4 +967,4 @@ eval("module.exports = dll_5030f387d328e4415785;//# sourceURL=[module]\n//# sour
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
