@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function HomeContent() {
+export default function Colorselector() {
   return <p>Hallow</p>;
 }

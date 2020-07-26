@@ -8,7 +8,10 @@ const debug = process.env.NODE_ENV !== 'production';
 module.exports = withCSS({
   exportPathMap: () => ({
     '/': { page: '/' },
-    '/hallo': { page: '/hallo' },
+    '/colorselector': { page: '/colorselector' },
+    '/colorselector/edit': {
+      page: '/colorselector/edit',
+    },
   }),
   assetPrefix: !debug ? '/' : '',
 });
