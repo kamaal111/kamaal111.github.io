@@ -4,22 +4,12 @@
     "details": [
       {
         "appIDs": [
-          "DXUKH9VF73.kamaal.io.ColorPicker"
+          "DXUKH9VF73.io.kamaal.ColorPicker"
         ],
         "paths": [
           "*"
         ]
       }
-    ]
-  },
-  "webcredentials": {
-    "apps": [
-      "DXUKH9VF73.kamaal.io.ColorPicker"
-    ]
-  },
-  "activitycontinuation": {
-    "apps": [
-      "DXUKH9VF73.kamaal.io.ColorPicker"
     ]
   }
 }
