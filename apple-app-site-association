@@ -7,7 +7,7 @@
           "DXUKH9VF73.io.kamaal.ColorPicker"
         ],
         "paths": [
-          "/hallo/*"
+          "*"
         ]
       }
     ]
