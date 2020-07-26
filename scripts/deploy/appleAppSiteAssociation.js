@@ -11,8 +11,7 @@ const appleAppSiteAssociation = `{
         "appIDs": [ "${colorPickerAppId}" ],
         "components": [
           {
-            "/": "*",
-            "exclude": true
+            "/": "*"
           },
           {
             "/": "/colorselector/*",
@@ -31,7 +30,7 @@ const appleAppSiteAssociation = `{
 
 const exportAppleAppSiteAssociationFile = async () => {
   try {
-    const exportPath = 'out/.well-known/apple-app-site-association';
+    const exportPath = 'out/apple-app-site-association';
     await fs.writeFile(exportPath, appleAppSiteAssociation);
   } catch (error) {
     console.log('error', error);
