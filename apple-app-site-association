@@ -3,7 +3,13 @@
     "details": [
       {
         "appIDs": [ DXUKH9VF73.io.kamaal.ColorPicker ],
-        "paths": [ "*" ]
+        "components": [
+          {
+            "/": "/*",
+            "caseSensitive": false,
+            "component": "Should match every path"
+          }
+        ]
       }
     ]
   },
