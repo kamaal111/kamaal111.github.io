@@ -1,1 +1,13 @@
-"\n  {\n    \"applinks\": {\n      \"details\": [\n        {\n          \"appIDs\": [ DXUKH9VF73.io.kamaal.ColorPicker ],\n          \"paths\": [ \"*\" ]\n        }\n      ]\n    },\n    \"webcredentials\": {\n      \"apps\": [ DXUKH9VF73.io.kamaal.ColorPicker ]\n    }\n  }\n"
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [ DXUKH9VF73.io.kamaal.ColorPicker ],
+        "paths": [ "*" ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [ DXUKH9VF73.io.kamaal.ColorPicker ]
+  }
+}
