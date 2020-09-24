@@ -8,6 +8,7 @@ const debug = process.env.NODE_ENV !== 'production';
 module.exports = withCSS({
   exportPathMap: () => ({
     '/': { page: '/' },
+    '/privacyterms': { page: '/PrivacyAndTerms' },
   }),
   assetPrefix: !debug ? '/' : '',
 });

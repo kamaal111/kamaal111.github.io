@@ -21,5 +21,6 @@ module.exports = {
     'object-curly-newline': 'off',
     'no-console': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'react/no-array-index-key': 'off',
   },
 };
