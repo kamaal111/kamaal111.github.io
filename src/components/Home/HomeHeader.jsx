@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export default function Header() {
+export default function HomeHeader() {
   return (
     <Head>
       <title>Kamaal Farah</title>

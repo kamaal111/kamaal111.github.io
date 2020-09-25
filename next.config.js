@@ -9,6 +9,7 @@ module.exports = withCSS({
   exportPathMap: () => ({
     '/': { page: '/' },
     '/privacyterms': { page: '/PrivacyAndTerms' },
+    '/contact': { page: '/Contact' },
   }),
   assetPrefix: !debug ? '/' : '',
 });

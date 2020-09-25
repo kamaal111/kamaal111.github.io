@@ -1,14 +1,18 @@
 import React from 'react';
+import Head from 'next/head';
 
+import ContactMe from '../components/PrivacyAndTerms/ContactMe';
 import Footer from '../components/Footer';
-import PrivacyAndTermsHeader from '../components/PrivacyAndTerms/PrivacyAndTermsHeader';
-import HomeMainContent from '../components/PrivacyAndTerms/HomeMainContent';
 
-function PrivacyAndTerms() {
+function Contact() {
   return (
     <>
-      <PrivacyAndTermsHeader />
-      <HomeMainContent />
+      <Head>
+        <title>Contact</title>
+      </Head>
+      <main>
+        <ContactMe from="app" />
+      </main>
       <Footer />
       <style jsx global>
         {`
@@ -126,4 +130,4 @@ function PrivacyAndTerms() {
   );
 }
 
-export default PrivacyAndTerms;
+export default Contact;

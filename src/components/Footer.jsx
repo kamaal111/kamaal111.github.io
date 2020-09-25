@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { copyWrite } from '../../config';
+import { copyWrite } from '../config';
 
 export default function Footer() {
   return (
