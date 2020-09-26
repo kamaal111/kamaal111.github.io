@@ -2,6 +2,7 @@
 
 CURRENT_SCRIPT_PATH="scripts/deploy"
 rm -rf node_modules/.cache out
+npm i
 npm run build
 npx next export
 mkdir out/.well-known
