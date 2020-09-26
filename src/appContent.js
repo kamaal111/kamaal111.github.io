@@ -2,13 +2,7 @@ const termsAndConditionContent = [
   {
     header: 'Subscriptions',
     content: [
-      `Please read these Terms and Conditions ("Terms", "Terms and Conditions")
-        carefully before using the Color Selector / Iron Buddy. Your access to
-        and use of the Service is conditioned on your acceptance of and
-        compliance with these Terms. These Terms apply to all visitors, users
-        and others who access or use the Service. By accessing or using the
-        Service you agree to be bound by these Terms. If you disagree with any
-        part of the terms then you may not access the Service.`,
+      'Some parts of the Service are billed on a subscription basis. To find out more about subscriptions, check the Subscriptions page inside the apps.',
     ],
   },
   {
@@ -51,9 +45,11 @@ const termsAndConditionDescription = `Please read these Terms and Conditions ("T
         and others who access or use the Service. By accessing or using the
         Service you agree to be bound by these Terms. If you disagree with any
         part of the terms then you may not access the Service.`;
+const termsAndConditionDescription2 = `By accessing or using the Service you agree to be bound by these Terms. 
+        If you disagree with any part of the terms then you may not access the Service.`;
 export const termsAndCondition = {
   title: termsAndConditionTitle,
-  description: [termsAndConditionDescription],
+  description: [termsAndConditionDescription, termsAndConditionDescription2],
   content: termsAndConditionContent,
 };
 

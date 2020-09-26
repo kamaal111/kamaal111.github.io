@@ -1,6 +1,6 @@
 // config.js
 
-export const lastUpdatedTermsAndConditions = 'September 21th 2020';
+export const lastUpdatedTermsAndConditions = 'September 26th 2020';
 export const contactEmail = 'app.kamaal@gmail.com';
 
 const IronBuddy = {
