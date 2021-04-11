@@ -84,4 +84,4 @@ const ColorSelector = {
 
 export const projects = [IronBuddy, ColorSelector];
 
-export const copyWrite = 'Ⓒ 2020 Kamaal Farah';
+export const copyWrite = 'Ⓒ 2020-2021 Kamaal Farah';
