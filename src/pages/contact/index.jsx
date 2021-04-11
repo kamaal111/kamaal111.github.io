@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import ContactMe from '../../components/PrivacyAndTerms/ContactMe';
 import Footer from '../../components/Footer';
+import Styles from '../../components/Styles';
 
 function Contact() {
   return (
@@ -14,6 +15,7 @@ function Contact() {
         <ContactMe from="app" />
       </main>
       <Footer />
+      <Styles />
     </>
   );
 }
