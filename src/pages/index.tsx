@@ -3,7 +3,7 @@ import React from 'react';
 import HomeContent from '../components/Home/HomeContent';
 import Styles from '../components/Styles';
 
-export default function Home() {
+function Home() {
   return (
     <>
       <HomeContent />
@@ -11,3 +11,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

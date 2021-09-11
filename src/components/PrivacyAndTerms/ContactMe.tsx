@@ -2,7 +2,7 @@ import React from 'react';
 
 import { contactEmail } from '../../config';
 
-function ContactMe({ from }) {
+function ContactMe({ from }: ContactMeProps) {
   return (
     <>
       <h2>Contact Me</h2>
@@ -16,5 +16,9 @@ function ContactMe({ from }) {
     </>
   );
 }
+
+type ContactMeProps = {
+  from: string;
+};
 
 export default ContactMe;

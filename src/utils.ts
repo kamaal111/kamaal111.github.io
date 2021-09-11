@@ -1,6 +1,12 @@
 import { projects } from './config';
 
-export function punctuation({ index, arrayLength }) {
+export function punctuation({
+  index,
+  arrayLength,
+}: {
+  index: number;
+  arrayLength: number;
+}) {
   if (index === arrayLength - 2) return ' and ';
   if (index < arrayLength - 1) return ', ';
   return '.';
@@ -8,7 +14,7 @@ export function punctuation({ index, arrayLength }) {
 
 export function getUniquePlatforms() {
   return projects
-    .reduce((prev, current) => {
+    .reduce((prev: string[], current) => {
       if (current.availability) {
         current.availability.forEach((value) => {
           if (!prev.includes(value.platform)) prev.push(value.platform);
@@ -17,10 +23,9 @@ export function getUniquePlatforms() {
       return prev;
     }, [])
     .reduce((constructed, element, index, uniquePlatforms) => {
-      const value = `${constructed}${element}${punctuation({
+      return `${constructed}${element}${punctuation({
         index,
         arrayLength: uniquePlatforms.length,
       })}`;
-      return value;
     }, '');
 }

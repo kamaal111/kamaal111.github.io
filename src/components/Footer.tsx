@@ -2,7 +2,7 @@ import React from 'react';
 
 import { copyWrite } from '../config';
 
-export default function Footer() {
+function Footer() {
   return (
     <footer>
       <div id="copy-write">
@@ -11,3 +11,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

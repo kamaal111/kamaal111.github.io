@@ -3,7 +3,7 @@ import React from 'react';
 import { projects } from '../../config';
 import { getUniquePlatforms } from '../../utils';
 
-export default function About() {
+function About() {
   const uniquePlatformsText = getUniquePlatforms();
 
   return (
@@ -28,3 +28,5 @@ export default function About() {
     </div>
   );
 }
+
+export default About;

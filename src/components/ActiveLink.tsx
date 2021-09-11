@@ -1,15 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-function ActiveLink({ children, href }) {
+function ActiveLink({ children, href }: ActiveLinkProps) {
   const router = useRouter();
   const style = {
     marginRight: 10,
     color: router.pathname === href ? 'red' : 'black',
   };
 
-  const handleClick = (event) => {
-    event.preventDefault();
+  const handleClick = (
+    event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    event?.preventDefault();
     router.push(href);
   };
 
@@ -19,5 +21,10 @@ function ActiveLink({ children, href }) {
     </a>
   );
 }
+
+type ActiveLinkProps = {
+  children: React.ReactNode;
+  href: string;
+};
 
 export default ActiveLink;

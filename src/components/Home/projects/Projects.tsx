@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard';
 
 import { projects } from '../../../config';
 
-export default function Projects() {
+function Projects() {
   return (
     <div id="projects">
       <h2>Apps I have published</h2>
@@ -22,3 +22,5 @@ export default function Projects() {
     </div>
   );
 }
+
+export default Projects;

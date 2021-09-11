@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function TechUsedItem({ techUsed }) {
+import { TechUsed } from '../../../types';
+
+function TechUsedItem({ techUsed }: TechUsedItemProps) {
   return (
     <div>
       <strong>Tech used:</strong>
@@ -10,3 +12,9 @@ export default function TechUsedItem({ techUsed }) {
     </div>
   );
 }
+
+type TechUsedItemProps = {
+  techUsed: TechUsed[];
+};
+
+export default TechUsedItem;

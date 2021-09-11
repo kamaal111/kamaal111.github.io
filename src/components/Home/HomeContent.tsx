@@ -5,7 +5,7 @@ import HomeHeader from './HomeHeader';
 import Footer from '../Footer';
 import Projects from './projects/Projects';
 
-export default function HomeContent() {
+function HomeContent() {
   return (
     <div className="container">
       <HomeHeader />
@@ -17,3 +17,5 @@ export default function HomeContent() {
     </div>
   );
 }
+
+export default HomeContent;

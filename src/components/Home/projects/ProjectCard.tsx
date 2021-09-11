@@ -3,13 +3,15 @@ import React from 'react';
 import TechUsedItem from './TechUsedItem';
 import Availability from './Availability';
 
-export default function ProjectCard({
+import { Availability as AvailabilityType, TechUsed } from '../../../types';
+
+function ProjectCard({
   id,
   name,
   description,
   availability,
   techUsed,
-}) {
+}: ProjectCardProps) {
   return (
     <>
       <div className={`project-${id}`}>
@@ -24,3 +26,13 @@ export default function ProjectCard({
     </>
   );
 }
+
+type ProjectCardProps = {
+  id: number;
+  name: string;
+  description: string;
+  availability: AvailabilityType[];
+  techUsed: TechUsed[];
+};
+
+export default ProjectCard;

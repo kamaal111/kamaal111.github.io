@@ -2,7 +2,9 @@ import React from 'react';
 
 import { punctuation } from '../../../utils';
 
-export default function Availability({ availability }) {
+import { Availability as AvailabilityType } from '../../../types';
+
+function Availability({ availability }: AvailabilityProps) {
   return (
     <div className="availability">
       <strong className="availability-text">Availability: </strong>
@@ -26,3 +28,9 @@ export default function Availability({ availability }) {
     </div>
   );
 }
+
+type AvailabilityProps = {
+  availability: AvailabilityType[];
+};
+
+export default Availability;
