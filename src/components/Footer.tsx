@@ -5,8 +5,8 @@ import { copyWrite } from '../config';
 function Footer() {
   return (
     <footer>
-      <div id="copy-write">
-        <p className="copy-write-text">{copyWrite}</p>
+      <div style={{ marginLeft: 16, marginRight: 16 }}>
+        <p>{copyWrite}</p>
       </div>
     </footer>
   );

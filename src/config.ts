@@ -41,8 +41,7 @@ const IronBuddy = {
   availability: [
     {
       platform: 'iOS',
-      link:
-        'https://apps.apple.com/nl/app/ironbuddy/id1502158010#?platform=iphone',
+      link: 'https://apps.apple.com/nl/app/ironbuddy/id1502158010#?platform=iphone',
       screenShots: [],
     },
   ],
@@ -69,14 +68,12 @@ const ColorSelector = {
   availability: [
     {
       platform: 'iOS',
-      link:
-        'https://apps.apple.com/nl/app/color-selector/id1506270066#?platform=iphone',
+      link: 'https://apps.apple.com/nl/app/color-selector/id1506270066#?platform=iphone',
       screenShots: [],
     },
     {
       platform: 'iPadOS',
-      link:
-        'https://apps.apple.com/nl/app/color-selector/id1506270066#?platform=ipad',
+      link: 'https://apps.apple.com/nl/app/color-selector/id1506270066#?platform=ipad',
       screenShots: [],
     },
   ],
@@ -84,4 +81,4 @@ const ColorSelector = {
 
 export const projects = [IronBuddy, ColorSelector];
 
-export const copyWrite = 'Ⓒ 2020-2021 Kamaal Farah';
+export const copyWrite = 'Ⓒ 2021 Kamaal Farah';
