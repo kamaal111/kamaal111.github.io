@@ -1,13 +1,13 @@
 import React from 'react';
 
-import HomeContent from '../components/Home/HomeContent';
-import Styles from '../components/Styles';
+import Footer from '../components/Footer';
+import HomeBanner from '../components/Home/HomeBanner';
 
 function Home() {
   return (
     <>
-      <HomeContent />
-      <Styles />
+      <HomeBanner />
+      <Footer />
     </>
   );
 }
