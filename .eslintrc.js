@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/prop-types': false,
-    'react/jsx-props-no-spreading': false,
+    'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };
