@@ -1,11 +1,5 @@
 const termsAndConditionContent = [
   {
-    header: 'Subscriptions',
-    content: [
-      'Some parts of the Service are billed on a subscription basis. To find out more about subscriptions, check the Subscriptions page inside the apps.',
-    ],
-  },
-  {
     header: 'Content',
     content: [
       `The Service allows you to use the apps (Color Selector and Iron Buddy)
