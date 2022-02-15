@@ -17,6 +17,14 @@ function MyApp({ Component, pageProps }: AppProps) {
               sans-serif;
           }
 
+          footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+
           * {
             box-sizing: border-box;
           }
