@@ -2,9 +2,10 @@ import React from 'react';
 
 function HomeBanner() {
   return (
-    <>
-      <p style={{ marginLeft: 16, marginRight: 16 }}>Kamaal Farah</p>
-    </>
+    <div style={{ marginLeft: 16, marginRight: 16 }}>
+      <h2>Kamaal Farah</h2>
+      <p>This is a society.</p>
+    </div>
   );
 }
 
