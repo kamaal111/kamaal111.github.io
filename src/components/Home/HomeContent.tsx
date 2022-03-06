@@ -8,7 +8,7 @@ function HomeContent() {
       {work.map(({ title, link }) => {
         return (
           <div className="work-link" key={title}>
-            <a href={link} target="_blank" rel="noreferrer">
+            <a href={link}>
               <b>{title}</b>
             </a>
           </div>
