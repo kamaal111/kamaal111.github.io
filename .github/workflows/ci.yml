@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  quality:
+    name: Quality
+    timeout-minutes: 5
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+
+      - name: Install node modules
+        run: |
+          yarn
+
+      - name: Lint
+        run: |
+          yarn lint
