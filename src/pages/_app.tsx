@@ -13,9 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             padding: 0;
             margin-left: 0;
             margin-right: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
+            font-family: Avenir, Helvetica, Arial, sans-serif;
           }
 
           footer {
@@ -55,7 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             i,
             span,
             strong {
-              color: #000000;
+              color: #2c3e50;
             }
 
             /* unvisited link */
@@ -91,7 +89,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             i,
             span,
             strong {
-              color: #000000;
+              color: #2c3e50;
             }
 
             /* unvisited link */
@@ -127,7 +125,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             i,
             span,
             strong {
-              color: #ffffff;
+              color: #f2fafa;
             }
 
             /* unvisited link */
