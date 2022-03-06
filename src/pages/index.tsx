@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import Footer from '../components/Footer';
 import HomeBanner from '../components/Home/HomeBanner';
+import HomeContent from '../components/Home/HomeContent';
 
 function Home() {
   return (
@@ -10,7 +11,10 @@ function Home() {
       <Head>
         <title>Kamaal Farah</title>
       </Head>
-      <HomeBanner />
+      <div id="home-content">
+        <HomeBanner />
+        <HomeContent />
+      </div>
       <Footer />
     </>
   );

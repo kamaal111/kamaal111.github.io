@@ -1,7 +1,8 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 
-import '../styles.css';
+import '../styles/app.css';
+import '../styles/home.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
