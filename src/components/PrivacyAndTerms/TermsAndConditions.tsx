@@ -10,14 +10,14 @@ function TermsAndConditions() {
     <>
       <h1>{termsAndCondition.title}</h1>
       <h3>{`Last updated: ${lastUpdatedTermsAndConditions}`}</h3>
-      {termsAndCondition.description.map((description, index) => (
-        <p key={index}>{description}</p>
+      {termsAndCondition.description.map((description) => (
+        <p key={description.slice(0, 10)}>{description}</p>
       ))}
       {termsAndCondition.content.map(({ header, content }) => (
         <Fragment key={header}>
           <h2>{header}</h2>
-          {content.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+          {content.map((paragraph) => (
+            <p key={`${header}${paragraph.slice(0, 10)}`}>{paragraph}</p>
           ))}
         </Fragment>
       ))}
