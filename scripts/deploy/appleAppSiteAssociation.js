@@ -18,6 +18,12 @@ const appleAppSiteAssociation = {
             comment: 'No link',
           },
           {
+            '/': '/colorselector/edit?*',
+            caseSensitive: false,
+            exclude: false,
+            comment: 'Should go to edit screen in Color Selector',
+          },
+          {
             '/': '/colorselector*',
             caseSensitive: false,
             exclude: false,
