@@ -1,0 +1,11 @@
+#home-content {
+  margin: 0 16px;
+}
+
+.work-link {
+  margin: 16px 0;
+}
+
+a {
+  text-decoration: none;
+}

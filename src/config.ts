@@ -1,6 +1,8 @@
 // config.js
 
-export const lastUpdatedTermsAndConditions = 'Februari 14th 2022';
+export const lastUpdatedTermsAndConditions = 'February 14th 2022';
 export const contactEmail = 'app.kamaal@gmail.com';
 
-export const copyWrite = 'Ⓒ 2022 Kamaal Farah';
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+export const copyWrite = `Ⓒ ${currentYear} Kamaal Farah`;

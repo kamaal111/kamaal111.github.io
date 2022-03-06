@@ -94,6 +94,17 @@ const privacyContent = [
   },
 ];
 
+export const work = [
+  {
+    title: 'Color Selector App',
+    link: 'https://kamaal.io/colorselector/',
+  },
+  {
+    title: 'Web assembly game of life',
+    link: 'https://kamaal.io/wasm-game-of-life/',
+  },
+];
+
 export const privacy = {
   title: privacyTitle,
   description: [privacyDescription, privacyDescription2, privacyDescription3],
@@ -103,6 +114,7 @@ export const privacy = {
 const appContent = {
   termsAndCondition,
   privacy,
+  work,
 };
 
 export default appContent;

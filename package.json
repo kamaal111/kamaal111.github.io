@@ -73,6 +73,7 @@
     "rules": {
       "import/extensions": 0,
       "react/jsx-filename-extension": 0,
+      "react/jsx-curly-brace-presence": 0,
       "prettier/prettier": [
         "error",
         {
