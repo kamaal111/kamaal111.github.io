@@ -1,0 +1,24 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [ "DXUKH9VF73.io.kamaal.ColorPicker" ],
+        "paths": {
+          "/colorselector*",
+        },
+        "components": [
+          {
+            "/": "/colorselector*",
+            "caseSensitive": false,
+            "comment": "Should go to Color Selector"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "DXUKH9VF73.io.kamaal.ColorPicker"
+    ]
+  }
+}
