@@ -9,11 +9,18 @@ const appleAppSiteAssociation = {
     details: [
       {
         appIDs: [colorPickerAppId],
-        paths: ['/colorselector*'],
+        paths: ['/', '/colorselector*'],
         components: [
+          {
+            '/': '/',
+            caseSensitive: false,
+            exclude: true,
+            comment: 'No link',
+          },
           {
             '/': '/colorselector*',
             caseSensitive: false,
+            exclude: false,
             comment: 'Should go to Color Selector',
           },
         ],
