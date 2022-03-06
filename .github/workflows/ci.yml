@@ -19,3 +19,34 @@ jobs:
       - name: Lint
         run: |
           yarn lint
+
+  deploy:
+    name: Deploy
+    timeout-minutes: 15
+    runs-on: ubuntu-20.04
+    needs: [quality]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+
+      - name: Install node modules
+        run: |
+          yarn
+
+      - name: Build project
+        run: |
+          yarn build
+          npx next export
+          mkdir out/.well-known
+          touch out/.nojekyll
+
+      - name: Make CNAME
+        run: |
+          node scripts/deploy/cname.js
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: out
