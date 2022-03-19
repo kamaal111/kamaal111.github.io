@@ -36,6 +36,9 @@ const appleAppSiteAssociation = {
   webcredentials: {
     apps: [colorPickerAppId],
   },
+  appclips: {
+    apps: [`${colorPickerAppId}.Clip`],
+  },
 };
 
 const exportAppleAppSiteAssociationFile = async () => {
