@@ -36,5 +36,10 @@
     "apps": [
       "DXUKH9VF73.io.kamaal.ColorPicker"
     ]
+  },
+  "appclips": {
+    "apps": [
+      "DXUKH9VF73.io.kamaal.ColorPicker.Clip"
+    ]
   }
 }
