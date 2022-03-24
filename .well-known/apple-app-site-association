@@ -2,13 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": [
-          "DXUKH9VF73.io.kamaal.ColorPicker"
-        ],
-        "paths": [
-          "/",
-          "/colorselector*"
-        ],
+        "appID": "DXUKH9VF73.io.kamaal.ColorPicker",
         "components": [
           {
             "/": "/",
@@ -17,13 +11,7 @@
             "comment": "No link"
           },
           {
-            "/": "/colorselector/edit?*",
-            "caseSensitive": false,
-            "exclude": false,
-            "comment": "Should go to edit screen in Color Selector"
-          },
-          {
-            "/": "/colorselector*",
+            "/": "/colorselector/*",
             "caseSensitive": false,
             "exclude": false,
             "comment": "Should go to Color Selector"
@@ -33,6 +21,11 @@
     ]
   },
   "webcredentials": {
+    "apps": [
+      "DXUKH9VF73.io.kamaal.ColorPicker"
+    ]
+  },
+  "activitycontinuation": {
     "apps": [
       "DXUKH9VF73.io.kamaal.ColorPicker"
     ]
