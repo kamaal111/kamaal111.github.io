@@ -8,8 +8,7 @@ const appleAppSiteAssociation = {
   applinks: {
     details: [
       {
-        appIDs: [colorPickerAppId],
-        paths: ['/', '/colorselector*'],
+        appID: colorPickerAppId,
         components: [
           {
             '/': '/',
@@ -18,13 +17,7 @@ const appleAppSiteAssociation = {
             comment: 'No link',
           },
           {
-            '/': '/colorselector/edit?*',
-            caseSensitive: false,
-            exclude: false,
-            comment: 'Should go to edit screen in Color Selector',
-          },
-          {
-            '/': '/colorselector*',
+            '/': '/colorselector/*',
             caseSensitive: false,
             exclude: false,
             comment: 'Should go to Color Selector',
@@ -36,13 +29,16 @@ const appleAppSiteAssociation = {
   webcredentials: {
     apps: [colorPickerAppId],
   },
+  activitycontinuation: {
+    apps: [colorPickerAppId],
+  },
   appclips: {
     apps: [`${colorPickerAppId}.Clip`],
   },
 };
 
 const exportAppleAppSiteAssociationFile = async () => {
-  const exportPath = 'out/apple-app-site-association';
+  const exportPath = 'out/.well-known/apple-app-site-association';
   await fs.writeFile(
     exportPath,
     JSON.stringify(appleAppSiteAssociation, undefined, 2),
