@@ -3,6 +3,10 @@ const ghPages = require("gh-pages");
 const publishConfiguration = {
   dotfiles: false,
   add: false,
+  user: {
+    name: "Kamaal Farah",
+    email: "kamaal.f1@gmail.com",
+  },
 };
 
 ghPages.publish("public", publishConfiguration, publishCallback);

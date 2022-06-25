@@ -26,4 +26,4 @@ jobs:
       - name: Deploy 🚀
         run: |
           yarn
-          yarn deploy
+          yarn deploy || exit 1
