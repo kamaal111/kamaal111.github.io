@@ -6,7 +6,8 @@
   "homepage": "https://kamaal.io",
   "scripts": {
     "dev": "hugo server -D",
-    "build:production": "sh scripts/build_production.sh"
+    "build:production": "sh scripts/build_production.sh",
+    "deploy": "node scripts/deploy.js"
   },
   "author": "Kamaal Farah <kamaal111>",
   "license": "MIT",
@@ -17,5 +18,7 @@
   "bugs": {
     "url": "https://github.com/kamaal111/kamaal111.github.io/issues"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
