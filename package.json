@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "hugo server -D",
     "build:production": "sh scripts/build_production.sh",
-    "deploy": "node scripts/deploy.js"
+    "deploy": "yarn build:production && npx gh-pages -d public"
   },
   "author": "Kamaal Farah <kamaal111>",
   "license": "MIT",
