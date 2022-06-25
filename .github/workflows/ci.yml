@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - '*'
+      - 'feature/*'
 jobs:
   deploy:
     name: Deploy
