@@ -83,10 +83,16 @@ weight = 4
 url = "https://www.linkedin.com/in/kamaalfarah/"
 
 [[params.social]]
+name = "App Store"
+icon = "fa fa-2x fa-apple"
+weight = 4
+url = "https://apps.apple.com/bj/developer/kamaal-farah/id1502158009/"
+
+[[params.social]]
 name = "RSS"
 icon = "fa fa-2x fa-rss"
 weight = 6
-url = "https://kamaal.io/index.xml"
+url = "https://kamaal.io/index.xml/"
 rel = "alternate"
 type = "application/rss+xml"
 
