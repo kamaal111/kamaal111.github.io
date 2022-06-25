@@ -2,7 +2,7 @@
 
 rm -rf public
 
-hugo --minify
+hugo -D
 
 touch public/.nojekyll
 
