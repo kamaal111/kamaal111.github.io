@@ -8,7 +8,6 @@ pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
-disableKinds = ["RSS"]
 # Enable Disqus comments
 # disqusShortname = "yourdiscussshortname"
 
