@@ -4,7 +4,7 @@ rm -rf public
 
 hugo --minify
 
-mkdir public/.well-known
 touch public/.nojekyll
 
+mkdir public/.well-known
 node scripts/addAASAToStaticSite.js
