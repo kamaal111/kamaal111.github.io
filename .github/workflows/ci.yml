@@ -23,7 +23,8 @@ jobs:
         run: |
           yarn build:production
 
-      - name: Deploy 🚀
-        run: |
-          yarn
-          yarn deploy || exit 1
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
