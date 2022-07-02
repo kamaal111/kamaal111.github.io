@@ -1,0 +1,67 @@
+@use 'theme';
+@use 'constants/colors';
+
+@import 'constants/sizes';
+
+html,
+body {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+$global-horizontal-padding: 50px;
+
+main {
+  margin: 0 $global-horizontal-padding;
+  padding-bottom: 40px;
+}
+
+.header {
+  margin: 16px $global-horizontal-padding;
+}
+
+.work-link {
+  margin: $medium-size 0;
+}
+
+.home-link {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: no-preference) {
+  $scheme: no-preference;
+
+  @include theme.theme($scheme);
+}
+
+@media (prefers-color-scheme: light) {
+  $scheme: light;
+
+  @include theme.theme($scheme);
+}
+
+@media (prefers-color-scheme: dark) {
+  $scheme: dark;
+
+  @include theme.theme($scheme);
+}

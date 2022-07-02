@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+import Link from 'next/link';
+
+import { fullName } from '../config';
+
 type Props = {
   headerText?: string;
 };
@@ -7,7 +11,9 @@ type Props = {
 function Header({ headerText }: Props) {
   return (
     <div className="header">
-      <h1>Kamaal Farah</h1>
+      <div className="home-link">
+        <Link href="/">{fullName}</Link>
+      </div>
       {headerText != null ? <h2>{headerText}</h2> : null}
     </div>
   );

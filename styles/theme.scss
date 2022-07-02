@@ -1,0 +1,58 @@
+@use 'constants/colors';
+
+@mixin theme($scheme) {
+  @if $scheme == dark {
+    /* unvisited link */
+    a:link {
+      color: #3ca4f4;
+    }
+
+    /* mouse over link */
+    a:hover {
+      color: #ff389b;
+    }
+
+    /* selected link */
+    a:active {
+      color: #0000ff;
+    }
+  } @else {
+    /* unvisited link */
+    a:link {
+      color: #3492da;
+    }
+
+    /* mouse over link */
+    a:hover {
+      color: #d52d81;
+    }
+
+    /* selected link */
+    a:active {
+      color: #0202d2;
+    }
+  }
+
+  * {
+    @include colors.background-color(background-color, $scheme);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  i,
+  span,
+  strong {
+    @include colors.primary-color(color, $scheme);
+  }
+
+  .home-link {
+    @include colors.primary-color(color, $scheme);
+  }
+
+  a {
+    @include colors.primary-color(color, $scheme);
+  }
+}

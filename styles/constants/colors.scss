@@ -1,0 +1,15 @@
+@mixin primary-color($property, $scheme) {
+  @if $scheme == dark {
+    #{$property}: #f2fafa;
+  } @else {
+    #{$property}: #2c3e50;
+  }
+}
+
+@mixin background-color($property, $scheme) {
+  @if $scheme == dark {
+    #{$property}: #000000;
+  } @else {
+    #{$property}: #ffffff;
+  }
+}
