@@ -1,6 +1,6 @@
 baseURL = "https://kamaal.io"
 title = "Kamaal Farah"
-theme = "hugo-coder"
+theme = "kamaal-theme"
 languageCode = "en"
 defaultContentLanguage = "en"
 paginate = 20

@@ -2,7 +2,7 @@
 
 rm -rf public
 
-hugo -D
+hugo
 
 touch public/.nojekyll
 
