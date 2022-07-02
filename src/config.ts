@@ -5,4 +5,4 @@ export const contactEmail = 'app.kamaal@gmail.com';
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
-export const copyWrite = `Ⓒ ${currentYear} Kamaal Farah`;
+export const copyWrite = `Ⓒ 2020-${currentYear} Kamaal Farah`;

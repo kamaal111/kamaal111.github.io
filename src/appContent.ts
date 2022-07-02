@@ -2,9 +2,8 @@ const termsAndConditionContent = [
   {
     header: 'Content',
     content: [
-      `The Service allows you to use the apps (Color Selector and Iron Buddy)
-        for the use it was intended for. You are responsible for the data you
-        create and share.`,
+      `The Service allows you to use the Kamaal's apps for the use it was 
+      intended for. You are responsible for the data you create and share.`,
     ],
   },
   {

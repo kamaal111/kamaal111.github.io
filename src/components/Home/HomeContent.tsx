@@ -3,7 +3,7 @@ import { work } from '../../appContent';
 
 function HomeContent() {
   return (
-    <>
+    <div className="home-content">
       <i>{"I'm just using this domain as my playground"}</i>
       {work.map(({ title, link }) => {
         return (
@@ -14,7 +14,7 @@ function HomeContent() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 

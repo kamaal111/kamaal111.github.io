@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { contactEmail } from '../../config';
+import { contactEmail } from '../config';
 
 type ContactMeProps = {
   from: string;

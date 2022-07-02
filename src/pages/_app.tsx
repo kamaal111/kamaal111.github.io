@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
-      <style jsx global>
+      <style>
         {`
           html,
           body {
@@ -27,8 +27,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           * {
             box-sizing: border-box;
           }
+        
+          main {
+            margin: 0 16px;
+            padding-bottom:40px;
+          }
 
-          #home-content {
+          .header {
             margin: 0 16px;
           }
 

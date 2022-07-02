@@ -69,10 +69,14 @@
       "react",
       "@typescript-eslint"
     ],
+    "globals": {
+      "JSX": true
+    },
     "rules": {
       "import/extensions": 0,
       "react/jsx-filename-extension": 0,
       "react/jsx-curly-brace-presence": 0,
+      "react/require-default-props": 0,
       "prettier/prettier": [
         "error",
         {

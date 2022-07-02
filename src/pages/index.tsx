@@ -1,22 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
 
-import Footer from '../components/Footer';
-import HomeBanner from '../components/Home/HomeBanner';
 import HomeContent from '../components/Home/HomeContent';
+import Page from '../components/Page';
 
 function Home() {
   return (
-    <>
-      <Head>
-        <title>Kamaal Farah</title>
-      </Head>
-      <div id="home-content">
-        <HomeBanner />
-        <HomeContent />
-      </div>
-      <Footer />
-    </>
+    <Page>
+      <HomeContent />
+    </Page>
   );
 }
 
