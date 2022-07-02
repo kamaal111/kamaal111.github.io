@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Image from 'next/image';
 
-// import { work } from '../../appContent';
 import avatar from '../../../public/images/avatar.jpg';
+import { fullName, currentRoles } from '../../config';
 
 import styles from '../../../styles/Home.module.scss';
 
@@ -14,20 +14,13 @@ function HomeContent() {
       <Image
         className={styles.avatar}
         src={avatar}
-        alt="Picture of the author"
+        alt={`Picture of ${fullName}`}
         width={imageSize}
         height={imageSize}
         priority
       />
-      {/* {work.map(({ title, link }) => {
-        return (
-          <div className="work-link" key={title}>
-            <a href={link}>
-              <b>{title}</b>
-            </a>
-          </div>
-        );
-      })} */}
+      <h1>{fullName}</h1>
+      <h2>{currentRoles.join(' | ')}</h2>
     </div>
   );
 }
