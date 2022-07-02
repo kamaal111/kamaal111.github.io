@@ -23,15 +23,13 @@ footer {
   justify-content: center;
 }
 
-$global-horizontal-padding: 50px;
-
 main {
   margin: 0 $global-horizontal-padding;
   padding-bottom: 40px;
 }
 
 .header {
-  margin: 16px $global-horizontal-padding;
+  margin: $medium-size $global-horizontal-padding;
 }
 
 .work-link {
