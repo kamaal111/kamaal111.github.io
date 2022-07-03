@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Image from 'next/image';
 
-import Icon from '../Icon';
+import IconLink from '../IconLink';
 
-import { fullName, currentRoles } from '../../config';
+import { fullName, currentRoles, socials } from '../../config';
 
 import styles from '../../../styles/Home.module.scss';
 
@@ -23,7 +23,9 @@ function HomeContent() {
       />
       <h1>{fullName}</h1>
       <h2>{currentRoles.join(' | ')}</h2>
-      <Icon name={'apple'} />
+      {socials.map(({ icon, id, url }) => {
+        return <IconLink name={icon} url={url} key={id} />;
+      })}
     </div>
   );
 }

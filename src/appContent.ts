@@ -40,11 +40,6 @@ const termsAndConditionDescription = `Please read these Terms and Conditions ("T
         part of the terms then you may not access the Service.`;
 const termsAndConditionDescription2 = `By accessing or using the Service you agree to be bound by these Terms. 
         If you disagree with any part of the terms then you may not access the Service.`;
-export const termsAndCondition = {
-  title: termsAndConditionTitle,
-  description: [termsAndConditionDescription, termsAndConditionDescription2],
-  content: termsAndConditionContent,
-};
 
 const privacyTitle = 'Privacy Policy';
 const privacyDescription = `This policy applies to all information collected or submitted on
@@ -93,7 +88,7 @@ const privacyContent = [
   },
 ];
 
-export const work = [
+export const projects = [
   {
     title: 'Color Selector App',
     link: 'https://kamaal.io/colorselector/',
@@ -104,6 +99,12 @@ export const work = [
   },
 ];
 
+export const termsAndCondition = {
+  title: termsAndConditionTitle,
+  description: [termsAndConditionDescription, termsAndConditionDescription2],
+  content: termsAndConditionContent,
+};
+
 export const privacy = {
   title: privacyTitle,
   description: [privacyDescription, privacyDescription2, privacyDescription3],
@@ -113,7 +114,7 @@ export const privacy = {
 const appContent = {
   termsAndCondition,
   privacy,
-  work,
+  projects,
 };
 
 export default appContent;
