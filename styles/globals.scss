@@ -32,11 +32,22 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 a.colored-link {
   font-weight: bold;
 }
 
+.menu-links a {
+  font-size: 17px;
+  font-weight: 600;
+}
+
 .header {
+  display: flex;
+  justify-content: space-between;
   margin: $medium-size $global-horizontal-padding;
 }
 

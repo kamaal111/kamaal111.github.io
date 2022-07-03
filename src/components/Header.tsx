@@ -1,19 +1,23 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { fullName } from '../config';
+import { fullName, menuItems } from '../config';
 
-type Props = {
-  headerText?: string;
-};
-
-function Header({ headerText }: Props) {
+function Header() {
   return (
     <div className="header">
       <div className="home-link">
         <Link href="/">{fullName}</Link>
       </div>
-      {headerText != null ? <h2>{headerText}</h2> : null}
+      <div className="menu-links">
+        {menuItems.map(({ id, name, link }) => {
+          return (
+            <Link href={link} key={id}>
+              {name}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

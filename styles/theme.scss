@@ -29,10 +29,22 @@
   }
 
   a:hover {
+    animation: lightUp 0.25s ease-in 0s;
+
     @include colors.accent-color(color, $scheme);
   }
 
   a:active {
     @include colors.accent-color(color, $scheme, 10%);
+  }
+
+  @keyframes lightUp {
+    0% {
+      @include colors.primary-color(color, $scheme);
+    }
+
+    100% {
+      @include colors.accent-color(color, $scheme);
+    }
   }
 }

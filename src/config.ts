@@ -41,3 +41,11 @@ export const socials: Social[] = [
     url: 'https://apps.apple.com/bj/developer/kamaal-farah/id1502158009/',
   },
 ];
+
+export const menuItems: { id: string; link: string; name: string }[] = [
+  {
+    id: '7845be0e-c294-48a4-9515-235d97b9ce83',
+    link: '/projects',
+    name: 'Projects',
+  },
+];

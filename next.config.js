@@ -29,6 +29,7 @@ const nextConfig = {
 function exportPathMap(_defaultPathMap) {
   return {
     '/': { page: '/' },
+    '/projects': { page: '/projects' },
     '/privacyterms': { page: '/privacyterms' },
     '/contact': { page: '/contact' },
   };
