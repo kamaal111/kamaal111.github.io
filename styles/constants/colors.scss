@@ -13,3 +13,11 @@
     #{$property}: #ffffff;
   }
 }
+
+@mixin accent-color($property, $scheme) {
+  @if $scheme == dark {
+    #{$property}: #ff389b;
+  } @else {
+    #{$property}: #d52d81;
+  }
+}
