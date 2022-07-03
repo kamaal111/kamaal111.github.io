@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "homepage": "kamaal.io",
+  "type": "module",
   "main": "src/pages/index.jsx",
   "description": "",
   "author": "kamaal111",
@@ -15,12 +16,21 @@
     "deploy": "sh scripts/deploy/run.sh"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.0.0-rc.2",
+    "@mdx-js/react": "^2.0.0-rc.2",
+    "@next/mdx": "^12.2.0",
+    "@reach/disclosure": "^0.17.0",
+    "@reach/tooltip": "^0.17.0",
     "font-awesome": "^4.7.0",
+    "gray-matter": "^4.0.3",
     "next": "12.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rehype-highlight": "^5.0.2",
+    "remark-frontmatter": "^4.0.1"
   },
   "devDependencies": {
+    "@types/mdx": "^2.0.2",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
@@ -75,6 +85,7 @@
       "JSX": true
     },
     "rules": {
+      "no-use-before-define": 0,
       "no-unused-vars": 0,
       "import/extensions": 0,
       "react/jsx-filename-extension": 0,
