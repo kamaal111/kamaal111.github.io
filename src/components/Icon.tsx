@@ -5,7 +5,7 @@ type Props = {
 };
 
 function Icon({ name }: Props) {
-  return <i className={`fa fa-2x fa-${name}`} />;
+  return <i className={name} />;
 }
 
 export default Icon;

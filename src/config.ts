@@ -24,19 +24,19 @@ type Social = {
 export const socials: Social[] = [
   {
     id: '69f7f3ca-72a0-4feb-aa17-27da51e09351',
-    icon: 'github',
+    icon: 'fa fa-2x fa-github',
     name: 'GitHub',
     url: 'https://github.com/kamaal111/',
   },
   {
     id: '59083d8c-399a-49dd-be52-4e4031a14023',
-    icon: 'linkedin',
+    icon: 'fa fa-2x fa-linkedin',
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/kamaalfarah/',
   },
   {
     id: '62959d55-66a9-4212-8ded-33e817c88c50',
-    icon: 'apple',
+    icon: 'fa fa-2x fa-apple',
     name: 'App Store',
     url: 'https://apps.apple.com/bj/developer/kamaal-farah/id1502158009/',
   },
