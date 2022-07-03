@@ -14,10 +14,10 @@
   }
 }
 
-@mixin accent-color($property, $scheme) {
+@mixin accent-color($property, $scheme, $darkness: 0%) {
   @if $scheme == dark {
-    #{$property}: #ff389b;
+    #{$property}: darken(#6dff38, $darkness);
   } @else {
-    #{$property}: #d52d81;
+    #{$property}: darken(#2dd551, $darkness);
   }
 }

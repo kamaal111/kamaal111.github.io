@@ -1,18 +1,6 @@
 @use 'constants/colors';
 
 @mixin theme($scheme) {
-  @if $scheme == dark {
-    /* selected link */
-    a:active {
-      color: #0000ff;
-    }
-  } @else {
-    /* selected link */
-    a:active {
-      color: #0202d2;
-    }
-  }
-
   * {
     @include colors.background-color(background-color, $scheme);
   }
@@ -38,5 +26,9 @@
 
   a:hover {
     @include colors.accent-color(color, $scheme);
+  }
+
+  a:active {
+    @include colors.accent-color(color, $scheme, 10%);
   }
 }
