@@ -6,7 +6,7 @@
   "type": "module",
   "main": "src/pages/index.jsx",
   "description": "",
-  "author": "kamaal111",
+  "author": "Kamaal Farah <kamaal111>",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

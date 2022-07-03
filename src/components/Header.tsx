@@ -5,9 +5,17 @@ import Icon from './Icon';
 
 import { fullName, menuItems } from '../config';
 import useMediaQuery from '../hooks/useMediaQuery';
+import classNames from '../utils/classNames';
 
 function Header() {
+  const [dropDownMenuItemsAreVisible, setDropDownMenuItemsAreVisible] =
+    React.useState(false);
+
   const showMobileLayout = useMediaQuery('(max-width: 770px)');
+
+  const toggleDropDownMenuItems = React.useCallback(() => {
+    setDropDownMenuItemsAreVisible(!dropDownMenuItemsAreVisible);
+  }, [dropDownMenuItemsAreVisible]);
 
   return (
     <div className="header">
@@ -15,7 +23,11 @@ function Header() {
         <Link href="/">{fullName}</Link>
       </div>
       <div className="menu-links">
-        <Header.MenuItems showMobileLayout={showMobileLayout} />
+        <Header.MenuItems
+          showMobileLayout={showMobileLayout}
+          dropDownMenuItemsAreVisible={dropDownMenuItemsAreVisible}
+          onHamburgerClick={toggleDropDownMenuItems}
+        />
       </div>
     </div>
   );
@@ -23,16 +35,33 @@ function Header() {
 
 type MenuItemsProps = {
   showMobileLayout: boolean;
+  dropDownMenuItemsAreVisible: boolean;
+  onHamburgerClick: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => void;
 };
 
-Header.MenuItems = function MenuItems({ showMobileLayout }: MenuItemsProps) {
+Header.MenuItems = function MenuItems({
+  showMobileLayout,
+  dropDownMenuItemsAreVisible,
+  onHamburgerClick,
+}: MenuItemsProps) {
   if (showMobileLayout) {
     return (
-      <button type="button" onClick={(event) => console.log('hallo')}>
-        <Icon name="fa fa-bars fa-fw hamburger" />
+      <button type="button" onClick={onHamburgerClick}>
+        <Icon
+          name={classNames([
+            'fa',
+            'fa-bars',
+            'fa-fw',
+            'hamburger',
+            { toggled: dropDownMenuItemsAreVisible },
+          ])}
+        />
       </button>
     );
   }
+
   return (
     <>
       {menuItems.map(({ id, name, link }) => {
