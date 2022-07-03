@@ -24,6 +24,10 @@
     @include colors.primary-color(color, $scheme);
   }
 
+  a.colored-link {
+    @include colors.accent-color(color, $scheme);
+  }
+
   a:hover {
     @include colors.accent-color(color, $scheme);
   }

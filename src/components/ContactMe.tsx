@@ -13,7 +13,11 @@ function ContactMe({ from }: ContactMeProps) {
       <p>
         {`If you have any questions or suggestions about my ${from}, do
           not hesitate to contact me at `}
-        <a href={`mailto:${contactEmail}?Subject=Hello`} target="_top">
+        <a
+          className="colored-link"
+          href={`mailto:${contactEmail}?Subject=Hello`}
+          target="_top"
+        >
           {`${contactEmail}.`}
         </a>
       </p>

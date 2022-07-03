@@ -32,6 +32,10 @@ a {
   text-decoration: none;
 }
 
+a.colored-link {
+  font-weight: bold;
+}
+
 .header {
   margin: $medium-size $global-horizontal-padding;
 }
