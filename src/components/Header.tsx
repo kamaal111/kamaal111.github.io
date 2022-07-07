@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Link from 'next/link';
+import classnames from '@kamaal111/classname';
 
 import Icon from './Icon';
 
 import { fullName, menuItems } from '../config';
 import useMediaQuery from '../hooks/useMediaQuery';
-import classNames from '../utils/classNames';
 
 function Header() {
   const [dropDownMenuItemsAreVisible, setDropDownMenuItemsAreVisible] =
@@ -50,13 +50,9 @@ Header.MenuItems = function MenuItems({
     return (
       <button type="button" onClick={onHamburgerClick}>
         <Icon
-          name={classNames([
-            'fa',
-            'fa-bars',
-            'fa-fw',
-            'hamburger',
-            { toggled: dropDownMenuItemsAreVisible },
-          ])}
+          name={classnames('fa', 'fa-bars', 'fa-fw', 'hamburger', {
+            toggled: dropDownMenuItemsAreVisible,
+          })}
         />
       </button>
     );
