@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { contactEmail } from '../config';
+import config from '../config';
 
 type ContactMeProps = {
   from: string;
@@ -15,10 +15,10 @@ function ContactMe({ from }: ContactMeProps) {
           not hesitate to contact me at `}
         <a
           className="colored-link"
-          href={`mailto:${contactEmail}?Subject=Hello`}
+          href={`mailto:${config.contactEmail}?Subject=Hello`}
           target="_top"
         >
-          {`${contactEmail}.`}
+          {`${config.contactEmail}.`}
         </a>
       </p>
     </>

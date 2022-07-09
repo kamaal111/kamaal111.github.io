@@ -3,13 +3,13 @@ import React, { Fragment } from 'react';
 import { termsAndCondition } from '../../appContent';
 import ContactMe from '../ContactMe';
 
-import { lastUpdatedTermsAndConditions } from '../../config';
+import config from '../../config';
 
 function TermsAndConditions() {
   return (
     <>
       <h2>{termsAndCondition.title}</h2>
-      <h3>{`Last updated: ${lastUpdatedTermsAndConditions}`}</h3>
+      <h3>{`Last updated: ${config.lastUpdatedTermsAndConditions}`}</h3>
       {termsAndCondition.description.map((description) => (
         <p key={description.slice(0, 10)}>{description}</p>
       ))}

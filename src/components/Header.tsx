@@ -4,7 +4,7 @@ import classnames from '@kamaal111/classname';
 
 import Icon from './Icon';
 
-import { fullName, menuItems } from '../config';
+import config from '../config';
 import useMediaQuery from '../hooks/useMediaQuery';
 
 function Header() {
@@ -20,7 +20,7 @@ function Header() {
   return (
     <div className="header">
       <div className="home-link">
-        <Link href="/">{fullName}</Link>
+        <Link href="/">{config.fullName}</Link>
       </div>
       <div className="menu-links">
         <Header.MenuItems
@@ -60,7 +60,7 @@ Header.MenuItems = function MenuItems({
 
   return (
     <>
-      {menuItems.map(({ id, name, link }) => {
+      {config.menuItems.map(({ id, name, link }) => {
         return (
           <Link href={link} key={id}>
             {name}
