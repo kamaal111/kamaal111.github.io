@@ -55,15 +55,15 @@ Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
   return (
     <>
       <Divider className="animated-appearing" />
-      <div className={classnames(styles.dropdown, 'animated-appearing')}>
+      <ul className={classnames(styles.dropdown, 'animated-appearing')}>
         {config.menuItems.map(({ id, name, link }) => {
           return (
-            <Link href={link} key={id}>
-              {name}
-            </Link>
+            <li key={id}>
+              <Link href={link}>{name}</Link>
+            </li>
           );
         })}
-      </div>
+      </ul>
       <Divider className="animated-appearing" />
     </>
   );
