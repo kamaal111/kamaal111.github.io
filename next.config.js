@@ -2,6 +2,7 @@
 /** @type {import('next').NextConfig} */
 
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import remarkFrontmatter from 'remark-frontmatter';
 import rehypeHighlight from 'rehype-highlight';
@@ -26,10 +27,15 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
 };
 
-function exportPathMap(_defaultPathMap) {
+async function exportPathMap(_defaultPathMap) {
+  const routing = await fs.promises.readFile('.kamaal/routing.json');
+  Object.values(Object.parse(routing))
+    .flat(1)
+    .reduce((acc, value) => {
+      return { ...acc, [value.path]: { page: value.path } };
+    }, {});
   return {
     '/': { page: '/' },
-    '/projects': { page: '/projects' },
     '/privacyterms': { page: '/privacyterms' },
     '/contact': { page: '/contact' },
   };

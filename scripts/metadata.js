@@ -1,18 +1,58 @@
+/* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
-/* eslint-disable no-underscore-dangle */
-
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
+import { performance } from 'perf_hooks';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDirectoryName = 'content';
 const contentPath = path.join(__dirname, '/..', contentDirectoryName);
 
 async function main() {
+  const startTime = performance.now();
+
   const result = await listPathContent(contentPath, {}, 10);
-  console.log('result', result);
+
+  const jsonResult = JSON.stringify(result, null, 2);
+
+  const checksum = crypto.createHash('sha1');
+  checksum.update(jsonResult);
+  const hash = checksum.digest('hex');
+
+  const existingHashesPath = '.kamaal/hashes.json';
+  const existingHashes = await fs.promises.readFile(existingHashesPath);
+  const existingHashesJSON = JSON.parse(existingHashes);
+  if (hash === existingHashesJSON.metadata) {
+    console.log('No changes made');
+
+    const endTime = performance.now();
+    console.log(`Finished in ${(endTime - startTime).toFixed(4)} milliseconds`);
+    return;
+  }
+
+  await Promise.all(
+    [
+      { data: jsonResult, filePath: '.kamaal/routing.json' },
+      {
+        data: JSON.stringify(
+          { ...existingHashesJSON, metadata: hash },
+          null,
+          2,
+        ),
+        filePath: existingHashesPath,
+      },
+    ].map(({ data, filePath }) => {
+      return fs.promises.writeFile(filePath, data);
+    }),
+  );
+
+  console.log('successfully wrote new metadata');
+
+  const endTime = performance.now();
+  console.log(`Finished in ${(endTime - startTime).toFixed(4)} milliseconds`);
 }
 
 async function listPathContent(searchPath, files, maxDepth) {
@@ -48,9 +88,10 @@ async function listPathContent(searchPath, files, maxDepth) {
         .slice(null, -1)
         .join('/');
 
+      const name = fileOrDirectoryName.split('.').slice(null, -1).join('.');
       newFiles[parent].push({
-        path: path.join(contentDirectoryName, parent),
-        name: fileOrDirectoryName,
+        path: `/${path.join(contentDirectoryName, parent, name)}`,
+        name,
       });
     }
   }
