@@ -18,6 +18,11 @@
   font-weight: 600;
 }
 
+.dropdown-container {
+  position: fixed;
+  width: 100%;
+}
+
 .dropdown {
   margin: $medium-size $global-horizontal-padding;
   text-align: center;

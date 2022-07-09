@@ -53,7 +53,7 @@ Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
   if (!isVisible) return null;
 
   return (
-    <>
+    <div className={styles['dropdown-container']}>
       <Divider className="animated-appearing" />
       <ul className={classnames(styles.dropdown, 'animated-appearing')}>
         {config.menuItems.map(({ id, name, link }) => {
@@ -64,8 +64,10 @@ Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
           );
         })}
       </ul>
-      <Divider className="animated-appearing" />
-    </>
+      <Divider
+        className={classnames('animated-appearing', 'no-margin-bottom')}
+      />
+    </div>
   );
 };
 

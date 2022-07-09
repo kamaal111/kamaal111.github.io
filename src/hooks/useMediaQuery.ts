@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const useMediaQuery = (query: string) => {
+function useMediaQuery(query: string) {
   const [matches, setMatches] = React.useState(false);
 
   React.useEffect(() => {
@@ -9,11 +9,12 @@ const useMediaQuery = (query: string) => {
       setMatches(media.matches);
     }
 
-    const listener = () => {
+    function listener() {
       if (matches === media.matches) return;
 
       setMatches(media.matches);
-    };
+    }
+
     window.addEventListener('resize', listener);
 
     return () => {
@@ -22,6 +23,6 @@ const useMediaQuery = (query: string) => {
   }, [matches, query]);
 
   return matches;
-};
+}
 
 export default useMediaQuery;

@@ -64,6 +64,10 @@ a.colored-link {
   animation: appearing 0.25s ease-out 0s;
 }
 
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
 @keyframes appearing {
   0% {
     opacity: 0;
