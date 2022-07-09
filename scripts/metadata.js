@@ -9,7 +9,13 @@ import { performance } from 'perf_hooks';
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDirectoryName = 'content';
-const contentPath = path.join(__dirname, '/..', contentDirectoryName);
+const contentPath = path.join(
+  __dirname,
+  '/..',
+  'src',
+  'pages',
+  contentDirectoryName,
+);
 
 async function main() {
   const startTime = performance.now();
@@ -49,7 +55,7 @@ async function main() {
     }),
   );
 
-  console.log('successfully wrote new metadata');
+  console.log('Successfully wrote new metadata');
 
   const endTime = performance.now();
   console.log(`Finished in ${(endTime - startTime).toFixed(4)} milliseconds`);
@@ -90,7 +96,8 @@ async function listPathContent(searchPath, files, maxDepth) {
 
       const name = fileOrDirectoryName.split('.').slice(null, -1).join('.');
       newFiles[parent].push({
-        path: `/${path.join(contentDirectoryName, parent, name)}`,
+        routesPath: `/${path.join(parent, name)}`,
+        page: `/${path.join(contentDirectoryName, parent, name)}`,
         name,
       });
     }

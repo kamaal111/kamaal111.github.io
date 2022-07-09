@@ -1,19 +1,8 @@
 {
-  "blog": [
-    {
-      "path": "/content/blog/second",
-      "name": "second"
-    }
-  ],
-  "blog/content": [
-    {
-      "path": "/content/blog/content/first",
-      "name": "first"
-    }
-  ],
   "projects": [
     {
-      "path": "/content/projects/colorselector",
+      "routesPath": "/projects/colorselector",
+      "page": "/content/projects/colorselector",
       "name": "colorselector"
     }
   ]

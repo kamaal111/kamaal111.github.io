@@ -28,17 +28,22 @@ const nextConfig = {
 };
 
 async function exportPathMap(_defaultPathMap) {
-  const routing = await fs.promises.readFile('.kamaal/routing.json');
-  Object.values(Object.parse(routing))
+  const extraRoutes = await fs.promises.readFile('.kamaal/routing.json');
+  const parsedExtraRoutes = Object.values(JSON.parse(extraRoutes))
     .flat(1)
-    .reduce((acc, value) => {
-      return { ...acc, [value.path]: { page: value.path } };
+    .reduce((acc, { routesPath, page }) => {
+      return { ...acc, [routesPath]: { page } };
     }, {});
-  return {
+
+  const routes = {
     '/': { page: '/' },
     '/privacyterms': { page: '/privacyterms' },
     '/contact': { page: '/contact' },
+    ...parsedExtraRoutes,
   };
+
+  console.log('routes', routes);
+  return routes;
 }
 
 function webpack(config, options) {
