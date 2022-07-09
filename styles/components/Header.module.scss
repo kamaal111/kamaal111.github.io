@@ -1,0 +1,26 @@
+@use 'theme';
+@use 'constants/colors';
+
+@import 'constants/sizes';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: $medium-size $global-horizontal-padding;
+}
+
+.hamburger {
+  font-size: 24px;
+}
+
+.menu-links a {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.dropdown {
+  margin: $medium-size $global-horizontal-padding;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+}

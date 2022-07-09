@@ -45,17 +45,6 @@ a.colored-link {
   font-weight: bold;
 }
 
-.menu-links a {
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin: $medium-size $global-horizontal-padding;
-}
-
 .home-link {
   font-size: 20px;
   font-weight: 600;
@@ -66,8 +55,23 @@ a.colored-link {
   margin: 0 12px;
 }
 
-.hamburger {
-  font-size: 24px;
+.divider {
+  margin: $medium-size $global-horizontal-padding;
+  height: 2px;
+}
+
+.animated-appearing {
+  animation: appearing 0.25s ease-out 0s;
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (prefers-color-scheme: no-preference) {

@@ -6,7 +6,7 @@ import IconLink from '../IconLink';
 import config from '../../config';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-import styles from '../../../styles/Home.module.scss';
+import styles from '../../../styles/pages/Home.module.scss';
 
 const IMAGE_PATH = 'images/avatar.jpg';
 

@@ -20,6 +20,14 @@
     @include colors.primary-color(color, $scheme);
   }
 
+  .toggled {
+    @include colors.primary-color(color, $scheme, 40%);
+  }
+
+  .divider {
+    @include colors.primary-color(background-color, $scheme, 40%);
+  }
+
   a {
     @include colors.primary-color(color, $scheme);
 

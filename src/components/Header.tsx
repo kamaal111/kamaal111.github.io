@@ -3,9 +3,12 @@ import Link from 'next/link';
 import classnames from '@kamaal111/classname';
 
 import Icon from './Icon';
+import Divider from './Divider';
 
 import config from '../config';
 import useMediaQuery from '../hooks/useMediaQuery';
+
+import styles from '../../styles/components/Header.module.scss';
 
 function Header() {
   const [dropDownMenuItemsAreVisible, setDropDownMenuItemsAreVisible] =
@@ -18,18 +21,23 @@ function Header() {
   }, [dropDownMenuItemsAreVisible]);
 
   return (
-    <div className="header">
-      <div className="home-link">
-        <Link href="/">{config.fullName}</Link>
+    <>
+      <div className={styles.header}>
+        <div className="home-link">
+          <Link href="/">{config.fullName}</Link>
+        </div>
+        <div className={styles['menu-links']}>
+          <Header.MenuItems
+            showMobileLayout={showMobileLayout}
+            dropDownMenuItemsAreVisible={dropDownMenuItemsAreVisible}
+            onHamburgerClick={toggleDropDownMenuItems}
+          />
+        </div>
       </div>
-      <div className="menu-links">
-        <Header.MenuItems
-          showMobileLayout={showMobileLayout}
-          dropDownMenuItemsAreVisible={dropDownMenuItemsAreVisible}
-          onHamburgerClick={toggleDropDownMenuItems}
-        />
-      </div>
-    </div>
+      <Header.Dropdown
+        isVisible={dropDownMenuItemsAreVisible && showMobileLayout}
+      />
+    </>
   );
 }
 
@@ -41,6 +49,26 @@ type MenuItemsProps = {
   ) => void;
 };
 
+Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
+  if (!isVisible) return null;
+
+  return (
+    <>
+      <Divider className="animated-appearing" />
+      <div className={classnames(styles.dropdown, 'animated-appearing')}>
+        {config.menuItems.map(({ id, name, link }) => {
+          return (
+            <Link href={link} key={id}>
+              {name}
+            </Link>
+          );
+        })}
+      </div>
+      <Divider className="animated-appearing" />
+    </>
+  );
+};
+
 Header.MenuItems = function MenuItems({
   showMobileLayout,
   dropDownMenuItemsAreVisible,
@@ -48,9 +76,9 @@ Header.MenuItems = function MenuItems({
 }: MenuItemsProps) {
   if (showMobileLayout) {
     return (
-      <button type="button" onClick={onHamburgerClick}>
+      <button type="button" className="icon-link" onClick={onHamburgerClick}>
         <Icon
-          name={classnames('fa', 'fa-bars', 'fa-fw', 'hamburger', {
+          name={classnames('fa', 'fa-bars', 'fa-fw', styles.hamburger, {
             toggled: dropDownMenuItemsAreVisible,
           })}
         />

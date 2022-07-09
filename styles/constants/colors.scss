@@ -1,8 +1,8 @@
-@mixin primary-color($property, $scheme) {
+@mixin primary-color($property, $scheme, $darkness: 0%) {
   @if $scheme == dark {
-    #{$property}: #f2fafa;
+    #{$property}: darken(#f2fafa, $darkness);
   } @else {
-    #{$property}: #2c3e50;
+    #{$property}: darken(#2c3e50, $darkness);
   }
 }
 
