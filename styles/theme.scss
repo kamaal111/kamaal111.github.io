@@ -22,20 +22,23 @@
 
   a {
     @include colors.primary-color(color, $scheme);
+
+    &.colored-links {
+      @include colors.accent-color(color, $scheme);
+    }
   }
 
-  a.colored-link {
-    @include colors.accent-color(color, $scheme);
-  }
+  a,
+  .app-link {
+    &:hover {
+      animation: lightUp 0.25s ease-in 0s;
 
-  a:hover {
-    animation: lightUp 0.25s ease-in 0s;
+      @include colors.accent-color(color, $scheme);
+    }
 
-    @include colors.accent-color(color, $scheme);
-  }
-
-  a:active {
-    @include colors.accent-color(color, $scheme, 10%);
+    &:active {
+      @include colors.accent-color(color, $scheme, 10%);
+    }
   }
 
   @keyframes lightUp {

@@ -5,15 +5,14 @@ import Head from './Head';
 import Header from './Header';
 
 type Props = {
-  header?: string;
   children: JSX.Element | JSX.Element[];
 };
 
-function Page({ header, children }: Props) {
+function Page({ children }: Props) {
   return (
     <>
       <Head />
-      <Header headerText={header} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>

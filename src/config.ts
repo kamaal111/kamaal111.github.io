@@ -7,9 +7,11 @@ type Social = {
   name: string;
 };
 
+type MenuItem = { id: string; link: string; name: string };
+
 const config: {
   fullName: string;
-  menuItems: { id: string; link: string; name: string }[];
+  menuItems: MenuItem[];
   socials: Social[];
   since: number;
   currentRoles: string[];
