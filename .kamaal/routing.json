@@ -3,7 +3,16 @@
     {
       "routesPath": "/projects/colorselector",
       "page": "/content/projects/colorselector",
-      "name": "colorselector"
+      "name": "colorselector.md",
+      "title": "Color Selector",
+      "draft": false
+    },
+    {
+      "routesPath": "/projects/gameoflife",
+      "page": "/content/projects/gameoflife",
+      "name": "gameoflife.md",
+      "title": "WASM: Game Of Life",
+      "draft": false
     }
   ]
 }

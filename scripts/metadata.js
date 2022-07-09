@@ -73,11 +73,9 @@ async function listPathContent(searchPath, files, maxDepth) {
     const fileOrDirectoryPath = path.join(searchPath, fileOrDirectoryName);
     const fileOrDirectoryStat = await fs.promises.lstat(fileOrDirectoryPath);
 
+    const directoryKey = fileOrDirectoryPath.split(contentPath).at(-1).slice(1);
+
     if (fileOrDirectoryStat.isDirectory()) {
-      const directoryKey = fileOrDirectoryPath
-        .split(contentPath)
-        .at(-1)
-        .slice(1);
       const newDirectoryContent = await listPathContent(
         fileOrDirectoryPath,
         { ...newFiles, [directoryKey]: [] },
@@ -86,24 +84,66 @@ async function listPathContent(searchPath, files, maxDepth) {
 
       newFiles = { ...newFiles, ...newDirectoryContent };
     } else {
-      const parent = fileOrDirectoryPath
-        .split(contentPath)
-        .at(-1)
-        .slice(1)
-        .split('/')
-        .slice(null, -1)
-        .join('/');
+      const configuration = await extractConfiguration(fileOrDirectoryPath);
 
-      const name = fileOrDirectoryName.split('.').slice(null, -1).join('.');
+      const parent = directoryKey.split('/').slice(null, -1).join('/');
+      const nameWithoutExtension = fileOrDirectoryName
+        .split('.')
+        .slice(null, -1)
+        .join('.');
       newFiles[parent].push({
-        routesPath: `/${path.join(parent, name)}`,
-        page: `/${path.join(contentDirectoryName, parent, name)}`,
-        name,
+        routesPath: `/${path.join(parent, nameWithoutExtension)}`,
+        page: `/${path.join(
+          contentDirectoryName,
+          parent,
+          nameWithoutExtension,
+        )}`,
+        name: fileOrDirectoryName,
+        title: configuration.title,
+        draft: configuration.draft,
       });
     }
   }
 
   return newFiles;
+}
+
+async function extractConfiguration(filePath) {
+  const fileContent = await fs.promises.readFile(filePath);
+  const fileContentLines = fileContent.toString().split('\n');
+
+  const configurationStart = fileContentLines.findIndex(
+    (line) => line === '---',
+  );
+  if (configurationStart === -1) return {};
+
+  const configurationEnd = fileContentLines.findIndex(
+    (line, index) => line === '---' && index !== configurationStart,
+  );
+  if (configurationEnd === -1) return {};
+
+  const configuration = fileContentLines
+    .slice(configurationStart + 1, configurationEnd)
+    .reduce((acc, line) => {
+      const splittedLine = line.split(':');
+      let value = splittedLine.slice(1).join(':').trimStart();
+      if (startsAndEndsWith(value, "'") || startsAndEndsWith(value, '"')) {
+        value = value.slice(1, -1);
+      } else if (['true', 'false'].includes(value)) {
+        value = Boolean(value);
+      }
+
+      return {
+        ...acc,
+        [splittedLine[0]]: value,
+      };
+    }, {});
+
+  return configuration;
+}
+
+function startsAndEndsWith(string, pattern) {
+  return string.startsWith(pattern) && string.endsWith(pattern);
 }
 
 main();
