@@ -6,8 +6,6 @@ import IconLink from '../IconLink';
 import config from '../../config';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-import styles from '../../../styles/pages/Home.module.scss';
-
 const IMAGE_PATH = 'images/avatar.jpg';
 
 function HomeContent() {
@@ -16,9 +14,9 @@ function HomeContent() {
   const imageSize = showMobileLayout ? 150 : 216;
 
   return (
-    <div className={styles.content}>
+    <div className={'content'}>
       <Image
-        className={styles.avatar}
+        className={'avatar'}
         src={IMAGE_PATH}
         alt={`Picture of ${config.fullName}`}
         width={imageSize}

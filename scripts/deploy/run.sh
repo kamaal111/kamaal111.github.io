@@ -14,5 +14,5 @@ time {
     touch out/_next/static/css/.nojekyll
     node "$CURRENT_SCRIPT_PATH/cname.js"
     node "$CURRENT_SCRIPT_PATH/appleAppSiteAssociation.js"
-    npx gh-pages -b gh-pages -d out
+    npx gh-pages -b gh-pages -d out -t true
 }

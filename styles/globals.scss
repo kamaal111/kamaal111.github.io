@@ -49,6 +49,10 @@ a {
 
 .icon-link {
   margin: 0 12px;
+
+  & :hover {
+    text-decoration: none !important;
+  }
 }
 
 .divider {
@@ -108,3 +112,63 @@ a {
 
   @include theme.theme($scheme);
 }
+
+// Header Module Start
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: $medium-size $global-horizontal-padding;
+}
+
+.hamburger {
+  font-size: 24px;
+}
+
+.menu-links a {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.dropdown-container {
+  position: fixed;
+  width: 100%;
+}
+
+.dropdown {
+  margin: $medium-size $global-horizontal-padding;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.dropdown {
+  list-style: none;
+}
+
+// Header Module End
+
+// Home Module Start
+
+.avatar {
+  border-radius: 300px;
+}
+
+.content {
+  text-align: center;
+  width: calc(100% - ($global-horizontal-padding * 2));
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.content h1 {
+  margin-bottom: $extra-small-size;
+}
+
+.content h2 {
+  margin-top: $extra-small-size;
+}
+
+// Home Module End

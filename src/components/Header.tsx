@@ -8,8 +8,6 @@ import Divider from './Divider';
 import config from '../config';
 import useMediaQuery from '../hooks/useMediaQuery';
 
-import styles from '../../styles/components/Header.module.scss';
-
 function Header() {
   const [dropDownMenuItemsAreVisible, setDropDownMenuItemsAreVisible] =
     React.useState(false);
@@ -22,11 +20,11 @@ function Header() {
 
   return (
     <>
-      <div className={styles.header}>
+      <div className={'header'}>
         <div className="home-link">
           <Link href="/">{config.fullName}</Link>
         </div>
-        <div className={styles['menu-links']}>
+        <div className={'menu-links'}>
           <Header.MenuItems
             showMobileLayout={showMobileLayout}
             dropDownMenuItemsAreVisible={dropDownMenuItemsAreVisible}
@@ -53,9 +51,9 @@ Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
   if (!isVisible) return null;
 
   return (
-    <div className={styles['dropdown-container']}>
+    <div className={'dropdown-container'}>
       <Divider className="animated-appearing" />
-      <ul className={classnames(styles.dropdown, 'animated-appearing')}>
+      <ul className={classnames('dropdown', 'animated-appearing')}>
         {config.menuItems.map(({ id, name, link }) => {
           return (
             <li key={id}>
@@ -80,7 +78,7 @@ Header.MenuItems = function MenuItems({
     return (
       <button type="button" className="icon-link" onClick={onHamburgerClick}>
         <Icon
-          name={classnames('fa', 'fa-bars', 'fa-fw', styles.hamburger, {
+          name={classnames('fa', 'fa-bars', 'fa-fw', 'hamburger', {
             toggled: dropDownMenuItemsAreVisible,
           })}
         />
