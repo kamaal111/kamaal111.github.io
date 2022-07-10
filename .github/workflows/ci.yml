@@ -12,6 +12,11 @@ jobs:
       - name: Git - Checkout
         uses: actions/checkout@v2
 
+      - name: Create NPMRC
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          echo "@kamaal111:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
       - name: Install node modules
         run: |
           yarn
@@ -29,6 +34,11 @@ jobs:
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
+
+      - name: Create NPMRC
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          echo "@kamaal111:registry=https://npm.pkg.github.com" >> ~/.npmrc
 
       - name: Install node modules
         run: |
