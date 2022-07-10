@@ -1,14 +1,19 @@
 import * as React from 'react';
-import Link from 'next/link';
 
 import Page from '../../components/Page';
+import AppLink from '../../components/AppLink';
 
 import routing from '../../../.kamaal/routing.json';
+import type { Project as ProjectType } from '../../types';
 
 function Projects() {
-  const sortedProjects = routing.projects
+  const sortedProjects = (routing.projects as ProjectType[])
+    .filter(
+      (project) => project.routesPath != null || project.externalLink != null,
+    )
     .map((project) => ({
       ...project,
+      hasExternalLink: project.externalLink != null,
       date: new Date(project.date),
     }))
     .sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -16,14 +21,21 @@ function Projects() {
   return (
     <Page title="Projects">
       <>
-        {sortedProjects.map(({ routesPath, title, date }) => (
-          <Projects.Project
-            key={routesPath}
-            routesPath={routesPath}
-            title={title}
-            date={date}
-          />
-        ))}
+        {sortedProjects.map(
+          ({ routesPath, externalLink, title, date, hasExternalLink }) => {
+            const link = routesPath ?? externalLink!;
+
+            return (
+              <Projects.Project
+                key={link}
+                link={link}
+                title={title}
+                date={date}
+                isExternalLink={hasExternalLink}
+              />
+            );
+          },
+        )}
       </>
     </Page>
   );
@@ -31,11 +43,17 @@ function Projects() {
 
 type ProjectProps = {
   date: Date;
-  routesPath: string;
+  link: string;
   title: string;
+  isExternalLink: boolean;
 };
 
-Projects.Project = function Project({ date, routesPath, title }: ProjectProps) {
+Projects.Project = function Project({
+  date,
+  link,
+  title,
+  isExternalLink,
+}: ProjectProps) {
   return (
     <div className="project">
       <span className="date">
@@ -47,9 +65,9 @@ Projects.Project = function Project({ date, routesPath, title }: ProjectProps) {
         })}
       </span>
       <div className="colored-links">
-        <Link href={routesPath}>
+        <AppLink isExternalLink={isExternalLink} link={link}>
           <h2>{title}</h2>
-        </Link>
+        </AppLink>
       </div>
     </div>
   );

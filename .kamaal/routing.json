@@ -1,20 +1,18 @@
 {
   "projects": [
     {
-      "routesPath": "/projects/colorselector",
-      "page": "/content/projects/colorselector",
       "name": "colorselector.md",
       "title": "Color Selector",
       "draft": true,
-      "date": "2020-04-03T19:28:45+02:00"
+      "date": "2020-04-03T19:28:45+02:00",
+      "externalLink": "https://kamaal.io/colorselector"
     },
     {
-      "routesPath": "/projects/gameoflife",
-      "page": "/content/projects/gameoflife",
       "name": "gameoflife.md",
       "title": "WASM: Game Of Life",
       "draft": true,
-      "date": "2022-02-19T20:39:53+02:00"
+      "date": "2022-02-19T20:39:53+02:00",
+      "externalLink": "https://kamaal.io/wasm-game-of-life/"
     }
   ]
 }

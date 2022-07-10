@@ -32,6 +32,7 @@ async function exportPathMap(_defaultPathMap) {
   const parsedExtraRoutes = Object.values(JSON.parse(extraRoutes))
     .flat(1)
     .reduce((acc, { routesPath, page }) => {
+      if (routesPath == null) return acc;
       return { ...acc, [routesPath]: { page } };
     }, {});
 
@@ -39,6 +40,7 @@ async function exportPathMap(_defaultPathMap) {
     '/': { page: '/' },
     '/privacyterms': { page: '/privacyterms' },
     '/contact': { page: '/contact' },
+    '/projects': { page: '/projects' },
     ...parsedExtraRoutes,
   };
 
