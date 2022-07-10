@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Footer from './Footer';
-import Head from './Head';
-import Header from './Header';
+import Footer from '../Footer';
+import Head from '../Head';
+import Header from '../Header';
 
 type Props = {
   children: JSX.Element | JSX.Element[];

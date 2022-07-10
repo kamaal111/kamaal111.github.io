@@ -1,4 +1,4 @@
-export type Project = {
+export type ContentConfiguration = {
   name: string;
   title: string;
   draft: boolean;
