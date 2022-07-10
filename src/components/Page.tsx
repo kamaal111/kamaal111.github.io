@@ -6,14 +6,18 @@ import Header from './Header';
 
 type Props = {
   children: JSX.Element | JSX.Element[];
+  title?: string;
 };
 
-function Page({ children }: Props) {
+function Page({ children, title }: Props) {
   return (
     <>
       <Head />
       <Header />
-      <main>{children}</main>
+      <main>
+        {title != null ? <h1 className="title">{title}</h1> : null}
+        {children}
+      </main>
       <Footer />
     </>
   );

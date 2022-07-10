@@ -37,9 +37,12 @@
   }
 
   a,
-  .icon-link i {
+  .icon-link i,
+  .colored-links h2 {
     &:hover {
       animation: lightUp 0.25s ease-in 0s;
+      cursor: pointer;
+      text-decoration: underline;
 
       @include colors.accent-color(color, $scheme);
     }

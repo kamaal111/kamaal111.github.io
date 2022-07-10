@@ -70,42 +70,58 @@ async function listPathContent(searchPath, files, maxDepth) {
   let newFiles = files;
   for (let index = 0; index < directoryContent.length; index += 1) {
     const fileOrDirectoryName = directoryContent[index];
-    const fileOrDirectoryPath = path.join(searchPath, fileOrDirectoryName);
-    const fileOrDirectoryStat = await fs.promises.lstat(fileOrDirectoryPath);
-
-    const directoryKey = fileOrDirectoryPath.split(contentPath).at(-1).slice(1);
-
-    if (fileOrDirectoryStat.isDirectory()) {
-      const newDirectoryContent = await listPathContent(
-        fileOrDirectoryPath,
-        { ...newFiles, [directoryKey]: [] },
-        newMaxDepth,
-      );
-
-      newFiles = { ...newFiles, ...newDirectoryContent };
-    } else {
-      const configuration = await extractConfiguration(fileOrDirectoryPath);
-
-      const parent = directoryKey.split('/').slice(null, -1).join('/');
-      const nameWithoutExtension = fileOrDirectoryName
-        .split('.')
-        .slice(null, -1)
-        .join('.');
-      newFiles[parent].push({
-        routesPath: `/${path.join(parent, nameWithoutExtension)}`,
-        page: `/${path.join(
-          contentDirectoryName,
-          parent,
-          nameWithoutExtension,
-        )}`,
-        name: fileOrDirectoryName,
-        title: configuration.title,
-        draft: configuration.draft,
-      });
-    }
+    newFiles = await updateFiles({
+      searchPath,
+      name: fileOrDirectoryName,
+      files: newFiles,
+      depth: newMaxDepth,
+    });
   }
 
   return newFiles;
+}
+
+async function updateFiles({ searchPath, name, files, depth }) {
+  const fileOrDirectoryPath = path.join(searchPath, name);
+  const fileOrDirectoryStat = await fs.promises.lstat(fileOrDirectoryPath);
+
+  const directoryKey = fileOrDirectoryPath.split(contentPath).at(-1).slice(1);
+
+  if (fileOrDirectoryStat.isDirectory()) {
+    const newDirectoryContent = await listPathContent(
+      fileOrDirectoryPath,
+      { ...files, [directoryKey]: [] },
+      depth,
+    );
+
+    return { ...files, ...newDirectoryContent };
+  }
+
+  const parent = directoryKey.split('/').slice(null, -1).join('/');
+
+  const file = await makeFile({
+    name,
+    parent,
+    filePath: fileOrDirectoryPath,
+  });
+
+  return { ...files, [parent]: [...files[parent], file] };
+}
+
+async function makeFile({ name, parent, filePath }) {
+  const { title, draft, date } = await extractConfiguration(filePath);
+
+  const nameWithoutExtension = name.split('.').slice(null, -1).join('.');
+  const routesPath = path.join(parent, nameWithoutExtension);
+
+  return {
+    routesPath: `/${routesPath}`,
+    page: `/${path.join(contentDirectoryName, routesPath)}`,
+    name,
+    title,
+    draft,
+    date,
+  };
 }
 
 async function extractConfiguration(filePath) {

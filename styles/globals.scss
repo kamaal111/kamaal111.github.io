@@ -35,14 +35,10 @@ main {
 
 a {
   text-decoration: none;
-}
 
-a:hover {
-  text-decoration: underline;
-}
-
-a.colored-link {
-  font-weight: bold;
+  &.colored-link {
+    font-weight: bold;
+  }
 }
 
 .home-link {
@@ -66,6 +62,23 @@ a.colored-link {
 
 .no-margin-bottom {
   margin-bottom: 0;
+}
+
+.title {
+  margin-top: 40px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+
+  & h2 {
+    margin: 0 0 32px;
+  }
+}
+
+.date {
+  font-weight: 500;
 }
 
 @keyframes appearing {
