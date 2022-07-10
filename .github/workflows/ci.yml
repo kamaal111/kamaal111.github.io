@@ -3,30 +3,54 @@ on:
   push:
     branches:
       - '*'
-      - 'feature/*'
 jobs:
+  quality:
+    name: Quality
+    timeout-minutes: 5
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+
+      - name: Install node modules
+        run: |
+          yarn
+
+      - name: Lint
+        run: |
+          yarn lint
+
   deploy:
     name: Deploy
     timeout-minutes: 15
     runs-on: ubuntu-20.04
+    needs: [quality]
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.101.0'
+      - name: Install node modules
+        run: |
+          yarn
 
       - name: Build project
         run: |
-          yarn build:production
+          yarn build
+          npx next export
+          mkdir out/.well-known
+          touch out/.nojekyll
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Make CNAME
+        run: |
+          node scripts/deploy/cname.js
+
+      - name: Make app site association
+        run: |
+          node scripts/deploy/appleAppSiteAssociation.js
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          enable_jekyll: false
-          keep_files: true
+          branch: gh-pages
+          folder: out

@@ -1,0 +1,110 @@
+@use 'theme';
+@use 'constants/colors';
+
+@import 'constants/sizes';
+
+html,
+body {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin: 0 $global-horizontal-padding;
+  padding-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+
+  &.colored-link {
+    font-weight: bold;
+  }
+}
+
+.home-link {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.icon-link {
+  margin: 0 12px;
+}
+
+.divider {
+  margin: $medium-size $global-horizontal-padding;
+  height: 2px;
+}
+
+.animated-appearing {
+  animation: appearing 0.25s ease-out 0s;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.title {
+  margin-top: 40px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+
+  & h2 {
+    margin: 0 0 32px;
+  }
+}
+
+.date {
+  font-weight: 500;
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: no-preference) {
+  $scheme: no-preference;
+
+  @include theme.theme($scheme);
+}
+
+@media (prefers-color-scheme: light) {
+  $scheme: light;
+
+  @include theme.theme($scheme);
+}
+
+@media (prefers-color-scheme: dark) {
+  $scheme: dark;
+
+  @include theme.theme($scheme);
+}

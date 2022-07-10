@@ -1,24 +1,112 @@
 {
   "name": "kamaal111.github.io",
   "version": "1.0.0",
-  "description": "",
   "private": false,
-  "homepage": "https://kamaal.io",
-  "scripts": {
-    "dev": "hugo server -D",
-    "build:production": "sh scripts/build_production.sh",
-    "deploy": "yarn build:production && npx gh-pages -d public"
-  },
+  "homepage": "kamaal.io",
+  "type": "module",
+  "main": "src/pages/index.jsx",
+  "description": "",
   "author": "Kamaal Farah <kamaal111>",
   "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 8080",
+    "lint": "next lint",
+    "deploy": "sh scripts/deploy/run.sh"
+  },
+  "dependencies": {
+    "@kamaal111/classname": "^0.1.0",
+    "@mdx-js/loader": "^2.0.0-rc.2",
+    "@mdx-js/react": "^2.0.0-rc.2",
+    "@next/mdx": "^12.2.0",
+    "font-awesome": "^4.7.0",
+    "next": "12.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rehype-highlight": "^5.0.2",
+    "remark-frontmatter": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/mdx": "^2.0.2",
+    "@types/node": "18.0.0",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.3",
+    "@typescript-eslint/parser": "^5.30.3",
+    "eslint": "8.19.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "12.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.53.0",
+    "typescript": "4.7.4"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "printWidth": 80
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "airbnb",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended",
+      "next/core-web-vitals"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "@typescript-eslint"
+    ],
+    "globals": {
+      "JSX": true
+    },
+    "rules": {
+      "no-use-before-define": 0,
+      "no-unused-vars": 0,
+      "import/extensions": 0,
+      "react/jsx-filename-extension": 0,
+      "react/jsx-curly-brace-presence": 0,
+      "react/require-default-props": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "all",
+          "tabWidth": 2,
+          "semi": true,
+          "singleQuote": true,
+          "bracketSpacing": true,
+          "printWidth": 80
+        }
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamaal111/kamaal111.github.io.git"
   },
   "bugs": {
     "url": "https://github.com/kamaal111/kamaal111.github.io/issues"
-  },
-  "devDependencies": {
-    "gh-pages": "^4.0.0"
   }
 }

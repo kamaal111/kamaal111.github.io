@@ -1,0 +1,64 @@
+@use 'constants/colors';
+
+@mixin theme($scheme) {
+  * {
+    @include colors.background-color(background-color, $scheme);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  i,
+  span,
+  strong {
+    @include colors.primary-color(color, $scheme);
+  }
+
+  .home-link {
+    @include colors.primary-color(color, $scheme);
+  }
+
+  .toggled {
+    @include colors.primary-color(color, $scheme, 40%);
+  }
+
+  .divider {
+    @include colors.primary-color(background-color, $scheme, 40%);
+  }
+
+  a {
+    @include colors.primary-color(color, $scheme);
+
+    &.colored-links {
+      @include colors.accent-color(color, $scheme);
+    }
+  }
+
+  a,
+  .icon-link i,
+  .colored-links h2 {
+    &:hover {
+      animation: lightUp 0.25s ease-in 0s;
+      cursor: pointer;
+      text-decoration: underline;
+
+      @include colors.accent-color(color, $scheme);
+    }
+
+    &:active {
+      @include colors.accent-color(color, $scheme, 10%);
+    }
+  }
+
+  @keyframes lightUp {
+    0% {
+      @include colors.primary-color(color, $scheme);
+    }
+
+    100% {
+      @include colors.accent-color(color, $scheme);
+    }
+  }
+}
