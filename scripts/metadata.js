@@ -155,8 +155,10 @@ async function extractConfiguration(filePath) {
       let value = splittedLine.slice(1).join(':').trimStart();
       if (startsAndEndsWith(value, "'") || startsAndEndsWith(value, '"')) {
         value = value.slice(1, -1);
-      } else if (['true', 'false'].includes(value)) {
-        value = Boolean(value);
+      } else if (value === 'false') {
+        value = false;
+      } else if (value === 'true') {
+        value = true;
       }
 
       return {
