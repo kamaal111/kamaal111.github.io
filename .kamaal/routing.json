@@ -1,10 +1,22 @@
 {
+  "blogs": [
+    {
+      "name": "swiftUIEnvironment.md",
+      "title": "SwiftUI Environment",
+      "draft": true,
+      "date": "2022-07-10T21:21:45+02:00",
+      "routesPath": "/blogs/swiftUIEnvironment",
+      "page": "/blogs",
+      "query": "swiftUIEnvironment"
+    }
+  ],
   "projects": [
     {
       "name": "colorselector.md",
       "title": "Color Selector",
       "draft": false,
       "date": "2020-04-03T19:28:45+02:00",
+      "featuredImage": "https://mrhelstein.com/wp-content/uploads/2022/05/spy-x-family-BXQMfk.jpeg",
       "externalLink": "https://kamaal.io/colorselector"
     },
     {

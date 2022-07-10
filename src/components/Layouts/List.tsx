@@ -13,9 +13,12 @@ type Props = {
 
 function List({ title, contentKey }: Props) {
   const sortedContent = (routing[contentKey] as ContentConfiguration[])
-    .filter(
-      (content) => content.routesPath != null || content.externalLink != null,
-    )
+    .filter(({ routesPath, externalLink, draft }) => {
+      if (process.env.NODE_ENV !== 'development' && draft) {
+        return false;
+      }
+      return routesPath != null || externalLink != null;
+    })
     .map((content) => ({
       ...content,
       hasExternalLink: content.externalLink != null,

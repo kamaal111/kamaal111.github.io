@@ -5,7 +5,7 @@ import Head from '../Head';
 import Header from '../Header';
 
 type Props = {
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
   title?: string;
 };
 

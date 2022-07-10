@@ -9,13 +9,7 @@ import { performance } from 'perf_hooks';
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDirectoryName = 'content';
-const contentPath = path.join(
-  __dirname,
-  '/..',
-  'src',
-  'pages',
-  contentDirectoryName,
-);
+const contentPath = path.join(__dirname, '/..', 'public', contentDirectoryName);
 
 async function main() {
   const startTime = performance.now();
@@ -109,15 +103,15 @@ async function updateFiles({ searchPath, name, files, depth }) {
 }
 
 async function makeFile({ name, parent, filePath }) {
-  const { title, draft, date, externalLink } = await extractConfiguration(
-    filePath,
-  );
+  const { title, draft, date, externalLink, featuredImage } =
+    await extractConfiguration(filePath);
 
   const baseFile = {
     name,
     title,
     draft,
     date,
+    featuredImage,
   };
 
   if (externalLink == null) {
@@ -127,7 +121,8 @@ async function makeFile({ name, parent, filePath }) {
     return {
       ...baseFile,
       routesPath: `/${routesPath}`,
-      page: `/${path.join(contentDirectoryName, routesPath)}`,
+      page: `/${parent}`,
+      query: nameWithoutExtension,
     };
   }
 

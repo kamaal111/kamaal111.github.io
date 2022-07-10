@@ -7,7 +7,7 @@ type Social = {
   name: string;
 };
 
-type MenuItem = { id: string; link: string; name: string };
+type MenuItem = { id: string; link: string; name: string; draft: boolean };
 
 const config: {
   fullName: string;
@@ -24,8 +24,15 @@ const config: {
       id: '7845be0e-c294-48a4-9515-235d97b9ce83',
       link: '/projects',
       name: 'Projects',
+      draft: false,
     },
-  ],
+    {
+      id: '2f58ea56-1a22-4641-872f-873efb9b48fc',
+      link: '/blogs',
+      name: 'Blogs',
+      draft: true,
+    },
+  ].filter((item) => process.env.NODE_ENV === 'development' || !item.draft),
   socials: [
     {
       id: '69f7f3ca-72a0-4feb-aa17-27da51e09351',
