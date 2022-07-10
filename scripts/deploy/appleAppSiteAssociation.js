@@ -1,8 +1,8 @@
-const { promises: fs } = require('fs');
+import fs from 'fs';
 
-const { apps } = require('../config');
+import config from '../config.js';
 
-const { appId: colorPickerAppId } = apps.ColorPicker;
+const { appId: colorPickerAppId } = config.apps.ColorPicker;
 
 const appleAppSiteAssociation = {
   applinks: {
@@ -39,7 +39,7 @@ const appleAppSiteAssociation = {
 
 const exportAppleAppSiteAssociationFile = async () => {
   const exportPath = 'out/.well-known/apple-app-site-association';
-  await fs.writeFile(
+  await fs.promises.writeFile(
     exportPath,
     JSON.stringify(appleAppSiteAssociation, undefined, 2),
   );

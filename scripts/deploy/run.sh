@@ -5,6 +5,7 @@ CURRENT_SCRIPT_PATH="scripts/deploy"
 time {
     rm -rf node_modules/.cache .next out
     yarn
+    node "scripts/metadata.js"
     yarn build
     npx next export
     mkdir out/.well-known

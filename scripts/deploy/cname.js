@@ -1,10 +1,10 @@
-const { promises: fs } = require('fs');
+import fs from 'fs';
 
-const { domainName } = require('../config');
+import config from '../config.js';
 
 const main = async () => {
   try {
-    await fs.writeFile('out/CNAME', domainName);
+    await fs.promises.writeFile('out/CNAME', config.domainName);
   } catch (error) {
     console.error('error', error);
     throw error;

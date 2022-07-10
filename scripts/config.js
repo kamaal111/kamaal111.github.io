@@ -16,8 +16,10 @@ const apps = {
   },
 };
 
-module.exports = {
+const config = {
   domainName,
   teamIdentifier,
   apps,
 };
+
+export default config;

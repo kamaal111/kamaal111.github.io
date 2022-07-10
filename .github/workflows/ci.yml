@@ -36,6 +36,8 @@ jobs:
 
       - name: Build project
         run: |
+          node "scripts/metadata.js"
+
           yarn build
           npx next export
           mkdir out/.well-known
