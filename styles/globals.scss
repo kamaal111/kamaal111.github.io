@@ -156,6 +156,8 @@ a {
 
 .avatar {
   border-radius: 1000px;
+  width: 216px;
+  height: 216px;
 }
 
 .content {
@@ -173,6 +175,20 @@ a {
 
 .content h2 {
   margin-top: $extra-small-size;
+}
+
+@media only screen and (max-width: 770px) {
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-height: 470px) {
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 // Home Module End
