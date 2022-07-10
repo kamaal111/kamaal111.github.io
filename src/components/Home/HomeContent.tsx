@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image';
 
 import IconLink from '../IconLink';
 
@@ -15,13 +14,13 @@ function HomeContent() {
 
   return (
     <div className={'content'}>
-      <Image
+      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt, @next/next/no-img-element */}
+      <img
         className={'avatar'}
         src={IMAGE_PATH}
-        alt={`Picture of ${config.fullName}`}
         width={imageSize}
         height={imageSize}
-        priority
+        alt={`Picture of ${config.fullName}`}
       />
       <h1>{config.fullName}</h1>
       <h2>{config.currentRoles.join(' | ')}</h2>
