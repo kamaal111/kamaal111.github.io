@@ -32,7 +32,8 @@ async function exportPathMap(_defaultPathMap) {
   const parsedExtraRoutes = Object.values(JSON.parse(extraRoutes))
     .flat(1)
     .reduce((acc, { routesPath, page, draft }) => {
-      if (routesPath == null || draft) return acc;
+      const isDraft = process.env.NODE_ENV !== 'development' && draft;
+      if (routesPath == null || isDraft) return acc;
       return { ...acc, [routesPath]: { page } };
     }, {});
 

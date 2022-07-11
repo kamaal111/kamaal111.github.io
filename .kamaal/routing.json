@@ -1,12 +1,12 @@
 {
   "blogs": [
     {
-      "name": "swiftUIEnvironment.mdx",
-      "title": "SwiftUI Environment",
+      "name": "swiftUIMacOSEditMode.mdx",
+      "title": "SwiftUI macOS Edit Mode",
       "draft": true,
       "date": "2022-07-10T21:21:45+02:00",
-      "routesPath": "/blogs/swiftUIEnvironment",
-      "page": "/content/blogs/swiftUIEnvironment"
+      "routesPath": "/blogs/swiftUIMacOSEditMode",
+      "page": "/content/blogs/swiftUIMacOSEditMode"
     },
     {
       "name": "test.mdx",

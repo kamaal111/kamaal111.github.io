@@ -1,0 +1,50 @@
+---
+# swiftUIMacOSEditMode.mdx
+title: 'SwiftUI macOS Edit Mode'
+date: 2022-07-11T20:15:45+02:00
+draft: true
+author: 'Kamaal Farah'
+tags: ['SwiftUI', 'iOS', 'macOS']
+---
+
+import Page from '../../../components/Layouts/Page';
+
+<Page title="SwiftUI macOS Edit Mode">
+
+    So I really wanted to have the same `EditButton` when we develop our iOS apps in SwiftUI. 
+    To reuse as much as possible between both platforms I got motivated to make my own implementation of
+    of the `EditButton`.
+
+    ## iOS EditMode usage
+
+    This is what we want to implement for macOS.
+
+    ```swift
+    struct ContentView: View {
+        /// Environment key to get the current 
+        /// EditMode state
+        @Environment(\.editMode) var editMode: EditMode
+
+        var body: some View {
+            /// Button to toggle the edit mode
+            EditButton()
+        }
+    }
+    ```
+
+    ## EditMode model
+
+    Let's first start of with implementing the `EditMode` model.
+
+    ```swift
+    enum EditMode {
+        case active
+        case inactive
+
+        var isEditing: Bool {
+            self == .active
+        }
+    }
+    ```
+
+</Page>
