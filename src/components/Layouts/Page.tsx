@@ -7,12 +7,13 @@ import Header from '../Header';
 type Props = {
   children?: JSX.Element | JSX.Element[];
   title?: string;
+  addSyntaxHighlighting?: boolean;
 };
 
-function Page({ children, title }: Props) {
+function Page({ children, title, addSyntaxHighlighting }: Props) {
   return (
     <>
-      <Head />
+      <Head addSyntaxHighlighting={addSyntaxHighlighting} />
       <Header />
       <main>
         {title != null ? <h1 className="title">{title}</h1> : null}

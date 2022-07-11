@@ -6,6 +6,22 @@
   }
 }
 
+@mixin code-color($property, $scheme) {
+  @if $scheme == dark {
+    #{$property}: #4ad816;
+  } @else {
+    #{$property}: #2be954;
+  }
+}
+
+@mixin code-background-color($property, $scheme) {
+  @if $scheme == dark {
+    #{$property}: #3e3e3e;
+  } @else {
+    #{$property}: #edecec;
+  }
+}
+
 @mixin background-color($property, $scheme) {
   @if $scheme == dark {
     #{$property}: #000000;

@@ -16,6 +16,11 @@
     @include colors.primary-color(color, $scheme);
   }
 
+  code {
+    @include colors.code-color(color, $scheme);
+    @include colors.code-background-color(background-color, $scheme);
+  }
+
   .home-link {
     @include colors.primary-color(color, $scheme);
   }
