@@ -5,6 +5,7 @@ import Page from './Page';
 
 import routing from '../../../.kamaal/routing.json';
 import type { ContentConfiguration } from '../../types';
+import getMarkdown from '../../utils/getMarkdown';
 
 type Props = {
   category: keyof typeof routing;
@@ -21,7 +22,10 @@ function Content({ category, contentKey }: Props) {
 
   React.useEffect(() => {
     if (!configurationNotFound) {
-      readFile(configuration.routesPath!, setMarkdownContent);
+      getMarkdown(configuration.routesPath!).then((maybeMarkdown) => {
+        if (maybeMarkdown == null) return;
+        setMarkdownContent(maybeMarkdown);
+      });
     }
   }, [configurationNotFound]);
 
@@ -38,16 +42,6 @@ function Content({ category, contentKey }: Props) {
       <ReactMarkdown>{markdownContent}</ReactMarkdown>
     </Page>
   );
-}
-
-async function readFile(path: string, setValue: (text: string) => void) {
-  try {
-    const content = await fetch(`../../content${path}.md`);
-    const text = await content.text();
-    setValue(text);
-  } catch (error) {
-    // gracefully die
-  }
 }
 
 export default Content;

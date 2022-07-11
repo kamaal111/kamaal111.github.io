@@ -8,6 +8,15 @@
       "routesPath": "/blogs/swiftUIEnvironment",
       "page": "/blogs",
       "query": "swiftUIEnvironment"
+    },
+    {
+      "name": "test.md",
+      "title": "Test",
+      "draft": false,
+      "date": "2022-07-11T19:21:45+02:00",
+      "routesPath": "/blogs/test",
+      "page": "/blogs",
+      "query": "test"
     }
   ],
   "projects": [

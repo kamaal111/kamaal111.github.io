@@ -5,5 +5,3 @@ draft: true
 author: 'Kamaal Farah'
 tags: ['SwiftUI', 'iOS', 'macOS', 'mobile']
 ---
-
-# Hello
