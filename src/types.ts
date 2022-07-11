@@ -7,5 +7,4 @@ export type ContentConfiguration = {
   routesPath?: string;
   page?: string;
   featuredImage?: string;
-  query?: string;
 };

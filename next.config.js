@@ -31,9 +31,9 @@ async function exportPathMap(_defaultPathMap) {
   const extraRoutes = await fs.promises.readFile('.kamaal/routing.json');
   const parsedExtraRoutes = Object.values(JSON.parse(extraRoutes))
     .flat(1)
-    .reduce((acc, { routesPath, page, query }) => {
-      if (routesPath == null) return acc;
-      return { ...acc, [routesPath]: { page, query: { title: query } } };
+    .reduce((acc, { routesPath, page, draft }) => {
+      if (routesPath == null || draft) return acc;
+      return { ...acc, [routesPath]: { page } };
     }, {});
 
   const routes = {
