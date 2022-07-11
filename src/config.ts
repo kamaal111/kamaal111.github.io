@@ -25,6 +25,11 @@ const config: {
       link: '/projects',
       name: 'Projects',
     },
+    {
+      id: '2f58ea56-1a22-4641-872f-873efb9b48fc',
+      link: '/blogs',
+      name: 'Blogs',
+    },
   ],
   socials: [
     {

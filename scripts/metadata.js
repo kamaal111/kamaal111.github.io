@@ -109,15 +109,15 @@ async function updateFiles({ searchPath, name, files, depth }) {
 }
 
 async function makeFile({ name, parent, filePath }) {
-  const { title, draft, date, externalLink } = await extractConfiguration(
-    filePath,
-  );
+  const { title, draft, date, externalLink, featuredImage } =
+    await extractConfiguration(filePath);
 
   const baseFile = {
     name,
     title,
     draft,
     date,
+    featuredImage,
   };
 
   if (externalLink == null) {
@@ -127,7 +127,7 @@ async function makeFile({ name, parent, filePath }) {
     return {
       ...baseFile,
       routesPath: `/${routesPath}`,
-      page: `/${path.join(contentDirectoryName, routesPath)}`,
+      page: `/${path.join(contentDirectoryName, parent, nameWithoutExtension)}`,
     };
   }
 

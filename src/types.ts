@@ -6,4 +6,5 @@ export type ContentConfiguration = {
   externalLink?: string;
   routesPath?: string;
   page?: string;
+  featuredImage?: string;
 };
