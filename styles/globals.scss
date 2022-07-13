@@ -33,7 +33,12 @@ footer {
 }
 
 code {
-  padding: 0 2px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.hljs {
+  border-radius: 12px;
 }
 
 main {
