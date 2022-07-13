@@ -9,6 +9,32 @@
       "page": "/content/blogs/swiftUIMacOSEditMode"
     }
   ],
+  "cheat-sheet": [
+    {
+      "name": "docker.mdx",
+      "title": "Docker",
+      "draft": false,
+      "date": "2022-07-13T22:00:45+02:00",
+      "routesPath": "/cheat-sheet/docker",
+      "page": "/content/cheat-sheet/docker"
+    },
+    {
+      "name": "git.mdx",
+      "title": "Git",
+      "draft": false,
+      "date": "2022-07-13T22:00:45+02:00",
+      "routesPath": "/cheat-sheet/git",
+      "page": "/content/cheat-sheet/git"
+    },
+    {
+      "name": "jest.mdx",
+      "title": "Jest",
+      "draft": false,
+      "date": "2022-07-13T22:00:45+02:00",
+      "routesPath": "/cheat-sheet/jest",
+      "page": "/content/cheat-sheet/jest"
+    }
+  ],
   "projects": [
     {
       "name": "colorselector.md",

@@ -85,6 +85,17 @@ a {
   margin-top: 40px;
 }
 
+ul {
+  padding: 0;
+}
+
+ul {
+  & .bulleted {
+    list-style: square;
+    display: list-item;
+  }
+}
+
 .list-item {
   display: flex;
   flex-direction: column;
