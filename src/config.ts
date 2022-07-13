@@ -30,6 +30,11 @@ const config: {
       link: '/blogs',
       name: 'Blogs',
     },
+    {
+      id: 'e789b819-d7c0-480f-89a2-99c03c1151e8',
+      link: '/cheat-sheet',
+      name: 'Cheat sheet',
+    },
   ],
   socials: [
     {
