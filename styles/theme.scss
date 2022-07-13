@@ -25,6 +25,11 @@
     @include colors.primary-color(color, $scheme);
   }
 
+  .highlighted-link {
+    @include colors.accent-color(color, $scheme);
+    animation: none !important;
+  }
+
   .toggled {
     @include colors.primary-color(color, $scheme, 40%);
   }
