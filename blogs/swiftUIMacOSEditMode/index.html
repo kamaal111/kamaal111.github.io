@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Kamaal Farah</title><meta name="next-head-count" content="3"/><link rel="preload" href="/_next/static/css/59e9b925e3bab539.css" as="style"/><link rel="stylesheet" href="/_next/static/css/59e9b925e3bab539.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-0d1b80a048d4787e.js"></script><script src="/_next/static/chunks/webpack-57d1094f66c442d9.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-e95be0cae5109b70.js" defer=""></script><script src="/_next/static/chunks/pages/_app-4fac5b4317645986.js" defer=""></script><script src="/_next/static/chunks/570-e409764dcf26503f.js" defer=""></script><script src="/_next/static/chunks/pages/content/blogs/swiftUIMacOSEditMode-28fce5d2de87c9b5.js" defer=""></script><script src="/_next/static/TqdTSHGRC-sbu58wXaBxR/_buildManifest.js" defer=""></script><script src="/_next/static/TqdTSHGRC-sbu58wXaBxR/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="header"><div class="home-link"><a href="/">Kamaal Farah</a></div><div class="menu-links"><a href="/projects/">Projects</a><a href="/blogs/">Blogs</a></div></div><main><h1 class="title">SwiftUI macOS Edit Mode</h1><p>So I really wanted to have the same <code>EditButton</code> when we develop our iOS apps in SwiftUI.
+To reuse as much as possible between both platforms I got motivated to make my own implementation of
+of the <code>EditButton</code>.</p><p>Fully functioning could be found <a class="highlighted-link" href="https://github.com/kamaal111/EditModeMac" target="_blank" rel="noopener noreferrer">here</a></p><h2>iOS EditMode usage</h2><p>This is what we want to implement for macOS and is the current way of how we use it on iOS.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {
+    <span class="hljs-comment">/// Environment key to get the current </span>
+    <span class="hljs-comment">/// EditMode state</span>
+    <span class="hljs-meta">@Environment</span>(\.editMode) <span class="hljs-keyword">var</span> editMode: <span class="hljs-type">EditMode</span>
+
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-comment">/// Button to toggle the edit mode</span>
+        <span class="hljs-type">EditButton</span>()
+    }
+}
+</code></pre><h2>EditMode model</h2><p>Let&#x27;s first start of with implementing the <code>EditMode</code> model. The <code>EditMode</code> model represents
+the current state of editing.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">EditMode</span> {
+    <span class="hljs-keyword">case</span> active
+    <span class="hljs-keyword">case</span> inactive
+
+    <span class="hljs-keyword">var</span> isEditing: <span class="hljs-type">Bool</span> {
+        <span class="hljs-keyword">self</span> <span class="hljs-operator">==</span> .active
+    }
+}
+</code></pre><h2>Making EditMode accessible from the environment</h2><p>To make our <code>EditMode</code> state accessible from the <code>@Environment</code> property wrapper we need to
+create our own <code>EnvironmentKey</code> to reference and modify the current edit mode. The static
+property <code>defaultValue</code> is required for the <code>EnvironmentKey</code> to conform to the protocol.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">EditModeKey</span>: <span class="hljs-title class_">EnvironmentKey</span> {
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> defaultValue: <span class="hljs-type">EditMode</span> <span class="hljs-operator">=</span> .inactive
+}
+</code></pre><p>Next we need to extend <code>EnvironmentValues</code> with and edit mode key. This how later on access it
+using the <code>@Environment</code> property wrapper using a key path.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">extension</span> <span class="hljs-title class_">EnvironmentValues</span> {
+    <span class="hljs-keyword">var</span> editMode: <span class="hljs-type">EditMode</span> {
+        <span class="hljs-keyword">get</span> { <span class="hljs-keyword">self</span>[<span class="hljs-type">EditModeKey</span>.<span class="hljs-keyword">self</span>] }
+        <span class="hljs-keyword">set</span> { <span class="hljs-keyword">self</span>[<span class="hljs-type">EditModeKey</span>.<span class="hljs-keyword">self</span>] <span class="hljs-operator">=</span> newValue }
+    }
+}
+</code></pre><h2>Updating the edit mode state</h2><p>From the <code>ContentView</code> the editMode state is just a regular <code>State</code> property we always knew
+and we can edit it&#x27;s value like we always did. One thing that might be new is using the <code>environment</code>
+view modifier.</p><p>Everytime we modify the <code>editMode</code> <code>State</code> property the changes reflect to the child views that
+are accessing the <code>@Environment</code> property wrapper of <code>editMode</code>.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {
+    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> editMode: <span class="hljs-type">EditMode</span> <span class="hljs-operator">=</span> .inactive
+
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Button</span>(action: {
+                editMode <span class="hljs-operator">=</span> editMode.isEditing <span class="hljs-operator">?</span> .inactive : .active
+            }) {
+                <span class="hljs-type">Text</span>(editMode.isEditing <span class="hljs-operator">?</span> <span class="hljs-string">&quot;Done&quot;</span> : <span class="hljs-string">&quot;Edit&quot;</span>)
+            }
+            <span class="hljs-type">ChildView</span>()
+        }
+        <span class="hljs-comment">// Setting the state value the environment</span>
+        .environment(\.editMode, editMode)
+    }
+}
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">ChildView</span>: <span class="hljs-title class_">View</span> {
+    <span class="hljs-comment">// This value behaves like a property value that has been passed</span>
+    <span class="hljs-comment">// through by it&#x27;s parent</span>
+    <span class="hljs-meta">@Environment</span>(\.editMode) <span class="hljs-keyword">var</span> editMode
+
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;I&#x27;m <span class="hljs-subst">\(editMode.isEditing <span class="hljs-operator">?</span> <span class="hljs-string">&quot;editing&quot;</span> : <span class="hljs-string">&quot;not editing&quot;</span>)</span>&quot;</span>)
+    }
+}
+</code></pre><h2>Bonus: Implementing EditButton</h2><h3>EditMode view modifier</h3><p>To make it easier for ourself let&#x27;s create a view modifier to modify edit mode in a
+uniform way.</p><p>I decided to use <code>NotificationCenter</code> to loosely couple updating the <code>EditMode</code>. So we
+can post a new <code>EditMode</code> state to this view modifier and the state will get handled accordingly.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">EditModeViewModifier</span>: <span class="hljs-title class_">ViewModifier</span> {
+    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> editMode: <span class="hljs-type">EditMode</span> <span class="hljs-operator">=</span> .inactive
+
+    <span class="hljs-keyword">func</span> <span class="hljs-title function_">body</span>(<span class="hljs-params">content</span>: <span class="hljs-type">Content</span>) -&gt; <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        content
+            <span class="hljs-comment">// Setting the state value the environment</span>
+            .environment(\.editMode, editMode)
+            .onReceive(<span class="hljs-type">NotificationCenter</span>.default
+                <span class="hljs-comment">// Using the Notification.Name &quot;change_edit_mode&quot; to recieve edit mode changes</span>
+                .publisher(for: <span class="hljs-type">Notification</span>.<span class="hljs-type">Name</span>(rawValue: <span class="hljs-string">&quot;change_edit_mode&quot;</span>)), perform: { output <span class="hljs-keyword">in</span>
+                    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> newEditMode <span class="hljs-operator">=</span> output.object <span class="hljs-keyword">as?</span> <span class="hljs-type">EditMode</span>, newEditMode <span class="hljs-operator">!=</span> editMode <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+                    <span class="hljs-comment">// Updating the edit mode state when publisher has recieved a new value.</span>
+                    editMode <span class="hljs-operator">=</span> newEditMode
+                })
+    }
+}
+
+<span class="hljs-keyword">extension</span> <span class="hljs-title class_">View</span> {
+    <span class="hljs-comment">// Our uniform view modifier</span>
+    <span class="hljs-keyword">func</span> <span class="hljs-title function_">withEditMode</span>() -&gt; <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-keyword">self</span>
+            .modifier(<span class="hljs-type">EditModeViewModifier</span>())
+    }
+}
+</code></pre><h3>EditButton</h3><p>This loosely coupled view can toggle between <code>EditMode</code>&#x27;s by posting to <code>NotificationCenter</code>.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">EditButton</span>: <span class="hljs-title class_">View</span> {
+    <span class="hljs-meta">@Environment</span>(\.editMode) <span class="hljs-keyword">var</span> editMode
+
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-type">Button</span>(action: {
+            <span class="hljs-type">NotificationCenter</span>.default.post(
+                <span class="hljs-comment">// Using the Notification.Name &quot;change_edit_mode&quot; to post new edit mode changes</span>
+                name: <span class="hljs-type">Notification</span>.<span class="hljs-type">Name</span>(rawValue: <span class="hljs-string">&quot;change_edit_mode&quot;</span>),
+                object: editMode.isEditing <span class="hljs-operator">?</span> <span class="hljs-type">EditMode</span>.inactive : <span class="hljs-type">EditMode</span>.active,
+                userInfo: <span class="hljs-literal">nil</span>)
+        }) {
+            <span class="hljs-type">Text</span>(editMode.isEditing <span class="hljs-operator">?</span> <span class="hljs-string">&quot;Done&quot;</span> : <span class="hljs-string">&quot;Edit&quot;</span>)
+        }
+    }
+}
+</code></pre><h3>Usage</h3><p>Now let&#x27;s use our convient <code>EditButton</code> with our also very convinient view modifier.</p><pre><code class="hljs language-swift"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">EditButton</span>()
+            <span class="hljs-type">ChildView</span>()
+        }
+        .withEditMode()
+    }
+}
+</code></pre><p>🎉 That&#x27;s all, now we have <code>EditMode</code> when developing our apps for macOS. 🎉</p></main><footer><div><p>Ⓒ 2020-2022 Kamaal Farah</p></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/content/blogs/swiftUIMacOSEditMode","query":{},"buildId":"TqdTSHGRC-sbu58wXaBxR","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
