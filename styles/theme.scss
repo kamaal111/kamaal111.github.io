@@ -21,12 +21,13 @@
     @include colors.code-background-color(background-color, $scheme);
   }
 
-  .hljs {
-    border-radius: 8px;
-  }
-
   .home-link {
     @include colors.primary-color(color, $scheme);
+  }
+
+  .highlighted-link {
+    @include colors.accent-color(color, $scheme);
+    animation: none !important;
   }
 
   .toggled {

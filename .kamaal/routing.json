@@ -3,18 +3,10 @@
     {
       "name": "swiftUIMacOSEditMode.mdx",
       "title": "SwiftUI macOS Edit Mode",
-      "draft": true,
-      "date": "2022-07-10T21:21:45+02:00",
+      "draft": false,
+      "date": "2022-07-13T21:45:45+02:00",
       "routesPath": "/blogs/swiftUIMacOSEditMode",
       "page": "/content/blogs/swiftUIMacOSEditMode"
-    },
-    {
-      "name": "test.mdx",
-      "title": "Test",
-      "draft": false,
-      "date": "2022-07-11T19:21:45+02:00",
-      "routesPath": "/blogs/test",
-      "page": "/content/blogs/test"
     }
   ],
   "projects": [

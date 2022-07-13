@@ -59,11 +59,13 @@ code.hljs {
 .hljs-formula,
 .hljs-params,
 .hljs-property {
+  background: #282936;
 }
 
 /* base03 - #626483 -  Comments, Invisibles, Line Highlighting */
 .hljs-comment {
   color: #626483;
+  background: #282936;
 }
 
 /* base04 - #62d6e8 -  Dark Foreground (Used for status bars) */
@@ -101,6 +103,7 @@ code.hljs {
 .hljs-variable.constant_,
 .hljs-literal {
   color: #b45bcf;
+  background-color: #282936;
 }
 
 /* base0A - Classes, Markup Bold, Search Text Background */
@@ -122,6 +125,7 @@ code.hljs {
 .hljs-title.class_.inherited__,
 .hljs-string {
   color: #ebff87;
+  background-color: #282936;
 }
 
 /* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
