@@ -135,6 +135,7 @@ code.hljs {
   .hljs-keyword.hljs-atrule,
   .hljs-regexp {
   color: #a1efe4;
+  background-color: #282936;
 }
 
 /* base0D - Functions, Methods, Attribute IDs, Headings */
