@@ -93,6 +93,7 @@ code.hljs {
 .hljs-name,
 .hljs-deletion {
   color: #ea51b2;
+  background: #282936;
 }
 
 /* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */

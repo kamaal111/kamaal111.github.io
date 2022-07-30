@@ -1,0 +1,38 @@
+---
+title: 'Solving CoreData race conditions'
+date: 2022-07-30T17:16:45+02:00
+draft: false
+author: 'Kamaal Farah'
+tags: ['SwiftUI', 'UIKit', 'iOS', 'macOS', 'CoreData', 'Core Data']
+---
+
+import Page from '../../../components/Layouts/Page';
+
+<Page title="Solving CoreData race conditions">
+
+    Ever seen this error when your application using CoreData crashes?
+
+    `fault: NULL _cd_rawData but the object is not being turned into a fault`
+
+    This happens when you're trying to access the managed entry on a thread that the `NSManagedObjectContext` is not on.
+
+    ## Solution
+
+    Well this how solved it for myself.
+
+    You'll need to have access to `NSManagedObjectContext` of the CoreData entry you're trying to access. I use singleton
+    class that I can use through my app called `PersistenceController`.
+
+    Secondly I try to determine the failure point of this race condition. Then at the point where I have access to the 
+    `NSManagedObjectContext` and the Coredata entry I wrap this point in the following.
+
+    ```swift
+    await PersistenceController.shared.context.perform {
+        // whatever code you where performing
+    }
+    ```
+
+    Now that I'm performing the action I wanted in the `perform` block, I can safely assume that we have no more race conditions
+    in this case.
+
+</Page>

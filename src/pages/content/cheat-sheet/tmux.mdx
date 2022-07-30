@@ -1,0 +1,87 @@
+---
+title: 'TMUX'
+date: 2022-07-30T16:52:45+02:00
+draft: false
+author: 'Kamaal Farah'
+---
+
+import Page from '../../../components/Layouts/Page';
+
+<Page title="TMUX">
+
+    ## Sessions
+
+    Start a new session.
+
+    ```bash
+    tmux
+    ```
+
+    List sessions.
+
+    ```bash
+    tmux ls
+    ```
+
+    Attach to last session.
+
+    ```bash
+    tmux a
+    ```
+
+    Attach to a session using the session name.
+
+    ```bash
+    tmux a -t <SESSION_NAME>
+    ```
+
+    ## Windows
+
+    Create window.
+
+    ```
+    (CTRL + B) C
+    ```
+
+    Next window.
+
+    ```
+    (CTRL + B) N
+    ```
+
+    Next window.
+
+    ```
+    (CTRL + B) P
+    ```
+
+    Switch/select window by number.
+
+    ```
+    (CTRL + B) 0...9
+    ```
+
+    ## Panes
+
+    Split pane with horizontal layout.
+
+    ```
+    (CTRL + B) %
+    ```
+
+    Split pane with vertical layout.
+
+    ```
+    (CTRL + B) ""
+    ```
+
+    Switch to pane to the direction.
+
+    ```
+    (CTRL + B) ↑
+    (CTRL + B) ↓
+    (CTRL + B) →
+    (CTRL + B) ←
+    ```
+
+</Page>
