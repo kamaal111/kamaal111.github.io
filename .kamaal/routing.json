@@ -33,6 +33,14 @@
       "date": "2022-07-13T22:00:45+02:00",
       "routesPath": "/cheat-sheet/jest",
       "page": "/content/cheat-sheet/jest"
+    },
+    {
+      "name": "tmux.mdx",
+      "title": "TMUX",
+      "draft": false,
+      "date": "2022-07-30T16:52:45+02:00",
+      "routesPath": "/cheat-sheet/tmux",
+      "page": "/content/cheat-sheet/tmux"
     }
   ],
   "projects": [

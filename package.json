@@ -9,11 +9,12 @@
   "author": "Kamaal Farah <kamaal111>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn build:metadata && next dev",
     "build": "next build",
     "start": "next start -p 8080",
     "lint": "next lint",
-    "deploy": "sh scripts/deploy/run.sh"
+    "deploy": "sh scripts/deploy/run.sh",
+    "build:metadata": "node scripts/metadata.js"
   },
   "dependencies": {
     "@kamaal111/classname": "^0.1.0",
