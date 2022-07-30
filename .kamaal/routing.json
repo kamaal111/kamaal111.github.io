@@ -1,6 +1,14 @@
 {
   "blogs": [
     {
+      "name": "solvingCoreDataRaceConditions.mdx",
+      "title": "Solving CoreData race conditions",
+      "draft": false,
+      "date": "2022-07-30T17:16:45+02:00",
+      "routesPath": "/blogs/solvingCoreDataRaceConditions",
+      "page": "/content/blogs/solvingCoreDataRaceConditions"
+    },
+    {
       "name": "swiftUIMacOSEditMode.mdx",
       "title": "SwiftUI macOS Edit Mode",
       "draft": false,
