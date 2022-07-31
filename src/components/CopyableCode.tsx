@@ -10,18 +10,37 @@ type Props = {
 type ChildrenElements = (string | { props?: { children?: string } })[];
 
 function CopyableCode({ children }: Props) {
-  async function onClick(
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) {
-    event.preventDefault();
+  return (
+    <div className="copyable-code">
+      <button
+        type="button"
+        className="copy-button"
+        onClick={async (event) => {
+          event.preventDefault();
 
-    const childrenElements: ChildrenElements | undefined =
-      children.props?.children?.props?.children;
-    if (childrenElements == null) {
-      return;
-    }
+          await onClick(children);
+        }}
+      >
+        <Icon name={classNames('fa', 'fa-2x', 'fa-clipboard', 'copy-icon')} />
+      </button>
+      {children}
+    </div>
+  );
+}
 
-    const textChildren = childrenElements
+async function onClick(children: React.ReactElement) {
+  const childrenElements: ChildrenElements | string | undefined =
+    children.props?.children?.props?.children;
+
+  if (childrenElements == null) {
+    return;
+  }
+
+  let textChildren: string;
+  if (typeof childrenElements === 'string') {
+    textChildren = childrenElements;
+  } else {
+    textChildren = childrenElements
       .map((child) => {
         if (typeof child === 'string') {
           return child;
@@ -30,18 +49,9 @@ function CopyableCode({ children }: Props) {
         return child?.props?.children ?? '';
       })
       .join('');
-
-    await navigator.clipboard.writeText(textChildren);
   }
 
-  return (
-    <div className="copyable-code">
-      <button type="button" className="copy-button" onClick={onClick}>
-        <Icon name={classNames('fa', 'fa-2x', 'fa-clipboard', 'copy-icon')} />
-      </button>
-      {children}
-    </div>
-  );
+  await navigator.clipboard.writeText(textChildren);
 }
 
 export default CopyableCode;
