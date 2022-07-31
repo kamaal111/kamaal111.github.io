@@ -7,6 +7,7 @@ tags: ['SwiftUI', 'UIKit', 'iOS', 'macOS', 'CoreData', 'Core Data']
 ---
 
 import Page from '../../../components/Layouts/Page';
+import CopyableCode from '../../../components/CopyableCode';
 
 <Page title="Solving CoreData race conditions">
 
@@ -26,11 +27,13 @@ import Page from '../../../components/Layouts/Page';
     Secondly I try to determine the failure point of this race condition. Then at the point where I have access to the 
     `NSManagedObjectContext` and the Coredata entry I wrap this point in the following.
 
-    ```swift
-    await PersistenceController.shared.context.perform {
-        // whatever code you where performing
-    }
-    ```
+    <CopyableCode>
+        ```swift
+        await PersistenceController.shared.context.perform {
+            // whatever code you where performing
+        }
+        ```
+    </CopyableCode>
 
     Now that I'm performing the action I wanted in the `perform` block, I can safely assume that we have no more race conditions
     in this case.
