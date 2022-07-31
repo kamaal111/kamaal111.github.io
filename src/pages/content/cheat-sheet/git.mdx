@@ -6,31 +6,40 @@ author: 'Kamaal Farah'
 ---
 
 import Page from '../../../components/Layouts/Page';
+import CopyableCode from '../../../components/CopyableCode';
 
 <Page title="Git">
 
     Stage changes by chunks.
 
-    ```bash
-    git add -p
-    ```
+    <CopyableCode>
+        ```bash
+        git add -p
+        ```
+    </CopyableCode>
 
     To discard current local changes.
 
-    ```bash
-    git restore .
-    ```
+    <CopyableCode>
+        ```bash
+        git restore .
+        ```
+    </CopyableCode>
 
     Remove cached git tracked files.
 
-    ```bash
-    git rm -r --cached .
-    ```
+    <CopyableCode>
+        ```bash
+        git rm -r --cached .
+        ```
+    </CopyableCode>
 
     Cancel rebase.
 
-    ```bash
-    git rebase --abort
-    ```
+    <CopyableCode>
+        ```bash
+        git rebase --abort
+        ```
+    </CopyableCode>
 
 </Page>

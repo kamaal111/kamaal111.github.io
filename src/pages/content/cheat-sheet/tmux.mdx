@@ -6,6 +6,7 @@ author: 'Kamaal Farah'
 ---
 
 import Page from '../../../components/Layouts/Page';
+import CopyableCode from '../../../components/CopyableCode';
 
 <Page title="TMUX">
 
@@ -13,27 +14,35 @@ import Page from '../../../components/Layouts/Page';
 
     Start a new session.
 
+    <CopyableCode>
     ```bash
     tmux
     ```
+    </CopyableCode>
 
     List sessions.
 
+    <CopyableCode>
     ```bash
     tmux ls
     ```
+    </CopyableCode>
 
     Attach to last session.
 
+    <CopyableCode>
     ```bash
     tmux a
     ```
+    </CopyableCode>
 
     Attach to a session using the session name.
 
+    <CopyableCode>
     ```bash
     tmux a -t <SESSION_NAME>
     ```
+    </CopyableCode>
 
     ## Windows
 
