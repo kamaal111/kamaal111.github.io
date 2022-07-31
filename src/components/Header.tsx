@@ -14,9 +14,14 @@ function Header() {
 
   const showMobileLayout = useMediaQuery('(max-width: 770px)');
 
-  const toggleDropDownMenuItems = React.useCallback(() => {
-    setDropDownMenuItemsAreVisible(!dropDownMenuItemsAreVisible);
-  }, [dropDownMenuItemsAreVisible]);
+  const toggleDropDownMenuItems = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      event.preventDefault();
+
+      setDropDownMenuItemsAreVisible(!dropDownMenuItemsAreVisible);
+    },
+    [dropDownMenuItemsAreVisible],
+  );
 
   return (
     <>

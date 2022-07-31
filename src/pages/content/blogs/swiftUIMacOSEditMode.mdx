@@ -7,6 +7,7 @@ tags: ['SwiftUI', 'iOS', 'macOS', 'Edit', 'Mode']
 ---
 
 import Page from '../../../components/Layouts/Page';
+import CopyableCode from '../../../components/CopyableCode'
 
 <Page title="SwiftUI macOS Edit Mode">
 
@@ -24,34 +25,38 @@ import Page from '../../../components/Layouts/Page';
 
     This is what we want to implement for macOS and is the current way of how we use it on iOS.
 
-    ```swift
-    struct ContentView: View {
-        /// Environment key to get the current 
-        /// EditMode state
-        @Environment(\.editMode) var editMode: EditMode
+    <CopyableCode>
+        ```swift
+        struct ContentView: View {
+            /// Environment key to get the current 
+            /// EditMode state
+            @Environment(\.editMode) var editMode: EditMode
 
-        var body: some View {
-            /// Button to toggle the edit mode
-            EditButton()
+            var body: some View {
+                /// Button to toggle the edit mode
+                EditButton()
+            }
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     ## EditMode model
 
     Let's first start of with implementing the `EditMode` model. The `EditMode` model represents 
     the current state of editing.
 
-    ```swift
-    enum EditMode {
-        case active
-        case inactive
+    <CopyableCode>
+        ```swift
+        enum EditMode {
+            case active
+            case inactive
 
-        var isEditing: Bool {
-            self == .active
+            var isEditing: Bool {
+                self == .active
+            }
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     ## Making EditMode accessible from the environment
 
@@ -59,23 +64,27 @@ import Page from '../../../components/Layouts/Page';
     create our own `EnvironmentKey` to reference and modify the current edit mode. The static
     property `defaultValue` is required for the `EnvironmentKey` to conform to the protocol.
 
-    ```swift
-    struct EditModeKey: EnvironmentKey {
-        static let defaultValue: EditMode = .inactive
-    }
-    ```
+    <CopyableCode>
+        ```swift
+        struct EditModeKey: EnvironmentKey {
+            static let defaultValue: EditMode = .inactive
+        }
+        ```
+    </CopyableCode>
 
     Next we need to extend `EnvironmentValues` with and edit mode key. This how later on access it
     using the `@Environment` property wrapper using a key path.
 
-    ```swift
-    extension EnvironmentValues {
-        var editMode: EditMode {
-            get { self[EditModeKey.self] }
-            set { self[EditModeKey.self] = newValue }
+    <CopyableCode>
+        ```swift
+        extension EnvironmentValues {
+            var editMode: EditMode {
+                get { self[EditModeKey.self] }
+                set { self[EditModeKey.self] = newValue }
+            }
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     ## Updating the edit mode state
 
@@ -86,34 +95,36 @@ import Page from '../../../components/Layouts/Page';
     Everytime we modify the `editMode` `State` property the changes reflect to the child views that
     are accessing the `@Environment` property wrapper of `editMode`.
 
-    ```swift
-    struct ContentView: View {
-        @State private var editMode: EditMode = .inactive
+    <CopyableCode>
+        ```swift
+        struct ContentView: View {
+            @State private var editMode: EditMode = .inactive
 
-        var body: some View {
-            VStack {
-                Button(action: {
-                    editMode = editMode.isEditing ? .inactive : .active
-                }) {
-                    Text(editMode.isEditing ? "Done" : "Edit")
+            var body: some View {
+                VStack {
+                    Button(action: {
+                        editMode = editMode.isEditing ? .inactive : .active
+                    }) {
+                        Text(editMode.isEditing ? "Done" : "Edit")
+                    }
+                    ChildView()
                 }
-                ChildView()
+                // Setting the state value the environment
+                .environment(\.editMode, editMode)
             }
-            // Setting the state value the environment
-            .environment(\.editMode, editMode)
         }
-    }
 
-    struct ChildView: View {
-        // This value behaves like a property value that has been passed
-        // through by it's parent
-        @Environment(\.editMode) var editMode
+        struct ChildView: View {
+            // This value behaves like a property value that has been passed
+            // through by it's parent
+            @Environment(\.editMode) var editMode
 
-        var body: some View {
-            Text("I'm \(editMode.isEditing ? "editing" : "not editing")")
+            var body: some View {
+                Text("I'm \(editMode.isEditing ? "editing" : "not editing")")
+            }
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     ## Bonus: Implementing EditButton
 
@@ -125,70 +136,76 @@ import Page from '../../../components/Layouts/Page';
     I decided to use `NotificationCenter` to loosely couple updating the `EditMode`. So we
     can post a new `EditMode` state to this view modifier and the state will get handled accordingly.
 
-    ```swift
-    struct EditModeViewModifier: ViewModifier {
-        @State private var editMode: EditMode = .inactive
+    <CopyableCode>
+        ```swift
+        struct EditModeViewModifier: ViewModifier {
+            @State private var editMode: EditMode = .inactive
 
-        func body(content: Content) -> some View {
-            content
-                // Setting the state value the environment
-                .environment(\.editMode, editMode)
-                .onReceive(NotificationCenter.default
-                    // Using the Notification.Name "change_edit_mode" to recieve edit mode changes
-                    .publisher(for: Notification.Name(rawValue: "change_edit_mode")), perform: { output in
-                        guard let newEditMode = output.object as? EditMode, newEditMode != editMode else { return }
-                        // Updating the edit mode state when publisher has recieved a new value.
-                        editMode = newEditMode
-                    })
+            func body(content: Content) -> some View {
+                content
+                    // Setting the state value the environment
+                    .environment(\.editMode, editMode)
+                    .onReceive(NotificationCenter.default
+                        // Using the Notification.Name "change_edit_mode" to recieve edit mode changes
+                        .publisher(for: Notification.Name(rawValue: "change_edit_mode")), perform: { output in
+                            guard let newEditMode = output.object as? EditMode, newEditMode != editMode else { return }
+                            // Updating the edit mode state when publisher has recieved a new value.
+                            editMode = newEditMode
+                        })
+            }
         }
-    }
 
-    extension View {
-        // Our uniform view modifier
-        func withEditMode() -> some View {
-            self
-                .modifier(EditModeViewModifier())
+        extension View {
+            // Our uniform view modifier
+            func withEditMode() -> some View {
+                self
+                    .modifier(EditModeViewModifier())
+            }
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     ### EditButton
 
     This loosely coupled view can toggle between `EditMode`'s by posting to `NotificationCenter`.
 
-    ```swift
-    struct EditButton: View {
-        @Environment(\.editMode) var editMode
+    <CopyableCode>
+        ```swift
+        struct EditButton: View {
+            @Environment(\.editMode) var editMode
 
-        var body: some View {
-            Button(action: {
-                NotificationCenter.default.post(
-                    // Using the Notification.Name "change_edit_mode" to post new edit mode changes
-                    name: Notification.Name(rawValue: "change_edit_mode"),
-                    object: editMode.isEditing ? EditMode.inactive : EditMode.active,
-                    userInfo: nil)
-            }) {
-                Text(editMode.isEditing ? "Done" : "Edit")
+            var body: some View {
+                Button(action: {
+                    NotificationCenter.default.post(
+                        // Using the Notification.Name "change_edit_mode" to post new edit mode changes
+                        name: Notification.Name(rawValue: "change_edit_mode"),
+                        object: editMode.isEditing ? EditMode.inactive : EditMode.active,
+                        userInfo: nil)
+                }) {
+                    Text(editMode.isEditing ? "Done" : "Edit")
+                }
             }
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     ### Usage
 
     Now let's use our convient `EditButton` with our also very convinient view modifier.
 
-    ```swift
-    struct ContentView: View {
-        var body: some View {
-            VStack {
-                EditButton()
-                ChildView()
+    <CopyableCode>
+        ```swift
+        struct ContentView: View {
+            var body: some View {
+                VStack {
+                    EditButton()
+                    ChildView()
+                }
+                .withEditMode()
             }
-            .withEditMode()
         }
-    }
-    ```
+        ```
+    </CopyableCode>
 
     🎉 That's all, now we have `EditMode` when developing our apps for macOS. 🎉
 
