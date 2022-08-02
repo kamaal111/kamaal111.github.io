@@ -1,0 +1,74 @@
+{
+    "title": "TMUX",
+    "date": "2022-07-30T16:52:45+02:00",
+    "cheats": [
+        {
+            "title": "Sessions",
+            "cheats": [
+                {
+                    "description": "Start a new session.",
+                    "cheat": "tmux",
+                    "lang": "bash",
+                    "copyable": true
+                },
+                {
+                    "description": "List sessions.",
+                    "cheat": "tmux ls",
+                    "lang": "bash",
+                    "copyable": true
+                },
+                {
+                    "description": "Attach to last session.",
+                    "cheat": "tmux a",
+                    "lang": "bash",
+                    "copyable": true
+                }
+            ]
+        },
+        {
+            "title": "Windows",
+            "cheats": [
+                {
+                    "description": "Create window.",
+                    "cheat": "(CTRL + B) C",
+                    "copyable": false
+                },
+                {
+                    "description": "Next window.",
+                    "cheat": "(CTRL + B) P",
+                    "copyable": false
+                },
+                {
+                    "description": "Previous window.",
+                    "cheat": "(CTRL + B) P",
+                    "copyable": false
+                },
+                {
+                    "description": "Switch/select window by number.",
+                    "cheat": "(CTRL + B) 0...9",
+                    "copyable": false
+                }
+            ]
+        },
+        {
+            "title": "Panes",
+            "cheats": [
+                {
+                    "description": "Split pane with horizontal layout.",
+                    "cheat": "CTRL + B) %",
+                    "copyable": false
+                },
+                {
+                    "description": "Split pane with vertical layout.",
+                    "cheat": "CTRL + B) \"\"",
+                    "copyable": false
+                },
+                {
+                    "description": "Switch to pane to the direction.",
+                    "cheat": "(CTRL + B) ↑\n(CTRL + B) ↓\n(CTRL + B) →\n(CTRL + B) ←",
+                    "copyable": false
+                }
+            ]
+        }
+    ]
+}

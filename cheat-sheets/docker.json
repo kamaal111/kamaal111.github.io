@@ -1,0 +1,12 @@
+{
+    "title": "Docker",
+    "date": "2022-07-13T22:00:45+02:00",
+    "cheats": [
+        {
+            "description": "To attach to running process on a docker container. To detach from the current process press: `CTRL + Q` followed by `CONTROL + P`.",
+            "cheat": "docker attach <CONTAINER_ID or CONTAINER_NAME>",
+            "lang": "bash",
+            "copyable": true
+        }
+    ]
+}
