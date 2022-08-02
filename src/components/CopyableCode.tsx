@@ -5,11 +5,14 @@ import Icon from './Icon';
 
 type Props = {
   children: React.ReactElement;
+  enabled?: boolean;
 };
 
 type ChildrenElements = (string | { props?: { children?: string } })[];
 
-function CopyableCode({ children }: Props) {
+function CopyableCode({ children, enabled = true }: Props) {
+  if (!enabled) return children;
+
   return (
     <div className="copyable-code">
       <button
