@@ -55,6 +55,12 @@ const config: {
       name: 'App Store',
       url: 'https://apps.apple.com/bj/developer/kamaal-farah/id1502158009/',
     },
+    {
+      id: '2db4def3-38c9-43f6-8ee9-3f49800a0f0a',
+      icon: 'fa fa-2x fa-instagram',
+      name: 'Instagram',
+      url: 'https://www.instagram.com/_kamaalio/',
+    },
   ],
   since: 2020,
   currentRoles: ['Full Stack Software Engineer', 'iOS/macOS Developer'],
