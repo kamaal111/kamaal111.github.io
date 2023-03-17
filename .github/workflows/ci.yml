@@ -12,6 +12,10 @@ jobs:
       - name: Git - Checkout
         uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.1
+
       - name: Create NPMRC
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
@@ -34,6 +38,10 @@ jobs:
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.1
 
       - name: Create NPMRC
         run: |
