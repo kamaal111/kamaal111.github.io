@@ -10,24 +10,20 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Git - Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.14.1
+          node-version: 20
 
       - name: Create NPMRC
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
-          echo "@kamaal111:registry=https://npm.pkg.github.com" >> ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
 
       - name: Install node modules
-        run: |
-          yarn
+        run: yarn
 
       - name: Lint
-        run: |
-          yarn lint
+        run: yarn lint
 
   deploy:
     name: Deploy
@@ -37,20 +33,17 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Git - Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.14.1
+          node-version: 20
 
       - name: Create NPMRC
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
-          echo "@kamaal111:registry=https://npm.pkg.github.com" >> ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
 
       - name: Install node modules
-        run: |
-          yarn
+        run: yarn
 
       - name: Build project
         run: |
@@ -64,12 +57,10 @@ jobs:
           touch out/_next/static/css/.nojekyll
 
       - name: Make CNAME
-        run: |
-          node scripts/deploy/cname.js
+        run: node scripts/deploy/cname.js
 
       - name: Make app site association
-        run: |
-          node scripts/deploy/appleAppSiteAssociation.js
+        run: node scripts/deploy/appleAppSiteAssociation.js
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
