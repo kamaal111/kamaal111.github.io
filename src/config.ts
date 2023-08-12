@@ -25,11 +25,11 @@ const config: {
       link: '/projects',
       name: 'Projects',
     },
-    {
-      id: '2f58ea56-1a22-4641-872f-873efb9b48fc',
-      link: '/blogs',
-      name: 'Blogs',
-    },
+    // {
+    //   id: '2f58ea56-1a22-4641-872f-873efb9b48fc',
+    //   link: '/blogs',
+    //   name: 'Blogs',
+    // },
     {
       id: 'e789b819-d7c0-480f-89a2-99c03c1151e8',
       link: '/cheat-sheet',
