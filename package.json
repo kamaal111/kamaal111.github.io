@@ -12,7 +12,7 @@
     "dev": "yarn build:metadata && next dev",
     "build": "next build",
     "start": "next start -p 8080",
-    "lint": "next lint",
+    "lint": "eslint src",
     "deploy": "sh scripts/deploy/run.sh",
     "build:metadata": "node scripts/metadata.js"
   },
@@ -44,7 +44,7 @@
     "eslint-config-prettier": "^9",
     "eslint-plugin-import": "^2",
     "eslint-plugin-jsx-a11y": "^6",
-    "eslint-plugin-prettier": "^4",
+    "eslint-plugin-prettier": "^5",
     "eslint-plugin-react": "^7",
     "eslint-plugin-react-hooks": "^4",
     "gh-pages": "^6",
