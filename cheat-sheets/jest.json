@@ -1,24 +1,24 @@
 {
-    "title": "Jest",
-    "date": "2022-07-13T22:00:45+02:00",
-    "cheats": [
-        {
-            "description": "Run a single test.",
-            "cheat": "jest -t \"<test name>\"",
-            "lang": "bash",
-            "copyable": true
-        },
-        {
-            "description": "Watch tests.",
-            "cheat": "jest --watch",
-            "lang": "bash",
-            "copyable": true
-        },
-        {
-            "description": "Run tests in files.",
-            "cheat": "jest \"<FILEPATH>\"",
-            "lang": "bash",
-            "copyable": true
-        }
-    ]
+  "title": "Jest",
+  "date": "2022-07-13T22:00:45+02:00",
+  "cheats": [
+    {
+      "description": "Run a single test.",
+      "cheat": "jest -t \"<test name>\"",
+      "lang": "bash",
+      "copyable": true
+    },
+    {
+      "description": "Watch tests.",
+      "cheat": "jest --watch",
+      "lang": "bash",
+      "copyable": true
+    },
+    {
+      "description": "Run tests in files.",
+      "cheat": "jest \"<FILEPATH>\"",
+      "lang": "bash",
+      "copyable": true
+    }
+  ]
 }

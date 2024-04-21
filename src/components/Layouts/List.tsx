@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames'
+import classnames from 'classnames';
 
 import Page from './Page';
 import AppLink from '../AppLink';

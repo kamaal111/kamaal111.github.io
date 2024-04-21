@@ -14,6 +14,7 @@ function IconLink({ name, url }: Props) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Icon link"
     >
       <Icon name={name} />
     </a>

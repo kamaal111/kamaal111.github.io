@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import classnames from 'classnames'
+import classnames from 'classnames';
 
 import Icon from './Icon';
 import Divider from './Divider';
@@ -81,7 +81,12 @@ Header.MenuItems = function MenuItems({
 }: MenuItemsProps) {
   if (showMobileLayout) {
     return (
-      <button type="button" className="icon-link" onClick={onHamburgerClick}>
+      <button
+        type="button"
+        aria-label="Options menu"
+        className="icon-link"
+        onClick={onHamburgerClick}
+      >
         <Icon
           name={classnames('fa', 'fa-bars', 'fa-fw', 'hamburger', {
             toggled: dropDownMenuItemsAreVisible,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames'
+import classnames from 'classnames';
 
 import Icon from './Icon';
 
@@ -17,6 +17,7 @@ function CopyableCode({ children, enabled = true }: Props) {
     <div className="copyable-code">
       <button
         type="button"
+        aria-label="Copy button"
         className="copy-button"
         onClick={async (event) => {
           event.preventDefault();
