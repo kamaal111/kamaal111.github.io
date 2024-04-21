@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import classnames from '@kamaal111/classname';
+import classnames from 'classnames'
 
 import Icon from './Icon';
 import Divider from './Divider';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from '@kamaal111/classname';
+import classnames from 'classnames'
 
 import Icon from './Icon';
 
@@ -24,7 +24,7 @@ function CopyableCode({ children, enabled = true }: Props) {
           await onClick(children);
         }}
       >
-        <Icon name={classNames('fa', 'fa-2x', 'fa-clipboard', 'copy-icon')} />
+        <Icon name={classnames('fa', 'fa-2x', 'fa-clipboard', 'copy-icon')} />
       </button>
       {children}
     </div>

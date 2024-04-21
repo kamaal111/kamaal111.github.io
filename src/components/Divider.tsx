@@ -1,8 +1,8 @@
 import * as React from 'react';
-import classNames from '@kamaal111/classname';
+import classnames from 'classnames'
 
 function Divider({ className }: { className?: string }) {
-  const combinedClassName = classNames('divider', className ?? '');
+  const combinedClassName = classnames('divider', className ?? '');
   return <div className={combinedClassName} />;
 }
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from '@kamaal111/classname';
+import classnames from 'classnames'
 
 import Page from './Page';
 import AppLink from '../AppLink';
@@ -80,7 +80,7 @@ List.Item = function Item({
 }: ItemProps) {
   return (
     <li
-      className={classNames('list-item', {
+      className={classnames('list-item', {
         bulleted: configuration?.bulleted ?? false,
       })}
     >
