@@ -47,7 +47,7 @@
     "eslint-plugin-prettier": "^4",
     "eslint-plugin-react": "^7",
     "eslint-plugin-react-hooks": "^4",
-    "gh-pages": "^5",
+    "gh-pages": "^6",
     "prettier": "^3",
     "sass": "^1",
     "typescript": "~5.1"
