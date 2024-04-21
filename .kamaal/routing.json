@@ -1,22 +1,4 @@
 {
-  "blogs": [
-    {
-      "name": "solvingCoreDataRaceConditions.mdx",
-      "title": "Solving CoreData race conditions",
-      "draft": false,
-      "date": "2022-07-30T17:16:45+02:00",
-      "routesPath": "/blogs/solvingCoreDataRaceConditions",
-      "page": "/content/blogs/solvingCoreDataRaceConditions"
-    },
-    {
-      "name": "swiftUIMacOSEditMode.mdx",
-      "title": "SwiftUI macOS Edit Mode",
-      "draft": false,
-      "date": "2022-07-13T21:45:45+02:00",
-      "routesPath": "/blogs/swiftUIMacOSEditMode",
-      "page": "/content/blogs/swiftUIMacOSEditMode"
-    }
-  ],
   "cheat-sheet": [
     {
       "name": "docker.mdx",
@@ -66,6 +48,24 @@
       "draft": false,
       "date": "2022-02-19T20:39:53+02:00",
       "externalLink": "https://kamaal.io/wasm-game-of-life/"
+    }
+  ],
+  "til": [
+    {
+      "name": "solvingCoreDataRaceConditions.mdx",
+      "title": "Solving CoreData race conditions",
+      "draft": false,
+      "date": "2022-07-30T17:16:45+02:00",
+      "routesPath": "/til/solvingCoreDataRaceConditions",
+      "page": "/content/til/solvingCoreDataRaceConditions"
+    },
+    {
+      "name": "swiftUIMacOSEditMode.mdx",
+      "title": "SwiftUI macOS Edit Mode",
+      "draft": false,
+      "date": "2022-07-13T21:45:45+02:00",
+      "routesPath": "/til/swiftUIMacOSEditMode",
+      "page": "/content/til/swiftUIMacOSEditMode"
     }
   ]
 }

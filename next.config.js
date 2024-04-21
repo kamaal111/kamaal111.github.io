@@ -41,8 +41,6 @@ async function exportPathMap(_defaultPathMap) {
     '/': { page: '/' },
     '/privacyterms': { page: '/privacyterms' },
     '/contact': { page: '/contact' },
-    '/projects': { page: '/projects' },
-    '/blogs': { page: '/blogs' },
     ...parsedExtraRoutes,
   };
 
