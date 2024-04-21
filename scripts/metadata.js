@@ -1,12 +1,9 @@
-/* eslint-disable no-console */
-/* eslint-disable no-await-in-loop */
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
-import { fileURLToPath } from 'url';
-import { performance } from 'perf_hooks';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { performance } from 'node:perf_hooks';
 
-// eslint-disable-next-line no-underscore-dangle
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDirectoryName = 'content';
 const contentPath = path.join(

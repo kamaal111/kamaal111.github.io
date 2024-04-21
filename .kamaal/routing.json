@@ -52,6 +52,14 @@
   ],
   "til": [
     {
+      "name": "npmPublish.mdx",
+      "title": "Publishing an TypeScript package the complete guide",
+      "draft": true,
+      "date": "2024-04-21T17:11:45+02:00",
+      "routesPath": "/til/npmPublish",
+      "page": "/content/til/npmPublish"
+    },
+    {
       "name": "solvingCoreDataRaceConditions.mdx",
       "title": "Solving CoreData race conditions",
       "draft": false,

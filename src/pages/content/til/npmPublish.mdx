@@ -1,0 +1,321 @@
+---
+title: 'Publishing an TypeScript package the complete guide'
+date: 2024-04-21T17:11:45+02:00
+draft: true
+author: 'Kamaal Farah'
+tags: ['NPM', 'Node.js', 'JavaScript', 'TypeScript', 'Github Actions']
+---
+
+import Page from '../../../components/Layouts/Page';
+import CopyableCode from '../../../components/CopyableCode';
+
+<Page title="Publishing an TypeScript package the complete guide">
+
+    ## Pre requisites
+
+    * Node.js [install from here](https://nodejs.org/en)
+    * Have an NPM account [click here to sign up](https://www.npmjs.com/signup)
+
+    ### Optionally if you want to publish from Github Actions
+
+    * Have an Github account [click here to sign up](https://github.com/signup)
+
+    ## Steps to publish
+
+    1. Login to NPM
+
+        <CopyableCode>
+            ```bash
+            npm login
+            ```
+        </CopyableCode>
+
+    2. In an empty directory initailize npm package.
+
+        <CopyableCode>
+            ```bash
+            npm init -y
+            ```
+        </CopyableCode>
+
+        To be able to publish the compiled types and compiled JavaScript files we need to make certain changes to the `package.json` file:
+
+        <CopyableCode>
+            ```json
+            {
+                "name": "<FILL WITH THE PACKAGE NAME>",
+                "version": "<FILL IN WITH THE INITIAL VERSION>",
+                "main": "index.js",
+                "typings": "index.d.ts",
+                "files": [
+                    "dist",
+                    "src"
+                ],
+                // ... All the rest
+            }
+            ```
+        </CopyableCode>
+
+    3. Install TypeScript.
+
+        <CopyableCode>
+            ```bash
+            npm install -D typescript
+            ```
+        </CopyableCode>
+
+    4. Initailize TypeScript config.
+
+        <CopyableCode>
+            ```bash
+            npx tsc --init
+            ```
+        </CopyableCode>
+
+        The most simple TypeScript configuration needed to distribute an TypeScript NPM package goes as the following:
+
+        <CopyableCode>
+            ```json
+            // tsconfig.json
+            {
+                // Only compile files in the src directory
+                "include": ["src"],
+                "compilerOptions": {
+                    // Compile to es2016
+                    "target": "es2016",
+                    // Compile to commonjs
+                    "module": "commonjs",
+                    // Compile to type definitions
+                    "declaration": true,
+                    // Compile to type definition maps
+                    "declarationMap": true,
+                    // Compile to source maps
+                    "sourceMap": true,
+                    // The directory to compile to
+                    "outDir": "dist",
+                    // Compile additional JavaScript to ease support for importing CommonJS modules.
+                    "esModuleInterop": true,
+                }
+            }
+            ```
+        </CopyableCode>
+
+    5. Create the main package file.
+
+        <CopyableCode>
+            ```bash
+            mkdir src && touch src/index.ts
+            ```
+        </CopyableCode>
+
+    6. Export anything from your main TypeScript file (`src/index.ts`). For the sake of simplicity we will export an simple sum function.
+
+        <CopyableCode>
+            ```typescript
+            // src/index.ts
+
+            export function sum(a: number, b: number): number {
+                return a + b;
+            }
+            ```
+        </CopyableCode>
+
+    7. Compile your TypeScript to JavaScript.
+
+        <CopyableCode>
+            ```bash
+            npx tsc
+            ```
+        </CopyableCode>
+
+        Now you should have the compiled files in the `dist` directory.
+
+        To have a clean module structure for your NPM package, we will need to copy the `package.json` file over to the `dist` directory.
+
+        <CopyableCode>
+            ```bash
+            cp package.json dist/package.json
+            ```
+        </CopyableCode>
+
+        *Tip: to not forget how to to build your package, you can add the above commands in your `package.json` scripts*
+
+        <CopyableCode>
+            ```json
+            "scripts": {
+                // ... all the rest
+                "build": "tsc && cp package.json dist/package.json"
+            },
+            ```
+        </CopyableCode>
+
+    8. Publish the packge to NPM
+
+        To simplify publishing and also to make publishing the NPM package easily extensible, we can create a script file to do so.
+
+        <CopyableCode>
+            ```bash
+            mkdir -p scripts
+            touch scripts/publish.sh
+            ```
+        </CopyableCode>
+
+        The publish script will run all commands needed to be able to publish the NPM package.
+
+        <CopyableCode>
+            ```bash
+            # scripts/publish.sh
+
+            npm install # Install all npm packages in this module
+            rm -rf dist # Delete the output directory in case it was previously created
+            npm run build # Compile the TypeScript files
+            cp package.json dist/package.json # Copy the package.json as its needed to complete NPM package
+            cd dist # Enter the output directory
+            npm publish --access public # Publish the module
+            ```
+        </CopyableCode>
+
+        Add the following command to the scripts property in your `package.json` file.
+
+        <CopyableCode>
+            ```json
+            "scripts": {
+                // ... all the rest
+                "deploy": "sh scripts/publish.sh"
+            },
+            ```
+        </CopyableCode>
+
+        Now run the above added command.
+
+        <CopyableCode>
+            ```bash
+            npm run deploy
+            ```
+        </CopyableCode>
+
+        If all went well your package should have been published to NPM 🎉
+
+    ## Publish via Github Actions
+
+    Assuming you followed the above we can start publishing the package via Github Action when a tag has been pushed.
+
+    1. Add your NPM authentication token to the secrets of your modules repository as `NPM_TOKEN`.
+
+        Follow NPMs documentation on how to create a NPM authentication token [creating-and-viewing-access-tokens](https://docs.npmjs.com/creating-and-viewing-access-tokens)
+
+        Follow Githubs documentation on how to add secrets to your repository [creating-secrets-for-a-repository](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
+
+    2. Create the Github Actions release workflow file.
+
+        <CopyableCode>
+            ```bash
+            mkdir -p .github .github/workflows
+            touch .github/workflows/release.yml
+            ```
+        </CopyableCode>
+
+        Contents of the release workflow file.
+
+        <CopyableCode>
+            ```yaml
+            name: Release
+            on:
+            push:
+                tags:
+                - '*'
+            jobs:
+            build:
+                name: Deploy
+                runs-on: ubuntu-latest
+                steps:
+                - name: Checkout repo
+                  uses: actions/checkout@v4
+
+                - name: Use Node
+                  uses: actions/setup-node@v4
+                  with:
+                    registry-url: https://registry.npmjs.org
+
+                - name: Install deps and build (with cache)
+                  uses: bahmutov/npm-install@v1
+
+                - name: Publish ${{ github.ref_name }}
+                  run: npm run deploy
+                  env:
+                    VERSION: ${{ github.ref_name }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            ```
+        </CopyableCode>
+    
+    3. Replace the version in `package.json`.
+
+        In the spirit of automating the whole flow, we want to get the version from the tag and replace it in the `package.json`.
+        To do this we will create another script that would do this for us.
+
+        Create the script file to replace the version.
+
+        <CopyableCode>
+            ```bash
+            touch .scripts/deployment-package-json.js
+            ```
+        </CopyableCode>
+
+        Contents of the replace version script.
+
+        <CopyableCode>
+            ```javascript
+            // scripts/deployment-package-json.js
+
+            const fs = require('fs/promises');
+
+            const PACKAGE_JSON_FILENAME = 'package.json';
+
+            async function main() {
+                const packageJSON = await readJSON(PACKAGE_JSON_FILENAME);
+                const modifiedPackageJSON = modifyPackageJSON(packageJSON);
+                await fs.writeFile(
+                    `dist/${PACKAGE_JSON_FILENAME}`,
+                    JSON.stringify(modifiedPackageJSON, null, 2)
+                );
+            }
+
+            function modifyPackageJSON(packageJSON) {
+                const argumentVersion = process.argv[2];
+                const version =
+                    argumentVersion && argumentVersion !== 'null'
+                    ? argumentVersion
+                    : packageJSON.version;
+                return { ...packageJSON, version };
+            }
+
+            async function readJSON(path) {
+                const buffer = await fs.readFile(path);
+                return JSON.parse(buffer.toString());
+            }
+
+            main();
+            ```
+        </CopyableCode>
+
+        The script above will replace the copy `package.json` command we had before to deploy the module in the publish script (`scripts/publish.sh`).
+        So the updated publish script (`scripts/publish.sh`) would look like the following:
+
+        <CopyableCode>
+            ```bash
+            # scripts/publish.sh
+
+            npm install # Install all npm packages in this module
+            rm -rf dist # Delete the output directory in case it was previously created
+            npm run build # Compile the TypeScript files
+            node scripts/deployment-package-json.js "${VERSION:-null}" # Replace package.json version number
+            cd dist # Enter the output directory
+            npm publish --access public # Publish the module
+            ```
+        </CopyableCode>
+    
+    4. Commit, push and release 🚀🚀🚀
+
+        Follow Githubs documentation on how to release your module with a tag [creating-a-release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)
+
+</Page>
