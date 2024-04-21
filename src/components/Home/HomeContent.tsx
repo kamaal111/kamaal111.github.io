@@ -6,10 +6,9 @@ import config from '../../config';
 
 const IMAGE_PATH = 'images/avatar.jpg';
 
-function HomeContent() {
+function HomeContent(): JSX.Element {
   return (
     <div className={'home-content'}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={'avatar'}
         src={IMAGE_PATH}

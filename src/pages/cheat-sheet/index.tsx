@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import List from '../../components/Layouts/List';
 
-function CheatSheet() {
+function CheatSheet(): JSX.Element {
   return (
     <List
       title="Cheat Sheet"

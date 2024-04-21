@@ -4,12 +4,12 @@ import Footer from '../Footer';
 import Head from '../Head';
 import Header from '../Header';
 
-type Props = {
+interface Props {
   children?: JSX.Element | JSX.Element[];
   title?: string;
-};
+}
 
-function Page({ children, title }: Props) {
+function Page({ children, title }: Props): JSX.Element {
   return (
     <>
       <Head />

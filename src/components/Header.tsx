@@ -8,7 +8,7 @@ import Divider from './Divider';
 import config from '../config';
 import useMediaQuery from '../hooks/useMediaQuery';
 
-function Header() {
+function Header(): JSX.Element {
   const [dropDownMenuItemsAreVisible, setDropDownMenuItemsAreVisible] =
     React.useState(false);
 
@@ -20,7 +20,7 @@ function Header() {
 
       setDropDownMenuItemsAreVisible(!dropDownMenuItemsAreVisible);
     },
-    [dropDownMenuItemsAreVisible],
+    [dropDownMenuItemsAreVisible]
   );
 
   return (
@@ -44,13 +44,13 @@ function Header() {
   );
 }
 
-type MenuItemsProps = {
+interface MenuItemsProps {
   showMobileLayout: boolean;
   dropDownMenuItemsAreVisible: boolean;
   onHamburgerClick: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => void;
-};
+}
 
 Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
   if (!isVisible) return null;
@@ -77,7 +77,7 @@ Header.Dropdown = function Dropdown({ isVisible }: { isVisible: boolean }) {
 Header.MenuItems = function MenuItems({
   showMobileLayout,
   dropDownMenuItemsAreVisible,
-  onHamburgerClick,
+  onHamburgerClick
 }: MenuItemsProps) {
   if (showMobileLayout) {
     return (
@@ -89,7 +89,7 @@ Header.MenuItems = function MenuItems({
       >
         <Icon
           name={classnames('fa', 'fa-bars', 'fa-fw', 'hamburger', {
-            toggled: dropDownMenuItemsAreVisible,
+            toggled: dropDownMenuItemsAreVisible
           })}
         />
       </button>

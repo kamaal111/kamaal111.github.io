@@ -1,4 +1,4 @@
-export type ContentConfiguration = {
+export interface ContentConfiguration {
   name: string;
   title: string;
   draft: boolean;
@@ -7,4 +7,4 @@ export type ContentConfiguration = {
   routesPath?: string;
   page?: string;
   featuredImage?: string;
-};
+}

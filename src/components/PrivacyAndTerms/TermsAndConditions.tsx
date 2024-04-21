@@ -5,7 +5,7 @@ import ContactMe from '../ContactMe';
 
 import config from '../../config';
 
-function TermsAndConditions() {
+function TermsAndConditions(): JSX.Element {
   return (
     <>
       <h2>{termsAndCondition.title}</h2>

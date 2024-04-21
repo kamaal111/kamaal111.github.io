@@ -1,8 +1,10 @@
 import * as React from 'react';
 
-function useScheme() {
-  const [matches, setMatches] = React.useState<'light' | 'dark' | undefined>(
-    undefined,
+type Schema = 'light' | 'dark';
+
+function useScheme(): Schema | undefined {
+  const [matches, setMatches] = React.useState<Schema | undefined>(
+    undefined
   );
 
   React.useEffect(() => {
@@ -13,7 +15,7 @@ function useScheme() {
       setMatches(scheme);
     }
 
-    function listener(e: MediaQueryListEvent) {
+    function listener(e: MediaQueryListEvent): void {
       if (matches === (e.matches ? 'dark' : 'light')) return;
 
       setMatches(e.matches ? 'dark' : 'light');

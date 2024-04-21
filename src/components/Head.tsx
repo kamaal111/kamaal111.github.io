@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-function HeadComponent() {
+function HeadComponent(): JSX.Element {
   return (
     <Head>
       <title>Kamaal Farah</title>

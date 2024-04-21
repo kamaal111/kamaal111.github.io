@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import List from '../../components/Layouts/List';
 
-function Projects() {
+function Projects(): JSX.Element {
   return <List title="Projects" contentKey="projects" />;
 }
 

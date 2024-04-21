@@ -4,7 +4,7 @@ import ContactMe from '../ContactMe';
 
 import { privacy } from '../../appContent';
 
-function PrivacyPolicy() {
+function PrivacyPolicy(): JSX.Element {
   return (
     <>
       <h2>{privacy.title}</h2>

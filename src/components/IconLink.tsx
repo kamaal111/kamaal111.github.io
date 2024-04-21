@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import Icon from './Icon';
 
-type Props = {
+interface Props {
   name: string;
   url: string;
-};
+}
 
-function IconLink({ name, url }: Props) {
+function IconLink({ name, url }: Props): JSX.Element {
   return (
     <a
       className="icon-link"

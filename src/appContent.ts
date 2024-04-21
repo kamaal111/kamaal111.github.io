@@ -3,8 +3,8 @@ const termsAndConditionContent = [
     header: 'Content',
     content: [
       `The Service allows you to use the Kamaal's apps for the use it was 
-      intended for. You are responsible for the data you create and share.`,
-    ],
+      intended for. You are responsible for the data you create and share.`
+    ]
   },
   {
     header: 'Links To Other Web Sites',
@@ -17,8 +17,8 @@ const termsAndConditionContent = [
         directly or indirectly, for any damage or loss caused or alleged to be
         caused by or in connection with use of or reliance on any such content,
         goods or services available on or through any such web sites or
-        services.`,
-    ],
+        services.`
+    ]
   },
   {
     header: 'Changes',
@@ -26,9 +26,9 @@ const termsAndConditionContent = [
       `I reserve the right, at my sole discretion, to modify or replace these
         Terms at any time. If a revision is material I will try to provide at
         least 30 days' notice prior to any new terms taking effect. What
-        constitutes a material change will be determined at our sole discretion.`,
-    ],
-  },
+        constitutes a material change will be determined at our sole discretion.`
+    ]
+  }
 ];
 const termsAndConditionTitle = 'Terms and Conditions';
 const termsAndConditionDescription = `Please read these Terms and Conditions ("Terms", "Terms and Conditions")
@@ -62,8 +62,8 @@ const privacyContent = [
         information that I request will be retained on your device and is not
         collected by me in any way.`,
       `The app does use third party services that may collect information used
-        to identify you.`,
-    ],
+        to identify you.`
+    ]
   },
   {
     header: 'Log Data',
@@ -74,8 +74,8 @@ const privacyContent = [
         information such as your device Internet Protocol (“IP”) address, device
         name, operating system version, the configuration of the app when
         utilizing my Service, the time and date of your use of the Service, and
-        other statistics.`,
-    ],
+        other statistics.`
+    ]
   },
   {
     header: 'Changes to This Privacy Policy',
@@ -83,38 +83,38 @@ const privacyContent = [
       `I may update our Privacy Policy from time to time. Thus, you are advised
         to review this page periodically for any changes. I will notify you of
         any changes by posting the new Privacy Policy on this page. These
-        changes are effective immediately after they are posted on this page.`,
-    ],
-  },
+        changes are effective immediately after they are posted on this page.`
+    ]
+  }
 ];
 
 export const projects = [
   {
     title: 'Color Selector App',
-    link: 'https://kamaal.io/colorselector/',
+    link: 'https://kamaal.io/colorselector/'
   },
   {
     title: 'Web assembly game of life',
-    link: 'https://kamaal.io/wasm-game-of-life/',
-  },
+    link: 'https://kamaal.io/wasm-game-of-life/'
+  }
 ];
 
 export const termsAndCondition = {
   title: termsAndConditionTitle,
   description: [termsAndConditionDescription, termsAndConditionDescription2],
-  content: termsAndConditionContent,
+  content: termsAndConditionContent
 };
 
 export const privacy = {
   title: privacyTitle,
   description: [privacyDescription, privacyDescription2, privacyDescription3],
-  content: privacyContent,
+  content: privacyContent
 };
 
 const appContent = {
   termsAndCondition,
   privacy,
-  projects,
+  projects
 };
 
 export default appContent;

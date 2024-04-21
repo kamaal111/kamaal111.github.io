@@ -2,11 +2,11 @@ import React from 'react';
 
 import config from '../config';
 
-type ContactMeProps = {
+interface ContactMeProps {
   from: string;
-};
+}
 
-function ContactMe({ from }: ContactMeProps) {
+function ContactMe({ from }: ContactMeProps): JSX.Element {
   return (
     <>
       <h2>Contact Me</h2>

@@ -4,7 +4,7 @@ import Page from '../../components/Layouts/Page';
 import PrivacyPolicy from '../../components/PrivacyAndTerms/PrivacyPolicy';
 import TermsAndConditions from '../../components/PrivacyAndTerms/TermsAndConditions';
 
-function PrivacyAndTerms() {
+function PrivacyAndTerms(): JSX.Element {
   return (
     <Page>
       <PrivacyPolicy />

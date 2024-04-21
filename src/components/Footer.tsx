@@ -2,7 +2,7 @@ import React from 'react';
 
 import config from '../config';
 
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer>
       <div>
@@ -15,7 +15,7 @@ function Footer() {
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
-function makeCopyWriteString() {
+function makeCopyWriteString(): string {
   let duration: string;
   if (currentYear === config.since) duration = String(config.since);
   else duration = `${config.since}-${currentYear}`;

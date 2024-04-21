@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-type Props = {
+interface Props {
   name: string;
-};
+}
 
-function Icon({ name }: Props) {
+function Icon({ name }: Props): JSX.Element {
   return <i className={name} />;
 }
 

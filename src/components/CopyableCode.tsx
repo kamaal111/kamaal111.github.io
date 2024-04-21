@@ -3,14 +3,14 @@ import classnames from 'classnames';
 
 import Icon from './Icon';
 
-type Props = {
+interface Props {
   children: React.ReactElement;
   enabled?: boolean;
-};
+}
 
-type ChildrenElements = (string | { props?: { children?: string } })[];
+type ChildrenElements = Array<string | { props?: { children?: string } }>;
 
-function CopyableCode({ children, enabled = true }: Props) {
+function CopyableCode({ children, enabled = true }: Props): JSX.Element {
   if (!enabled) return children;
 
   return (
@@ -19,10 +19,12 @@ function CopyableCode({ children, enabled = true }: Props) {
         type="button"
         aria-label="Copy button"
         className="copy-button"
-        onClick={async (event) => {
-          event.preventDefault();
+        onClick={(event) => {
+          void (async () => {
+            event.preventDefault();
 
-          await onClick(children);
+            await onClick(children);
+          });
         }}
       >
         <Icon name={classnames('fa', 'fa-2x', 'fa-clipboard', 'copy-icon')} />
@@ -32,7 +34,7 @@ function CopyableCode({ children, enabled = true }: Props) {
   );
 }
 
-async function onClick(children: React.ReactElement) {
+async function onClick(children: React.ReactElement): Promise<void> {
   const childrenElements: ChildrenElements | string | undefined =
     children.props?.children?.props?.children;
 
