@@ -11,6 +11,8 @@
   h4,
   p,
   i,
+  ol,
+  li,
   span,
   strong {
     @include colors.primary-color(color, $scheme);

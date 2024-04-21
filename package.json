@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "yarn build:metadata && next dev",
-    "build": "next build",
+    "build": "yarn build:metadata && next build",
     "start": "next start -p 8080",
     "lint": "next lint",
     "deploy": "sh scripts/deploy/run.sh",

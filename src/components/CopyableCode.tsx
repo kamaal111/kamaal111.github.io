@@ -24,7 +24,7 @@ function CopyableCode({ children, enabled = true }: Props): JSX.Element {
             event.preventDefault();
 
             await onClick(children);
-          });
+          })();
         }}
       >
         <Icon name={classnames('fa', 'fa-2x', 'fa-clipboard', 'copy-icon')} />
