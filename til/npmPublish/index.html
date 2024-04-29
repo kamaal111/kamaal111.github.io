@@ -1,0 +1,210 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Kamaal Farah</title><meta name="next-head-count" content="3"/><link data-next-font="" rel="preconnect" href="/" crossorigin="anonymous"/><link rel="preload" href="/_next/static/css/92ca1a469f43019b.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/92ca1a469f43019b.css" crossorigin="" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-fd8027ecb5121007.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/framework-0c7baedefba6b077.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/main-d6ca93fb6cd6ec69.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/_app-5d1863391833eb07.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/456-3573bb4a5314af50.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/content/til/npmPublish-04aa33e88c824e11.js" defer="" crossorigin=""></script><script src="/_next/static/TgbtA1kuttD4ReJuNh3c0/_buildManifest.js" defer="" crossorigin=""></script><script src="/_next/static/TgbtA1kuttD4ReJuNh3c0/_ssgManifest.js" defer="" crossorigin=""></script></head><body><div id="__next"><div class="header"><div class="home-link"><a href="/">Kamaal Farah</a></div><div class="menu-links"><a href="/projects/">Projects</a><a href="/til/">TIL</a></div></div><main><h1 class="title">Publishing an TypeScript package the complete guide</h1><h2>Pre requisites</h2><ul>
+<li>Node.js <a href="https://nodejs.org/en">install from here</a></li>
+<li>Have an NPM account <a href="https://www.npmjs.com/signup">click here to sign up</a></li>
+</ul><h3>Optionally if you want to publish from Github Actions</h3><ul>
+<li>Have an Github account <a href="https://github.com/signup">click here to sign up</a></li>
+</ul><h2>Steps to publish</h2><ol>
+<li>
+<p>Login to NPM</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash">npm login
+</code></pre></div>
+</li>
+<li>
+<p>In an empty directory initailize npm package.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash">npm init -y
+</code></pre></div>
+<p>To be able to publish the compiled types and compiled JavaScript files we need to make certain changes to the <code>package.json</code> file:</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&lt;FILL WITH THE PACKAGE NAME&gt;&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&lt;FILL IN WITH THE INITIAL VERSION&gt;&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.js&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;typings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.d.ts&quot;</span>
+    <span class="hljs-comment">// ... All the rest</span>
+<span class="hljs-punctuation">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Install TypeScript.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash">npm install -D typescript
+</code></pre></div>
+</li>
+<li>
+<p>Initailize TypeScript config.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash">npx tsc --init
+</code></pre></div>
+<p>The most simple TypeScript configuration needed to distribute an TypeScript NPM package goes as the following:</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-json"><span class="hljs-comment">// tsconfig.json</span>
+<span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// Only compile files in the src directory</span>
+    <span class="hljs-attr">&quot;include&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// Compile to es2016</span>
+        <span class="hljs-attr">&quot;target&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;es2016&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-comment">// Compile to commonjs</span>
+        <span class="hljs-attr">&quot;module&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;commonjs&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-comment">// Compile to type definitions</span>
+        <span class="hljs-attr">&quot;declaration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-comment">// Compile to type definition maps</span>
+        <span class="hljs-attr">&quot;declarationMap&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-comment">// Compile to source maps</span>
+        <span class="hljs-attr">&quot;sourceMap&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-comment">// The directory to compile to</span>
+        <span class="hljs-attr">&quot;outDir&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-comment">// Compile additional JavaScript to ease support for importing CommonJS modules.</span>
+        <span class="hljs-attr">&quot;esModuleInterop&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the main package file.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-built_in">mkdir</span> src &amp;&amp; <span class="hljs-built_in">touch</span> src/index.ts
+</code></pre></div>
+</li>
+<li>
+<p>Export anything from your main TypeScript file (<code>src/index.ts</code>). For the sake of simplicity we will export an simple sum function.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-typescript"><span class="hljs-comment">// src/index.ts</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params">a: <span class="hljs-built_in">number</span>, b: <span class="hljs-built_in">number</span></span>): <span class="hljs-built_in">number</span> {
+    <span class="hljs-keyword">return</span> a + b;
+}
+</code></pre></div>
+</li>
+<li>
+<p>Compile your TypeScript to JavaScript.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash">npx tsc
+</code></pre></div>
+<p>Now you should have the compiled files in the <code>dist</code> directory.</p>
+<p>To have a clean module structure for your NPM package, we will need to copy the <code>package.json</code> file over to the <code>dist</code> directory.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-built_in">cp</span> package.json dist/package.json
+</code></pre></div>
+<p><em>Tip: to not forget how to to build your package, you can add the above commands in your <code>package.json</code> scripts</em></p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// ... all the rest</span>
+    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;tsc &amp;&amp; cp package.json dist/package.json&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre></div>
+</li>
+<li>
+<p>Publish the packge to NPM</p>
+<p>To simplify publishing and also to make publishing the NPM package easily extensible, we can create a script file to do so.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-built_in">mkdir</span> -p scripts
+<span class="hljs-built_in">touch</span> scripts/publish.sh
+</code></pre></div>
+<p>The publish script will run all commands needed to be able to publish the NPM package.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-comment"># scripts/publish.sh</span>
+
+npm install <span class="hljs-comment"># Install all npm packages in this module</span>
+<span class="hljs-built_in">rm</span> -rf dist <span class="hljs-comment"># Delete the output directory in case it was previously created</span>
+npm run build <span class="hljs-comment"># Compile the TypeScript files</span>
+<span class="hljs-built_in">cp</span> package.json dist/package.json <span class="hljs-comment"># Copy the package.json as its needed to complete NPM package</span>
+<span class="hljs-built_in">cd</span> dist <span class="hljs-comment"># Enter the output directory</span>
+npm publish --access public <span class="hljs-comment"># Publish the module</span>
+</code></pre></div>
+<p>Add the following command to the scripts property in your <code>package.json</code> file.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// ... all the rest</span>
+    <span class="hljs-attr">&quot;deploy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sh scripts/publish.sh&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre></div>
+<p>Now run the above added command.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash">npm run deploy
+</code></pre></div>
+<p>If all went well your package should have been published to NPM 🎉</p>
+</li>
+</ol><h2>Publish via Github Actions</h2><p>Assuming you followed the above we can start publishing the package via Github Action when a tag has been pushed.</p><ol>
+<li>
+<p>Add your NPM authentication token to the secrets of your modules repository as <code>NPM_TOKEN</code>.</p>
+<p>Follow NPMs documentation on how to create a NPM authentication token <a href="https://docs.npmjs.com/creating-and-viewing-access-tokens">creating-and-viewing-access-tokens</a></p>
+<p>Follow Githubs documentation on how to add secrets to your repository <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">creating-secrets-for-a-repository</a></p>
+</li>
+<li>
+<p>Create the Github Actions release workflow file.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-built_in">mkdir</span> -p .github .github/workflows
+<span class="hljs-built_in">touch</span> .github/workflows/release.yml
+</code></pre></div>
+<p>Contents of the release workflow file.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Release</span>
+<span class="hljs-attr">on:</span>
+<span class="hljs-attr">push:</span>
+    <span class="hljs-attr">tags:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*&#x27;</span>
+<span class="hljs-attr">jobs:</span>
+<span class="hljs-attr">build:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">repo</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v4</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Use</span> <span class="hljs-string">Node</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v4</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">registry-url:</span> <span class="hljs-string">https://registry.npmjs.org</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">deps</span> <span class="hljs-string">and</span> <span class="hljs-string">build</span> <span class="hljs-string">(with</span> <span class="hljs-string">cache)</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">bahmutov/npm-install@v1</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Publish</span> <span class="hljs-string">${{</span> <span class="hljs-string">github.ref_name</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">deploy</span>
+      <span class="hljs-attr">env:</span>
+        <span class="hljs-attr">VERSION:</span> <span class="hljs-string">${{</span> <span class="hljs-string">github.ref_name</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">NODE_AUTH_TOKEN:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.NPM_TOKEN</span> <span class="hljs-string">}}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Replace the version in <code>package.json</code>.</p>
+<p>In the spirit of automating the whole flow, we want to get the version from the tag and replace it in the <code>package.json</code>.
+To do this we will create another script that would do this for us.</p>
+<p>Create the script file to replace the version.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-built_in">touch</span> .scripts/deployment-package-json.js
+</code></pre></div>
+<p>Contents of the replace version script.</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-javascript"><span class="hljs-comment">// scripts/deployment-package-json.js</span>
+
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs/promises&#x27;</span>);
+
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">PACKAGE_JSON_FILENAME</span> = <span class="hljs-string">&#x27;package.json&#x27;</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> packageJSON = <span class="hljs-keyword">await</span> <span class="hljs-title function_">readJSON</span>(<span class="hljs-variable constant_">PACKAGE_JSON_FILENAME</span>);
+    <span class="hljs-keyword">const</span> modifiedPackageJSON = <span class="hljs-title function_">modifyPackageJSON</span>(packageJSON);
+    <span class="hljs-keyword">await</span> fs.<span class="hljs-title function_">writeFile</span>(
+        <span class="hljs-string">`dist/<span class="hljs-subst">${PACKAGE_JSON_FILENAME}</span>`</span>,
+        <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(modifiedPackageJSON, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>)
+    );
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">modifyPackageJSON</span>(<span class="hljs-params">packageJSON</span>) {
+    <span class="hljs-keyword">const</span> argumentVersion = process.<span class="hljs-property">argv</span>[<span class="hljs-number">2</span>];
+    <span class="hljs-keyword">const</span> version =
+        argumentVersion &amp;&amp; argumentVersion !== <span class="hljs-string">&#x27;null&#x27;</span>
+        ? argumentVersion
+        : packageJSON.<span class="hljs-property">version</span>;
+    <span class="hljs-keyword">return</span> { ...packageJSON, version };
+}
+
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">readJSON</span>(<span class="hljs-params">path</span>) {
+    <span class="hljs-keyword">const</span> buffer = <span class="hljs-keyword">await</span> fs.<span class="hljs-title function_">readFile</span>(path);
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(buffer.<span class="hljs-title function_">toString</span>());
+}
+
+<span class="hljs-title function_">main</span>();
+</code></pre></div>
+<p>The script above will replace the copy <code>package.json</code> command we had before to deploy the module in the publish script (<code>scripts/publish.sh</code>).
+So the updated publish script (<code>scripts/publish.sh</code>) would look like the following:</p>
+<div class="copyable-code"><button type="button" aria-label="Copy button" class="copy-button"><i class="fa fa-2x fa-clipboard copy-icon"></i></button><pre><code class="hljs language-bash"><span class="hljs-comment"># scripts/publish.sh</span>
+
+npm install <span class="hljs-comment"># Install all npm packages in this module</span>
+<span class="hljs-built_in">rm</span> -rf dist <span class="hljs-comment"># Delete the output directory in case it was previously created</span>
+npm run build <span class="hljs-comment"># Compile the TypeScript files</span>
+node scripts/deployment-package-json.js <span class="hljs-string">&quot;<span class="hljs-variable">${VERSION:-null}</span>&quot;</span> <span class="hljs-comment"># Replace package.json version number</span>
+<span class="hljs-built_in">cd</span> dist <span class="hljs-comment"># Enter the output directory</span>
+npm publish --access public <span class="hljs-comment"># Publish the module</span>
+</code></pre></div>
+</li>
+<li>
+<p>Commit, push and release 🚀🚀🚀</p>
+<p>Follow Githubs documentation on how to release your module with a tag <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release">creating-a-release</a></p>
+</li>
+</ol></main><footer><div><p>Ⓒ 2020-2024 Kamaal Farah</p></div></footer></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{}},"page":"/content/til/npmPublish","query":{},"buildId":"TgbtA1kuttD4ReJuNh3c0","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
