@@ -52,6 +52,14 @@
   ],
   "til": [
     {
+      "name": "goPackagePublish.mdx",
+      "title": "Publishing an Go package the complete guide",
+      "draft": true,
+      "date": "2024-04-29T13:02:45+02:00",
+      "routesPath": "/til/goPackagePublish",
+      "page": "/content/til/goPackagePublish"
+    },
+    {
       "name": "npmPublish.mdx",
       "title": "Publishing an TypeScript package the complete guide",
       "draft": false,
