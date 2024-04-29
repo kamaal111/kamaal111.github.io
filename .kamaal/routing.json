@@ -54,8 +54,8 @@
     {
       "name": "npmPublish.mdx",
       "title": "Publishing an TypeScript package the complete guide",
-      "draft": true,
-      "date": "2024-04-21T17:11:45+02:00",
+      "draft": false,
+      "date": "2024-04-29T13:02:45+02:00",
       "routesPath": "/til/npmPublish",
       "page": "/content/til/npmPublish"
     },
