@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 /** @type {import('next').NextConfig} */
 
 import path from 'path';
@@ -41,6 +40,7 @@ async function exportPathMap(_defaultPathMap) {
     '/': { page: '/' },
     '/privacyterms': { page: '/privacyterms' },
     '/contact': { page: '/contact' },
+    '/play': { page: '/play' },
     ...parsedExtraRoutes,
   };
 
